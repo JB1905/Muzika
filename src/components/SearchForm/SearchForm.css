@@ -1,0 +1,42 @@
+::placeholder {
+  color: #7B7B7B;
+}
+
+input[type="search"] {
+  text-align: center;
+  background-color: #fff;
+  right: 40px;
+  font-weight: 500;
+  position: absolute;
+  z-index: 100;
+  -webkit-appearance: none;
+  transition: box-shadow 300ms ease;
+  color: #EC445A;
+  border: 0px;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  width: 200px;
+  height: 38px;
+  padding: 12px;
+  font-size: 20px;
+}
+
+.light input[type="search"] {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+}
+
+.dark input[type="search"] {
+  background-color: #21272D;
+  border: 1px solid #333;
+}
+
+input[type="search"]:focus {
+  outline: 0;
+}
+
+@media screen and (max-width: 680px) {
+  input[type="search"] {
+    width: 85%;
+  }
+}

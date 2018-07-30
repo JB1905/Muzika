@@ -1,0 +1,26 @@
+.tracks,
+.collections {
+  margin-top: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tracks__title,
+.collections__title {
+  font-size: 24px;
+  margin: 10px 26px;
+}
+
+.tracks__container,
+.collections__container {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 20px;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/*.tracks__container {
+  height: 250px;
+}*/

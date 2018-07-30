@@ -1,0 +1,239 @@
+body {
+  background-color: #FDFDFD;
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body.dark {
+  background-color: #131a20;
+  color: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.secondary a {
+  color: #EC445A;
+}
+
+h1 {
+  text-shadow:  0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2);
+  margin: 0;
+  color: #EC445A;
+  font-size: 130px;
+}
+
+h2 {
+  color: #f78a9e;
+  font-size: 30px;
+}
+
+.top-outer {
+  border-bottom: 1px solid #ddd;
+  z-index: 100;
+  position: sticky;
+  top: 0px;
+  background-color: rgba(255, 255, 255, 0.84);
+}
+
+.top-bar {
+  padding: 0 50px;
+  height: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.top-bar input {
+  float: right !important;
+}
+
+.top-bar > * {
+  text-align: left;
+  width: 50%;
+}
+
+.top-bar h2 {
+  color: #EC445A;
+}
+
+.secondary h2 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #EC445A;
+}
+
+.secondary h3 {
+  margin: 10px auto;
+}
+
+.primary img {
+  padding: 3px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  width: 100px;
+}
+
+.primary > div {
+  position: sticky;
+  top: 30px;
+}
+
+h3 {
+  text-align: left;
+  color: #EC445A;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 140px);
+}
+
+.info {
+  margin-left: 30px;
+  width: calc(100% - 60px);
+}
+
+.primary {
+  width: calc(40% - 10px);
+}
+
+.secondary {
+  text-align: left;
+  width: calc(60% - 10px);
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+}
+
+.content {
+  position: relative;
+  width: calc(100% - 115px);
+}
+
+.artwork {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.artwork img {
+  margin-right: 15px;
+  width: 100px;
+  height: auto;
+  border-radius: 2px;
+}
+
+.light .artwork img {
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.34);
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.34);
+}
+
+.dark .artwork img {
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.34);
+  box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.34);
+}
+
+.wrap {
+  position: sticky;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100vh;
+}
+
+.container {
+  z-index: -1;
+  padding: 10px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.list {
+  padding-bottom: 70px !important;
+  flex-wrap: wrap;
+  display: flex;
+  z-index: -1;
+  padding: 10px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.card audio {
+  display: none;
+}
+
+span.explicit {
+  position: absolute;
+  margin-left: 7px;
+  margin-top: -4px;
+}
+
+.explicit::before {
+  content: 'Explicit';
+  background-color: #f78a9e;
+  padding: 3px 4px;
+  border-radius: 2px;
+  font-size: 9px;
+}
+
+span.explicit::before {
+  padding: 4px 7px;
+  font-size: 15px;
+}
+
+.light .explicit::before {
+  color: #fff;
+}
+
+.dark .explicit::before {
+  color: #21272D;
+}
+
+.song-title {
+  color: #EC445A;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  width: 100%;
+}
+
+.album {
+  color: #f78a9e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.author {
+  color: #EC445A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 4px 0;
+}
