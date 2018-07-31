@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Spinner from '../../components/Spinner';
-import { song, lyrics } from '../../api';
+import { musicSearch, lyrics } from '../../api';
 
 export default class Song extends Component {
   state = { data: false, lyrics: false };
@@ -9,7 +9,7 @@ export default class Song extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    song(id, res => {
+    musicSearch(id, res => {
       this.setState({ data: res.data[0] });
       this.lyrics();
     });
@@ -41,13 +41,13 @@ export default class Song extends Component {
                 <span className={data.trackExplicitness} />
               </h2>
               Album: &nbsp;
-              {/*<Link to={`/album/${album}/${data.collectionId}`}>
-                <span>{data.collectionName}</span>
-              </Link>
-              <Link to={`/artist/${artist}/${data.artistId}`}>
-                <h3>{data.artistName}</h3>
-              </Link>*/}
-              {/*<p>{`${data.primaryGenreName} • ${year}`}</p>*/}
+              {/*<Link to={`/album/${album}/${data.collectionId}`}>*/}
+              <span>{data.collectionName}</span>
+              {/*</Link>
+              <Link to={`/artist/${artist}/${data.artistId}`}>*/}
+              <h3>{data.artistName}</h3>
+              {/*</Link>
+              <p>{`${data.primaryGenreName} • ${year}`}</p>*/}
               {lyrics ? (
                 lyrics.split('\n').map(item => (
                   <span>

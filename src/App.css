@@ -1,7 +1,12 @@
-.tracks,
-.collections {
+body:not(.dark) .tracks,
+body:not(.dark) .collections {
   margin-top: 20px;
   border-bottom: 1px solid #ddd;
+}
+
+.dark .tracks,
+.dark .collections {
+  border-bottom: 1px solid #444;
 }
 
 .tracks__title,
@@ -20,7 +25,3 @@
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
-
-/*.tracks__container {
-  height: 250px;
-}*/

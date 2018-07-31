@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Track, Collection } from '../../components/Lists';
 import Spinner from '../../components/Spinner';
-import { search } from '../../api';
+import { musicSearch } from '../../api';
 
 export default class Search extends Component {
   state = { data: false, tracks: null, collections: null };
 
   componentDidMount = () => this.results(this.props.match.params.query);
-  getSnapshotBeforeUpdate = value => this.results(value.match.params.query);
+  //getSnapshotBeforeUpdate = value => this.results(value.match.params.query);
 
   results(query) {
-    search(query, res => {
+    musicSearch(query, res => {
       this.setState({ data: res.data });
       this.parts();
     });

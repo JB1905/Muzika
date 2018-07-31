@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from '../../components/Spinner';
 //import { Timeline } from 'react-twitter-widgets';
-import { artist } from '../../api';
+import { musicSearch } from '../../api';
 //import { FBPage } from 'facebook-plugins';
 import './Artist.css';
 
@@ -11,7 +11,7 @@ export default class Artist extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    artist(id, res => {
+    musicSearch(id, res => {
       this.setState({ data: res.data[0] });
       this.facebook();
       this.twitter();
@@ -24,7 +24,6 @@ export default class Artist extends Component {
   instagram() {}
 
   render() {
-    //console.log(this.state.data);
     const { data } = this.state;
 
     return (

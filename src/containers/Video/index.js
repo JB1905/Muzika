@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-//import Delay from 'react-delay';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Spinner from '../../components/Spinner';
-import { video } from '../../api';
+import { musicItems } from '../../api';
 
 export default class Video extends Component {
-  state = {
-    data: false
-  };
+  state = { data: false };
 
   componentDidMount() {
-    video('u2', res => this.setState({ data: res }));
+    const { id } = this.props.match.params;
+
+    musicItems(id, res => this.setState({ data: res.data[0] }));
   }
 
   render() {
-    return (
-      <React.Fragment>{!this.state.data ? <Spinner /> : null}</React.Fragment>
-    );
+    const { data } = this.state;
+
+    return <React.Fragment>{data ? <div /> : <Spinner />}</React.Fragment>;
   }
 }
