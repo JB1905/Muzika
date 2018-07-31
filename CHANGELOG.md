@@ -20,5 +20,8 @@
 - refresh song & album views (add better cover images)
 
 ## 0.1.1 (2018 Soon)
+#### New Feature
+- music video page
+
 #### Bug Fix
 - fix search

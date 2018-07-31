@@ -8,6 +8,6 @@ React.js app build with iTunes API. Muzika allows you search music in iTunes, di
 ## To Do
 - [ ] new UI
 - [ ] artist view (social media & concerts info)
-- [ ] music video view
+- [x] music video view
 - [ ] newsfeed
 - [ ] improvements & bug fixes

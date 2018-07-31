@@ -15,6 +15,23 @@ export default class Video extends Component {
   render() {
     const { data } = this.state;
 
-    return <React.Fragment>{data ? <div /> : <Spinner />}</React.Fragment>;
+    return (
+      <React.Fragment>
+        {data ? (
+          <div>
+            <h2>
+              {data.trackName}
+              <span className={data.trackExplicitness} />
+            </h2>
+
+            <video controls>
+              <source src={data.previewUrl} type="video/mp4" />
+            </video>
+          </div>
+        ) : (
+          <Spinner />
+        )}
+      </React.Fragment>
+    );
   }
 }
