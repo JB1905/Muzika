@@ -41,10 +41,12 @@ export default class Search extends Component {
           <h3 className="tracks__title">Songs</h3>
           <div className="tracks__container">{this.state.tracks}</div>
         </div>
+
         <div className="collections">
           <h3 className="collections__title">Albums</h3>
           <div className="collections__container">{this.state.collections}</div>
         </div>
+
         <div className="videos">
           <h3 className="videos__title">Videos</h3>
           <div className="videos__container">{this.state.videos}</div>

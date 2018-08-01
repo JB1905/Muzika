@@ -2,7 +2,7 @@ nav {
   background-color: rgba(252, 253, 252, 0.92);
   box-shadow: 0px 0px 3px 0px rgba(119,119,119,0.86);
   height: 55px;
-  z-index: 100;
+  z-index: 200;
   position: sticky;
   top: 0px;
   display: flex;

@@ -23,6 +23,13 @@ export default class Song extends Component {
 
   render() {
     const { data, lyrics } = this.state;
+    let album;
+    let artist;
+
+    if (data) {
+      album = data.collectionName.toLowerCase().replace(/ /g, '+');
+      artist = data.artistName.toLowerCase().replace(/ /g, '+');
+    }
 
     return (
       <React.Fragment>
@@ -32,7 +39,6 @@ export default class Song extends Component {
               <img src={data.artworkUrl100} alt={data.trackName} />
 
               <p>Single Price: {data.trackPrice}$</p>
-              {/*<p>Length: {`${m % 60}:${s % 60}`}</p>*/}
               <audio controls className="player" preload="false">
                 <source src={data.previewUrl} />
               </audio>
@@ -44,12 +50,12 @@ export default class Song extends Component {
                 <span className={data.trackExplicitness} />
               </h2>
               Album: &nbsp;
-              {/*<Link to={`/album/${album}/${data.collectionId}`}>*/}
-              <span>{data.collectionName}</span>
-              {/*</Link>
-              <Link to={`/artist/${artist}/${data.artistId}`}>*/}
-              <h3>{data.artistName}</h3>
-              {/*</Link>*/}
+              <Link to={`/album/${album}/${data.collectionId}`}>
+                <span>{data.collectionName}</span>
+              </Link>
+              <Link to={`/artist/${artist}/${data.artistId}`}>
+                <h3>{data.artistName}</h3>
+              </Link>
               <p>{`${data.primaryGenreName}` /*` • ${year}`*/}</p>
               {lyrics ? (
                 lyrics.split('\n').map(item => (

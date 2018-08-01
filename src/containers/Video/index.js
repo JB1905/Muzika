@@ -14,6 +14,11 @@ export default class Video extends Component {
 
   render() {
     const { data } = this.state;
+    let artist;
+
+    if (data) {
+      artist = data.artistName.toLowerCase().replace(/ /g, '+');
+    }
 
     return (
       <React.Fragment>
@@ -28,7 +33,9 @@ export default class Video extends Component {
                 {data.trackName}
                 <span className={data.trackExplicitness} />
               </h2>
-              <p>{data.artistName}</p>
+              <Link to={`/artist/${artist}/${data.artistId}`}>
+                <h3>{data.artistName}</h3>
+              </Link>
               <p>{data.primaryGenreName}</p>
             </div>
           </div>
