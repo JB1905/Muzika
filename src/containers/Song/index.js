@@ -27,15 +27,18 @@ export default class Song extends Component {
     return (
       <React.Fragment>
         {data ? (
-          <div>
-            <img src={data.artworkUrl100} alt={data.trackName} />
+          <div className="song">
+            <div>
+              <img src={data.artworkUrl100} alt={data.trackName} />
 
-            <div className="info">
               <p>Single Price: {data.trackPrice}$</p>
               {/*<p>Length: {`${m % 60}:${s % 60}`}</p>*/}
               <audio controls className="player" preload="false">
                 <source src={data.previewUrl} />
               </audio>
+            </div>
+
+            <div>
               <h2>
                 {data.trackName}
                 <span className={data.trackExplicitness} />
@@ -46,8 +49,8 @@ export default class Song extends Component {
               {/*</Link>
               <Link to={`/artist/${artist}/${data.artistId}`}>*/}
               <h3>{data.artistName}</h3>
-              {/*</Link>
-              <p>{`${data.primaryGenreName} • ${year}`}</p>*/}
+              {/*</Link>*/}
+              <p>{`${data.primaryGenreName}` /*` • ${year}`*/}</p>
               {lyrics ? (
                 lyrics.split('\n').map(item => (
                   <span>

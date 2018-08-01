@@ -34,6 +34,7 @@ export default class Artist extends Component {
           <div>
             <h2>{data.artistName}</h2>
             <h3>About</h3>
+
             <h3>Songs</h3>
 
             <h3>Albums</h3>

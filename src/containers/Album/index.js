@@ -18,12 +18,15 @@ export default class Album extends Component {
     return (
       <React.Fragment>
         {data ? (
-          <div>
+          <div className="album">
             <img src={data.artworkUrl100} alt={data.trackName} />
-            <h2>{data.collectionName}</h2>
-            {/*<Link to={`/artist/${artist}/${data.collectionId}`}>*/}
-            <h3>{data.artistName}</h3>
-            {/*</Link>*/}
+            <div>
+              <h2>{data.collectionName}</h2>
+              {/*<Link to={`/artist/${artist}/${data.collectionId}`}>*/}
+              <h3>{data.artistName}</h3>
+              {/*</Link>*/}
+              <p>{data.primaryGenreName}</p>
+            </div>
           </div>
         ) : (
           <Spinner />

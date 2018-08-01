@@ -18,15 +18,19 @@ export default class Video extends Component {
     return (
       <React.Fragment>
         {data ? (
-          <div>
-            <h2>
-              {data.trackName}
-              <span className={data.trackExplicitness} />
-            </h2>
-
+          <div className="video">
             <video controls>
               <source src={data.previewUrl} type="video/mp4" />
             </video>
+
+            <div>
+              <h2>
+                {data.trackName}
+                <span className={data.trackExplicitness} />
+              </h2>
+              <p>{data.artistName}</p>
+              <p>{data.primaryGenreName}</p>
+            </div>
           </div>
         ) : (
           <Spinner />

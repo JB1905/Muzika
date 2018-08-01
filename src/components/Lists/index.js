@@ -15,19 +15,19 @@ export const Track = ({ value }) => {
           src={value.artworkUrl60}
           alt={value.trackName}
         />
-        <audio controls className="player" preload="false">
+        {/*<audio controls className="player" preload="false">
           <source src={value.previewUrl} />
-        </audio>
+        </audio>*/}
       </div>
 
       <div className="track__secondary">
         <Link to={`/song/${song}/${value.trackId}`}>
-          <p className="song-title">{value.trackName}</p>
+          <p className="song-link">{value.trackName}</p>
         </Link>
         <div className={value.trackExplicitness} />
 
         <Link to={`/album/${album}/${value.collectionId}`}>
-          <p className="album">
+          <p className="album-link">
             {value.collectionName} &bull; {value.releaseDate.substring(0, 4)}
           </p>
         </Link>
@@ -38,7 +38,7 @@ export const Track = ({ value }) => {
 
 export const Video = ({ value }) => {
   const video = value.trackName.toLowerCase().replace(/ /g, '+');
-  //const album = value.collectionName.toLowerCase().replace(/ /g, '+');
+  const artist = value.artistName.toLowerCase().replace(/ /g, '+');
 
   return (
     <div className="track">
@@ -52,8 +52,13 @@ export const Video = ({ value }) => {
 
       <div className="track__secondary">
         <Link to={`/music-video/${video}/${value.trackId}`}>
-          <p className="song-title">{value.trackName}</p>
+          <p className="song-link">{value.trackName}</p>
         </Link>
+
+        <Link to={`/artist/${artist}/${value.artistId}`}>
+          <p className="author-link">{value.artistName}</p>
+        </Link>
+
         <div className={value.trackExplicitness} />
       </div>
     </div>
@@ -76,11 +81,11 @@ export const Collection = ({ value }) => {
 
       <div className="collection__secondary">
         <Link to={`/album/${album}/${value.collectionId}`}>
-          <p className="album">{value.collectionName}</p>
+          <p className="album-link">{value.collectionName}</p>
         </Link>
 
         <Link to={`/artist/${artist}/${value.artistId}`}>
-          <p className="author">{value.artistName}</p>
+          <p className="author-link">{value.artistName}</p>
         </Link>
 
         <div className={value.trackExplicitness} />

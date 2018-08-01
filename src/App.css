@@ -1,21 +1,26 @@
 body:not(.dark) .tracks,
+body:not(.dark) .videos,
 body:not(.dark) .collections {
   margin-top: 20px;
   border-bottom: 1px solid #ddd;
 }
 
 .dark .tracks,
+.dark .videos,
 .dark .collections {
+  margin-top: 20px;
   border-bottom: 1px solid #444;
 }
 
 .tracks__title,
+.videos__title,
 .collections__title {
   font-size: 24px;
   margin: 10px 26px;
 }
 
 .tracks__container,
+.videos__container,
 .collections__container {
   padding-left: 16px;
   padding-right: 16px;
@@ -24,4 +29,12 @@ body:not(.dark) .collections {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.song,
+.video,
+.album {
+  margin: 20px auto;
+  max-width: 1100px;
+  display: flex;
 }
