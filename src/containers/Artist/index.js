@@ -31,18 +31,23 @@ export default class Artist extends Component {
         {!data ? (
           <Spinner />
         ) : (
-          <div>
-            <h2>{data.artistName}</h2>
-            <h3>About</h3>
+          <div className="artist">
+            <div className="container-full">
+              <h2>{data.artistName}</h2>
+            </div>
 
-            <h3>Songs</h3>
+            <div className="container-full">
+              <h3>About</h3>
 
-            <h3>Albums</h3>
+              <h3>Songs</h3>
 
-            <h3>Videos</h3>
+              <h3>Albums</h3>
 
-            <div className="network-container">
-              <div className="container">{/*this.state.twitter*/}</div>
+              <h3>Videos</h3>
+
+              <div className="network-container">
+                <div className="container">{/*this.state.twitter*/}</div>
+              </div>
             </div>
           </div>
         )}

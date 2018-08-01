@@ -24,11 +24,13 @@ export default class Video extends Component {
       <React.Fragment>
         {data ? (
           <div className="video">
-            <video controls>
-              <source src={data.previewUrl} type="video/mp4" />
-            </video>
+            <div className="container-middle">
+              <video controls>
+                <source src={data.previewUrl} type="video/mp4" />
+              </video>
+            </div>
 
-            <div>
+            <div className="container-small">
               <h2>
                 {data.trackName}
                 <span className={data.trackExplicitness} />
@@ -36,7 +38,10 @@ export default class Video extends Component {
               <Link to={`/artist/${artist}/${data.artistId}`}>
                 <h3>{data.artistName}</h3>
               </Link>
-              <p>{data.primaryGenreName}</p>
+              <p>
+                {data.primaryGenreName} &bull;{' '}
+                {data.releaseDate.substring(0, 4)}
+              </p>
             </div>
           </div>
         ) : (

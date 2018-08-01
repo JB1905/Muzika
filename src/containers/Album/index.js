@@ -24,13 +24,23 @@ export default class Album extends Component {
       <React.Fragment>
         {data ? (
           <div className="album">
-            <img src={data.artworkUrl100} alt={data.trackName} />
-            <div>
+            <div className="container-small">
+              <img
+                className="artwork"
+                src={data.artworkUrl100}
+                alt={data.trackName}
+              />
+            </div>
+
+            <div className="container-middle">
               <h2>{data.collectionName}</h2>
               <Link to={`/artist/${artist}/${data.collectionId}`}>
                 <h3>{data.artistName}</h3>
               </Link>
-              <p>{data.primaryGenreName}</p>
+              <p>
+                {data.primaryGenreName} &bull;{' '}
+                {data.releaseDate.substring(0, 4)}
+              </p>
             </div>
           </div>
         ) : (

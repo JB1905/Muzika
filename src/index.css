@@ -1,7 +1,8 @@
 body {
-  background-color: #FDFDFD;
+  background-color: #fdfdfd;
   color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 body.dark {
@@ -23,13 +24,13 @@ a {
 }
 
 .secondary a {
-  color: #EC445A;
+  color: #ec445a;
 }
 
 h1 {
-  text-shadow:  0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2);
   margin: 0;
-  color: #EC445A;
+  color: #ec445a;
   font-size: 130px;
 }
 
@@ -38,13 +39,18 @@ h2 {
   font-size: 30px;
 }
 
-.secondary h2 {
-  margin-top: 0px;
-  margin-bottom: 10px;
-  color: #EC445A;
+video {
+  border-radius: 4px;
+  width: 100%;
 }
 
-.secondary h3 {
+.container-small h2 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #ec445a;
+}
+
+.container-small h3 {
   margin: 10px auto;
 }
 
@@ -62,7 +68,7 @@ h2 {
 
 h3 {
   text-align: left;
-  color: #EC445A;
+  color: #ec445a;
 }
 
 .title {
@@ -77,13 +83,20 @@ h3 {
   width: calc(100% - 60px);
 }
 
-.primary {
-  width: calc(40% - 10px);
+.container-full {
+  width: calc(100% - 20px);
+  margin: 0 10px;
 }
 
-.secondary {
+.container-small {
+  width: calc(100% / 3 - 20px);
+  margin: 0 10px;
+}
+
+.container-middle {
   text-align: left;
-  width: calc(60% - 10px);
+  width: calc(100% / 3 * 2 - 20px);
+  margin: 0 10px;
 }
 
 .page {
@@ -100,26 +113,25 @@ h3 {
 }
 
 .artwork {
-  display: flex;
-  align-items: center;
-  height: 100px;
-}
-
-.artwork img {
-  margin-right: 15px;
-  width: 100px;
+  width: 100%;
   height: auto;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
-.artwork img {
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.34);
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.34);
+video,
+.artwork {
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.34);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.34);
 }
 
-.dark .artwork img {
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.34);
-  box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.34);
+.dark video,
+.dark .artwork {
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.34);
+  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.34);
+}
+
+.lyrics {
+  margin-top: 20px;
 }
 
 .container {
@@ -153,11 +165,11 @@ span.explicit::before {
 }
 
 .dark .explicit::before {
-  color: #21272D;
+  color: #21272d;
 }
 
 .song-link {
-  color: #EC445A;
+  color: #ec445a;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -177,7 +189,7 @@ span.explicit::before {
 }
 
 .author-link {
-  color: #EC445A;
+  color: #ec445a;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
