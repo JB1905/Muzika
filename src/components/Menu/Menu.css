@@ -1,6 +1,6 @@
 nav {
   background-color: rgba(252, 253, 252, 0.92);
-  box-shadow: 0px 0px 3px 0px rgba(119,119,119,0.86);
+  box-shadow: 0px 0px 3px 0px rgba(119, 119, 119, 0.86);
   height: 55px;
   z-index: 200;
   position: sticky;
@@ -36,7 +36,7 @@ nav li a {
   margin: 0 2px;
   font-size: 20px;
   font-weight: 500;
-  color: #7B7B7B;
+  color: #7b7b7b;
   padding: 0px 20px;
   border-radius: 6px;
 }
@@ -47,7 +47,7 @@ nav li a:hover {
 }
 
 .active {
-  background-color: #EC445A !important;
+  background-color: #ec445a !important;
   color: #fff !important;
 }
 

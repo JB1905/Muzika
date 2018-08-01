@@ -33,7 +33,7 @@ export default class Video extends Component {
             <div className="container-small">
               <h2>
                 {data.trackName}
-                <span className={data.trackExplicitness} />
+                <span className={data.collectionExplicitness} />
               </h2>
               <Link to={`/artist/${artist}/${data.artistId}`}>
                 <h3>{data.artistName}</h3>

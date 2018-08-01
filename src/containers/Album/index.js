@@ -34,6 +34,7 @@ export default class Album extends Component {
 
             <div className="container-middle">
               <h2>{data.collectionName}</h2>
+              <span className={data.collectionExplicitness} />
               <Link to={`/artist/${artist}/${data.collectionId}`}>
                 <h3>{data.artistName}</h3>
               </Link>

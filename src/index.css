@@ -84,19 +84,19 @@ h3 {
 }
 
 .container-full {
-  width: calc(100% - 20px);
-  margin: 0 10px;
+  width: calc(100% - 24px);
+  margin: 0 12px;
 }
 
 .container-small {
-  width: calc(100% / 3 - 20px);
-  margin: 0 10px;
+  width: calc(100% / 3 - 24px);
+  margin: 0 12px;
 }
 
 .container-middle {
   text-align: left;
-  width: calc(100% / 3 * 2 - 20px);
-  margin: 0 10px;
+  width: calc(100% / 3 * 2 - 24px);
+  margin: 0 12px;
 }
 
 .page {
