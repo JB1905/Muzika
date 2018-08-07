@@ -45,7 +45,11 @@ export default class Album extends Component {
         {album ? (
           <div className="album">
             <div className="container-small">
-              <img className="artwork" src={album[0].artworkUrl100} alt="" />
+              <img
+                className="artwork"
+                src={album[0].artworkUrl100.replace('100x100', '600x600')}
+                alt=""
+              />
             </div>
 
             <div className="container-middle">

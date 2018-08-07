@@ -1,4 +1,4 @@
-.grid{
+.grid {
   max-width: 1250px;
   margin: 0 auto;
   margin-top: 20px;
@@ -13,10 +13,6 @@
 .grid__title {
   font-size: 24px;
   margin: 10px 26px;
-}
-
-audio {
-  display: none;
 }
 
 .songs__container,

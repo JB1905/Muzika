@@ -9,9 +9,9 @@ export const Song = ({ value }) => {
     <div className="track">
       <div className="track__primary">
         <img className="track__img" src={value.artworkUrl60} alt="" />
-        {/*<audio controls className="player" preload="false">
+        <audio className="player" preload="false">
           <source src={value.previewUrl} />
-        </audio>*/}
+        </audio>
       </div>
 
       <div className="track__secondary">

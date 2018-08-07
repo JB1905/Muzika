@@ -8,7 +8,11 @@ export const Album = ({ value }) => {
   return (
     <div className="collection">
       <div className="collection__primary">
-        <img className="collection__img" src={value.artworkUrl100} alt="" />
+        <img
+          className="collection__img"
+          src={value.artworkUrl100.replace('100x100', '200x200')}
+          alt=""
+        />
       </div>
 
       <div className="collection__secondary">

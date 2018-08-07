@@ -9,6 +9,9 @@
 - music video page (with 30s video preview)
 - dark mode based on sun over horizon position
 
+#### Improvements
+- better album covers quality
+
 ## To do
 #### New Feature
 - artist social media accounts (Facebook, Twitter, Instagram) on artist page
@@ -21,7 +24,6 @@
 #### Improvements
 - responsive design
 - dark mode improvements
-- better album covers quality
 - code clean up
 
 #### Bug Fix

@@ -8,7 +8,11 @@ export const Video = ({ value }) => {
   return (
     <div className="video">
       <div className="video__primary">
-        <img className="video__img" src={value.artworkUrl100} alt="" />
+        <img
+          className="video__img"
+          src={value.artworkUrl100.replace('100x100', '200x200')}
+          alt=""
+        />
       </div>
 
       <div className="video__secondary">

@@ -10,10 +10,14 @@ export const SongContent = ({ value }) => {
   return (
     <React.Fragment>
       <div className="container-small">
-        <img className="artwork" src={value.artworkUrl100} alt="" />
+        <img
+          className="artwork"
+          src={value.artworkUrl100.replace('100x100', '600x600')}
+          alt=""
+        />
 
         <p className="price">Single Price: {value.trackPrice}$</p>
-        <audio controls className="player" preload="false">
+        <audio className="player" preload="false">
           <source src={value.previewUrl} />
         </audio>
       </div>
