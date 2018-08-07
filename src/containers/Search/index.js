@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { Spinner } from '../../components/Spinner';
 import { Song, Video, Album } from '../../components/Lists';
 import { searchSongs, searchAlbums, searchVideos } from '../../api';
@@ -51,7 +52,7 @@ export default class Search extends Component {
           <Spinner />
         )}
 
-        {this.state.albums ? (
+        {this.state.videos ? (
           <div className="grid">
             <h3 className="grid__title">Videos</h3>
             <div className="videos__container">{this.state.videos}</div>

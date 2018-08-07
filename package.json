@@ -1,19 +1,17 @@
 {
   "name": "Muzika",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "author": "Jakub Biesiada",
+  "descripton": "",
+  "license": "MIT",
   "private": true,
   "homepage": ".",
   "dependencies": {
     "darky": "^0.7.0",
-    "facebook-plugins": "^1.0.5",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-facebook": "^5.0.3",
-    "react-instagram-embed": "^1.4.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.0-next.3e165448",
-    "react-twitter-widgets": "^1.7.1"
+    "react-scripts": "^2.0.0-next.3e165448"
   },
   "scripts": {
     "start": "react-scripts start",

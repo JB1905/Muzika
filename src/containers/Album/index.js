@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Song, Video } from '../../components/Parts';
 import { Link } from 'react-router-dom';
+
+import { Song, Video } from '../../components/Parts';
 import { Spinner } from '../../components/Spinner';
 import { album } from '../../api';
 
@@ -19,7 +20,7 @@ export default class Album extends Component {
       const songs = [];
       const videos = [];
 
-      data.map((value, index) => {
+      data.map(value => {
         if (value.kind === 'song') {
           songs.push(<Song value={value} />);
         } else if (value.kind === 'music-video') {
@@ -40,41 +41,37 @@ export default class Album extends Component {
       artist = album[0].artistName.toLowerCase().replace(/ /g, '+');
     }
 
-    return (
-      <React.Fragment>
-        {album ? (
-          <div className="album">
-            <div className="container-small">
-              <img
-                className="artwork"
-                src={album[0].artworkUrl100.replace('100x100', '600x600')}
-                alt=""
-              />
-            </div>
+    return album ? (
+      <div className="album">
+        <div className="container-small">
+          <img
+            className="artwork"
+            src={album[0].artworkUrl100.replace('100x100', '400x400')}
+            alt=""
+          />
+        </div>
 
-            <div className="container-middle">
-              <h2>
-                {album[0].collectionName}
-                <span className={album[0].collectionExplicitness} />
-              </h2>
-              <Link to={`/artist/${artist}/${album[0].artistId}`}>
-                <h3>{album[0].artistName}</h3>
-              </Link>
-              <p className="album__about">
-                {album[0].primaryGenreName} &bull;{' '}
-                {album[0].releaseDate.substring(0, 4)}
-              </p>
+        <div className="container-middle">
+          <h2>
+            {album[0].collectionName}
+            <span className={album[0].collectionExplicitness} />
+          </h2>
+          <Link to={`/artist/${artist}/${album[0].artistId}`}>
+            <h3>{album[0].artistName}</h3>
+          </Link>
+          <p className="album__about">
+            {album[0].primaryGenreName} &bull;{' '}
+            {album[0].releaseDate.substring(0, 4)}
+          </p>
 
-              {songs}
-              {videos}
+          {songs}
+          {videos}
 
-              <div className="copyright">{album[0].copyright}</div>
-            </div>
-          </div>
-        ) : (
-          <Spinner />
-        )}
-      </React.Fragment>
+          <div className="copyright">{album[0].copyright}</div>
+        </div>
+      </div>
+    ) : (
+      <Spinner />
     );
   }
 }

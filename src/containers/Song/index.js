@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { SongContent } from '../../components/Contents';
 import { Spinner } from '../../components/Spinner';
 import { song, lyrics } from '../../api';
@@ -13,9 +14,8 @@ export default class Song extends Component {
 
     song(id, res => {
       const data = res.data[0];
-      const song = <SongContent value={data} />;
 
-      this.setState({ song: song });
+      this.setState({ song: data });
 
       lyrics(data.artistName, data.trackName, res =>
         this.setState({ lyrics: res.data })
@@ -24,28 +24,25 @@ export default class Song extends Component {
   }
 
   render() {
-    return (
-      <React.Fragment>
-        {this.state.song ? (
-          <div className="song">
-            {this.state.song}
-            <div className="lyrics">
-              {this.state.lyrics ? (
-                this.state.lyrics.split('\n').map(item => (
-                  <span>
-                    {item}
-                    <br />
-                  </span>
-                ))
-              ) : (
-                <Spinner />
-              )}
-            </div>
+    return this.state.song ? (
+      <div className="song">
+        <SongContent value={this.state.song}>
+          <div className="lyrics">
+            {this.state.lyrics ? (
+              this.state.lyrics.split('\n').map(item => (
+                <span>
+                  {item}
+                  <br />
+                </span>
+              ))
+            ) : (
+              <Spinner />
+            )}
           </div>
-        ) : (
-          <Spinner />
-        )}
-      </React.Fragment>
+        </SongContent>
+      </div>
+    ) : (
+      <Spinner />
     );
   }
 }

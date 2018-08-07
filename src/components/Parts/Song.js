@@ -7,10 +7,13 @@ export const Song = ({ value }) => {
   return (
     <div className="list__item">
       <p className="index">{value.trackNumber}.</p>
+
       <Link to={`/song/${song}/${value.trackId}`}>
         <p className="song-link">{value.trackName}</p>
       </Link>
+
       <span className={value.trackExplicitness} />
+      
       <p>{value.artistName}</p>
     </div>
   );

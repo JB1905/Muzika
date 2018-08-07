@@ -3,11 +3,14 @@ import json from '../../package.json';
 
 export default function Home() {
   return (
-    <div className="title">
+    <React.Fragment>
       <h1>{json.name}</h1>
 
       <p>{json.version}</p>
       <p>{json.author}</p>
-    </div>
+
+      <p>{json.license}</p>
+      <p>{json.descripton}</p>
+    </React.Fragment>
   );
 }

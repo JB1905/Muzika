@@ -22,7 +22,7 @@ export const VideoContent = ({ value }) => {
         </h2>
 
         {value.collectionId ? (
-          <div className="album-link">
+          <div className="song__link">
             Album: &nbsp;
             <Link to={`/album/${album}/${value.collectionId}`}>
               <span>{value.collectionName}</span>

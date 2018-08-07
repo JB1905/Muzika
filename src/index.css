@@ -121,7 +121,7 @@ h3 {
 .artwork {
   position: sticky;
   position: -webkit-sticky;
-  top: 80px;
+  top: 25px;
   width: 100%;
   height: auto;
   border-radius: 4px;
