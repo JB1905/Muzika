@@ -1,81 +1,45 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Spinner from '../../components/Spinner';
-import { musicSearch, lyrics } from '../../api';
+import { SongContent } from '../../components/Contents';
+import { Spinner } from '../../components/Spinner';
+import { song, lyrics } from '../../api';
+
+import './Song.css';
 
 export default class Song extends Component {
-  state = { data: false, lyrics: false };
+  state = { song: null, lyrics: null };
 
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    musicSearch(id, res => {
-      this.setState({ data: res.data[0] });
-      this.lyrics();
+    song(id, res => {
+      const data = res.data[0];
+      const song = <SongContent value={data} />;
+
+      this.setState({ song: song });
+
+      lyrics(data.artistName, data.trackName, res =>
+        this.setState({ lyrics: res.data })
+      );
     });
   }
 
-  lyrics() {
-    lyrics(this.state.data.artistName, this.state.data.trackName, res =>
-      this.setState({ lyrics: res.data })
-    );
-  }
-
   render() {
-    const { data, lyrics } = this.state;
-    let album;
-    let artist;
-
-    if (data) {
-      album = data.collectionName.toLowerCase().replace(/ /g, '+');
-      artist = data.artistName.toLowerCase().replace(/ /g, '+');
-    }
-
     return (
       <React.Fragment>
-        {data ? (
+        {this.state.song ? (
           <div className="song">
-            <div className="container-small">
-              <img
-                className="artwork"
-                src={data.artworkUrl100}
-                alt={data.trackName}
-              />
-
-              <p>Single Price: {data.trackPrice}$</p>
-              <audio controls className="player" preload="false">
-                <source src={data.previewUrl} />
-              </audio>
-            </div>
-
-            <div className="container-middle">
-              <h2>
-                {data.trackName}
-                <span className={data.trackExplicitness} />
-              </h2>
-              Album: &nbsp;
-              <Link to={`/album/${album}/${data.collectionId}`}>
-                <span>{data.collectionName}</span>
-              </Link>
-              <Link to={`/artist/${artist}/${data.artistId}`}>
-                <h3>{data.artistName}</h3>
-              </Link>
-              <p>
-                {data.primaryGenreName} &bull;{' '}
-                {data.releaseDate.substring(0, 4)}
-              </p>
-              <div className="lyrics">
-                {lyrics ? (
-                  lyrics.split('\n').map(item => (
-                    <span>
-                      {item}
-                      <br />
-                    </span>
-                  ))
-                ) : (
-                  <Spinner />
-                )}
-              </div>
+            {this.state.song}
+            <div className="lyrics">
+              {this.state.lyrics ? (
+                this.state.lyrics.split('\n').map(item => (
+                  <span>
+                    {item}
+                    <br />
+                  </span>
+                ))
+              ) : (
+                <Spinner />
+              )}
             </div>
           </div>
         ) : (

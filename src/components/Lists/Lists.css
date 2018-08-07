@@ -1,26 +1,72 @@
 .track {
   display: inline-flex;
   align-items: center;
-  width: 250px;
-  margin: 4px 10px;
-  overflow: hidden;
+  width: calc(100% / 4 - 20px);
+  margin: 3px 10px;
+  min-width: 250px;
+}
+
+.videos__container .video {
+  display: inline-block;
+  align-items: center;
+  width: calc(100% / 8 - 20px);
+  margin: 3px 10px;
+}
+
+.video__img {
+  border: 1px solid #ddd;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  object-fit: cover;
+  height: 90px;
+  width: 100%;
+}
+
+.dark .video__img {
+  border: 1px solid #444;
+}
+
+.track__secondary {
+  width: 220px;
 }
 
 .collection {
   display: inline-block;
   margin: 4px 10px;
   overflow: hidden;
-  width: 100px;
+  width: calc(100% / 8 - 20px);
+  min-width: 115px;
+}
+
+.artist-pic {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 0px rgba(119, 119, 119, 0.86);
 }
 
 .collection__img {
-  border-radius: 2px;
+  border: 1px solid #ddd;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.dark .collection__img {
+  border: 1px solid #444;
 }
 
 .track__img {
-  border-radius: 2px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   height: 50px;
   width: auto;
+}
+
+.dark .track__img {
+  border: 1px solid #444;
 }
 
 .track__primary {

@@ -1,47 +1,70 @@
 import React, { Component } from 'react';
+import { Song, Video } from '../../components/Parts';
 import { Link } from 'react-router-dom';
-import Spinner from '../../components/Spinner';
-import { musicItems } from '../../api';
+import { Spinner } from '../../components/Spinner';
+import { album } from '../../api';
+
+import './Album.css';
 
 export default class Album extends Component {
-  state = { data: false };
+  state = { album: null, songs: null, videos: null };
 
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    musicItems(id, res => this.setState({ data: res.data[0] }));
+    album(id, res => {
+      const data = res.data;
+      this.setState({ album: res.data });
+
+      const songs = [];
+      const videos = [];
+
+      data.map((value, index) => {
+        if (value.kind === 'song') {
+          songs.push(<Song value={value} />);
+        } else if (value.kind === 'music-video') {
+          videos.push(<Video value={value} />);
+        }
+      });
+
+      this.setState({ songs: songs, videos: videos });
+    });
   }
 
   render() {
-    const { data } = this.state;
+    const { album, songs, videos } = this.state;
+
     let artist;
 
-    if (data) {
-      artist = data.artistName.toLowerCase().replace(/ /g, '+');
+    if (album) {
+      artist = album[0].artistName.toLowerCase().replace(/ /g, '+');
     }
 
     return (
       <React.Fragment>
-        {data ? (
+        {album ? (
           <div className="album">
             <div className="container-small">
-              <img
-                className="artwork"
-                src={data.artworkUrl100}
-                alt={data.trackName}
-              />
+              <img className="artwork" src={album[0].artworkUrl100} alt="" />
             </div>
 
             <div className="container-middle">
-              <h2>{data.collectionName}</h2>
-              <span className={data.collectionExplicitness} />
-              <Link to={`/artist/${artist}/${data.collectionId}`}>
-                <h3>{data.artistName}</h3>
+              <h2>
+                {album[0].collectionName}
+                <span className={album[0].collectionExplicitness} />
+              </h2>
+              <Link to={`/artist/${artist}/${album[0].artistId}`}>
+                <h3>{album[0].artistName}</h3>
               </Link>
-              <p>
-                {data.primaryGenreName} &bull;{' '}
-                {data.releaseDate.substring(0, 4)}
+              <p className="album__about">
+                {album[0].primaryGenreName} &bull;{' '}
+                {album[0].releaseDate.substring(0, 4)}
               </p>
+
+              {songs}
+              {videos}
+
+              <div className="copyright">{album[0].copyright}</div>
             </div>
           </div>
         ) : (

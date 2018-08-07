@@ -1,9 +1,10 @@
-nav {
-  background-color: rgba(252, 253, 252, 0.92);
-  box-shadow: 0px 0px 3px 0px rgba(119, 119, 119, 0.86);
+.navbar {
+  background-color: rgba(252, 253, 252, 0.96);
+  border-bottom: 1px solid #ddd;
   height: 55px;
   z-index: 200;
   position: sticky;
+  position: -webkit-sticky;
   top: 0px;
   display: flex;
   justify-content: center;
@@ -11,8 +12,15 @@ nav {
   width: 100%;
 }
 
-.dark nav {
-  background-color: rgba(66, 66, 66, 0.92);
+.dark .navbar {
+  background-color: rgba(66, 66, 66, 0.96);
+  border-bottom: 1px solid #444;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  max-width: 1100px;
 }
 
 nav ul {

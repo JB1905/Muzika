@@ -23,6 +23,15 @@ a {
   text-decoration: none;
 }
 
+.album__about {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.dark .album__about {
+  border-bottom: 1px solid #444;
+}
+
 .secondary a {
   color: #ec445a;
 }
@@ -35,6 +44,7 @@ h1 {
 }
 
 h2 {
+  margin-bottom: 10px;
   color: #f78a9e;
   font-size: 30px;
 }
@@ -57,12 +67,13 @@ video {
 .primary img {
   padding: 3px;
   border: 1px solid #ddd;
-  border-radius: 2px;
+  border-radius: 4px;
   width: 100px;
 }
 
 .primary > div {
   position: sticky;
+  position: -webkit-sticky;
   top: 30px;
 }
 
@@ -76,11 +87,6 @@ h3 {
   align-items: center;
   justify-content: center;
   height: calc(100vh - 140px);
-}
-
-.info {
-  margin-left: 30px;
-  width: calc(100% - 60px);
 }
 
 .container-full {
@@ -113,6 +119,9 @@ h3 {
 }
 
 .artwork {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 80px;
   width: 100%;
   height: auto;
   border-radius: 4px;
@@ -137,11 +146,20 @@ video,
 .container {
   z-index: -1;
   padding: 10px;
-  max-width: 1300px;
+  max-width: 1250px;
   margin: 0 auto;
 }
 
-span.explicit {
+.explicit {
+  margin-top: -3px;
+}
+
+span.explicit,
+span.notExplicit {
+  width: 40px;
+}
+
+h2 span.explicit {
   position: absolute;
   margin-left: 7px;
   margin-top: -4px;
@@ -150,12 +168,19 @@ span.explicit {
 .explicit::before {
   content: 'Explicit';
   background-color: #f78a9e;
-  padding: 3px 4px;
-  border-radius: 2px;
-  font-size: 9px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 10px;
 }
 
-span.explicit::before {
+.videos__container .explicit::before,
+.list__item .explicit::before,
+.track .explicit::before {
+  content: 'E';
+  font-weight: 700;
+}
+
+h2 span.explicit::before {
   padding: 4px 7px;
   font-size: 15px;
 }
@@ -166,6 +191,10 @@ span.explicit::before {
 
 .dark .explicit::before {
   color: #21272d;
+}
+
+.list__item .song-link {
+  width: 330px;
 }
 
 .song-link {
@@ -188,6 +217,21 @@ span.explicit::before {
   margin: 4px 0;
 }
 
+.song__link {
+  color: #ec445a;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.song__link a {
+  color: #ec445a;
+  display: inline;
+}
+
+.price {
+  margin: 14px 8px;
+}
+
 .author-link {
   color: #ec445a;
   white-space: nowrap;
@@ -197,4 +241,24 @@ span.explicit::before {
   font-weight: 700;
   font-size: 14px;
   margin: 4px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .container-small,
+  .container-middle {
+    width: 100%;
+  }
+
+  .artwork {
+    top: 0;
+    position: relative;
+  }
+
+  .artist-pic {
+    margin-bottom: 14px;
+  }
+
+  video {
+    margin-bottom: 14px;
+  }
 }

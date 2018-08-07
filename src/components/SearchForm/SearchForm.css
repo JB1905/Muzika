@@ -7,13 +7,12 @@ input[type='search'] {
   background-color: #fff;
   right: 40px;
   font-weight: 500;
-  position: absolute;
   z-index: 100;
   -webkit-appearance: none;
   transition: box-shadow 300ms ease;
   color: #ec445a;
   border: 0px;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
   width: 200px;
   height: 38px;

@@ -1,27 +1,28 @@
 # Muzika Changelog
 
-## 0.1.0 (2018-07-30)
+## Done
 #### New Feature
-- music search
+- music search (songs, albums & videos)
 - song page (with lyrics)
-- album page
+- album page (with songs list)
+- artist page (with songs, albums & videos)
+- music video page (with 30s video preview)
+- dark mode based on sun over horizon position
 
-# Unreleased
-## 0.2.0 (2018)
+## To do
 #### New Feature
-- artist page with Facebook, Twitter & Instagram implementation
+- artist social media accounts (Facebook, Twitter, Instagram) on artist page
+- concerts info on artist page
+- search by song lyrics
+- 30s songs preview
+- "show more" button on search & artist page to list more songs, albums & videos
+- artist picture & info on artist page
 
-## 0.1.2 / 0.1.3 / 0.1.4 / 0.1.5 (2018 Soon)
-#### Change
-- UI & dark mode improvements
-
-#### New Feature
-- song preview
-- refresh song & album views (add better cover images)
-
-## 0.1.1 (2018 Soon)
-#### New Feature
-- music video page
+#### Improvements
+- responsive design
+- dark mode improvements
+- better album covers quality
+- code clean up
 
 #### Bug Fix
 - fix search

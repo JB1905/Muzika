@@ -1,0 +1,21 @@
+.list__item {
+  display: flex;
+  padding: 10px 6px;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.dark .list__item {
+  display: flex;
+  padding: 10px 6px;
+  border-bottom: 1px solid #444;
+}
+
+.list__item .song-link {
+  padding: 0 10px;
+}
+
+.list__item .index {
+  width: 30px;
+  text-align: center;
+}

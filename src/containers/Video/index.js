@@ -1,52 +1,28 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Spinner from '../../components/Spinner';
-import { musicItems } from '../../api';
+import { VideoContent } from '../../components/Contents';
+import { Spinner } from '../../components/Spinner';
+import { video } from '../../api';
+
+import './Video.css';
 
 export default class Video extends Component {
-  state = { data: false };
+  state = { video: null };
 
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    musicItems(id, res => this.setState({ data: res.data[0] }));
+    video(id, res => {
+      const data = res.data[0];
+      const video = <VideoContent value={data} />;
+
+      this.setState({ video: video });
+    });
   }
 
   render() {
-    const { data } = this.state;
-    let artist;
-
-    if (data) {
-      artist = data.artistName.toLowerCase().replace(/ /g, '+');
-    }
-
     return (
       <React.Fragment>
-        {data ? (
-          <div className="video">
-            <div className="container-middle">
-              <video controls>
-                <source src={data.previewUrl} type="video/mp4" />
-              </video>
-            </div>
-
-            <div className="container-small">
-              <h2>
-                {data.trackName}
-                <span className={data.collectionExplicitness} />
-              </h2>
-              <Link to={`/artist/${artist}/${data.artistId}`}>
-                <h3>{data.artistName}</h3>
-              </Link>
-              <p>
-                {data.primaryGenreName} &bull;{' '}
-                {data.releaseDate.substring(0, 4)}
-              </p>
-            </div>
-          </div>
-        ) : (
-          <Spinner />
-        )}
+        {this.state.video ? this.state.video : <Spinner />}
       </React.Fragment>
     );
   }

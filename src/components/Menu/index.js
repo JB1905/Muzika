@@ -9,17 +9,19 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <nav>
-        <ul>
-          <li>
-            <NavLink exact to="/">
-              Newsfeed
-            </NavLink>
-          </li>
-        </ul>
+      <div className="navbar">
+        <nav>
+          {/*<ul>
+            <li>
+              <NavLink exact to="/">
+                Newsfeed
+              </NavLink>
+            </li>
+          </ul>*/}
 
-        <SearchForm dataSearch={this.getValue} />
-      </nav>
+          <SearchForm dataSearch={this.getValue} />
+        </nav>
+      </div>
     );
   }
 }

@@ -1,42 +1,59 @@
-body:not(.dark) .tracks,
-body:not(.dark) .videos,
-body:not(.dark) .collections {
+.grid{
+  max-width: 1250px;
+  margin: 0 auto;
   margin-top: 20px;
   border-bottom: 1px solid #ddd;
 }
 
-.dark .tracks,
-.dark .videos,
-.dark .collections {
-  margin-top: 20px;
+.dark .grid {
   border-bottom: 1px solid #444;
 }
 
-.tracks__title,
-.videos__title,
-.collections__title {
+.info__title,
+.grid__title {
   font-size: 24px;
   margin: 10px 26px;
 }
 
-.tracks__container,
+audio {
+  display: none;
+}
+
+.songs__container,
 .videos__container,
-.collections__container {
+.albums__container {
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 20px;
-  white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.copyright {
+  margin-top: 16px;
+}
+
+.artist {
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.dark .artist {
+  border-bottom: 1px solid #444;
+}
+
+.grid .video {
+  padding: 0px;
 }
 
 .song,
 .video,
 .album,
 .artist {
+  padding: 0px 26px 20px 26px;
   margin: 20px auto;
-  max-width: 1100px;
+  max-width: 1250px;
   display: flex;
   flex-wrap: wrap;
 }

@@ -5,10 +5,9 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "darky": "^0.6.7",
+    "darky": "^0.7.0",
     "facebook-plugins": "^1.0.5",
     "react": "^16.4.2",
-    "react-delay": "^0.1.0",
     "react-dom": "^16.4.2",
     "react-facebook": "^5.0.3",
     "react-instagram-embed": "^1.4.0",

@@ -1,5 +1,4 @@
-import './Lists.css';
+import './Parts.css';
 
-export { Album } from './Album';
 export { Song } from './Song';
 export { Video } from './Video';

@@ -1,59 +1,65 @@
 import React, { Component } from 'react';
-import { Track, Video, Collection } from '../../components/Lists';
-import Spinner from '../../components/Spinner';
-import { musicSearch } from '../../api';
+import { Spinner } from '../../components/Spinner';
+import { Song, Video, Album } from '../../components/Lists';
+import { searchSongs, searchAlbums, searchVideos } from '../../api';
+
+import './Search.css';
 
 export default class Search extends Component {
-  state = { data: false, tracks: null, videos: null, collections: null };
+  state = { songs: null, videos: null, albums: null };
 
   componentDidMount = () => this.results(this.props.match.params.query);
-  //getSnapshotBeforeUpdate = value => this.results(value.match.params.query);
 
   results(query) {
-    musicSearch(query, res => {
-      this.setState({ data: res.data });
-      this.parts();
+    searchSongs(query, res => {
+      const songs = res.data.map(value => <Song value={value} />);
+
+      this.setState({ songs: songs });
     });
-  }
 
-  parts() {
-    const tracks = [];
-    const videos = [];
-    const collections = [];
+    searchAlbums(query, res => {
+      const albums = res.data.map(value => <Album value={value} />);
 
-    for (const type of this.state.data) {
-      if (type.kind === 'song') tracks.push(type);
-      else if (type.kind === 'music-video') videos.push(type);
-      else if (type.wrapperType === 'collection') collections.push(type);
-    }
+      this.setState({ albums: albums });
+    });
 
-    this.setState({
-      tracks: tracks.map(value => <Track value={value} />),
-      videos: videos.map(value => <Video value={value} />),
-      collections: collections.map(value => <Collection value={value} />)
+    searchVideos(query, res => {
+      const videos = res.data.map(value => <Video value={value} />);
+
+      this.setState({ videos: videos });
     });
   }
 
   render() {
-    return this.state.data ? (
+    return (
       <React.Fragment>
-        <div className="tracks">
-          <h3 className="tracks__title">Songs</h3>
-          <div className="tracks__container">{this.state.tracks}</div>
-        </div>
+        {this.state.songs ? (
+          <div className="grid">
+            <h3 className="grid__title">Songs</h3>
+            <div className="songs__container">{this.state.songs}</div>
+          </div>
+        ) : (
+          <Spinner />
+        )}
 
-        <div className="collections">
-          <h3 className="collections__title">Albums</h3>
-          <div className="collections__container">{this.state.collections}</div>
-        </div>
+        {this.state.albums ? (
+          <div className="grid">
+            <h3 className="grid__title">Albums</h3>
+            <div className="albums__container">{this.state.albums}</div>
+          </div>
+        ) : (
+          <Spinner />
+        )}
 
-        <div className="videos">
-          <h3 className="videos__title">Videos</h3>
-          <div className="videos__container">{this.state.videos}</div>
-        </div>
+        {this.state.albums ? (
+          <div className="grid">
+            <h3 className="grid__title">Videos</h3>
+            <div className="videos__container">{this.state.videos}</div>
+          </div>
+        ) : (
+          <Spinner />
+        )}
       </React.Fragment>
-    ) : (
-      <Spinner />
     );
   }
 }

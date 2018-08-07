@@ -1,55 +1,93 @@
-const music = 'https://itunes.apple.com/';
-const songLyrics = 'https://api.lyrics.ovh/v1/';
-/*const concerts = null;
-const socialMedia = [
-  { facebook: null },
-  { twitter: null },
-  { instagram: null }
-];*/
+const MUSIC_API = 'https://itunes.apple.com/';
+const LYRICS_API = 'https://api.lyrics.ovh/v1/';
 
-export const musicItems = (id, callback) => {
-  fetch(`${music}lookup?id=${id}`)
+export const searchSongs = (query, callback) => {
+  fetch(`${MUSIC_API}search?term=${query}&entity=song&limit=12`)
     .then(res => res.json())
     .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: null }));
+    .catch(err => callback({ data: err }));
 };
 
-export const musicSearch = (value, callback) => {
-  fetch(
-    `${music}search?term=${value}&entity=musicArtist,musicTrack,album,song,mix,musicVideo`
-  )
+export const searchAlbums = (query, callback) => {
+  fetch(`${MUSIC_API}search?term=${query}&entity=album&limit=16`)
     .then(res => res.json())
     .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: null }));
+    .catch(err => callback({ data: err }));
+};
+
+export const searchVideos = (query, callback) => {
+  fetch(`${MUSIC_API}search?term=${query}&entity=musicVideo&limit=8`)
+    .then(res => res.json())
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
+};
+
+export const searchArtists = (query, callback) => {
+  fetch(`${MUSIC_API}search?term=${query}&entity=musicArtist`)
+    .then(res => res.json())
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
+};
+
+export const listSongs = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}&entity=song&limit=12`)
+    .then(res => res.json())
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
+};
+
+export const listAlbums = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}&entity=album&limit=16`)
+    .then(res => res.json())
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
+};
+
+export const listVideos = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}&entity=musicVideo&limit=8`)
+    .then(res => res.json())
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
+};
+
+export const song = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}`)
+    .then(res => res.json())
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
 };
 
 export const lyrics = (artist, album, callback) => {
-  fetch(`${songLyrics}${artist}/${album}`)
+  fetch(`${LYRICS_API}${artist}/${album}`)
     .then(res => res.json())
     .then(data => callback({ data: data.lyrics }))
-    .catch(err => callback({ data: null }));
+    .catch(err => callback({ data: err }));
 };
 
-/*export const facebook = id => {
-  fetch(`${socialMedia.facebook}${id}`)
+export const album = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}&entity=song`)
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
 };
 
-export const twitter = id => {
-  fetch(`${socialMedia.twitter}${id}`)
+export const video = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}&entity=album`)
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
 };
 
-export const instagram = id => {
-  fetch(`${socialMedia.instagram}${id}`)
+export const musicItems = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}`)
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
 };
 
-export const tickets = id => {
-  fetch(`${concerts}${id}`)
+export const artist = (id, callback) => {
+  fetch(`${MUSIC_API}lookup?id=${id}`)
     .then(res => res.json())
-    .then(data => console.log(data));
-};*/
+    .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
+};
