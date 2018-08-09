@@ -18,9 +18,16 @@ export class SongContent extends Component {
   render() {
     const data = this.props.value;
     const album = data.collectionName
-      ? data.collectionName.toLowerCase().replace(/ /g, '+')
+      ? data.collectionName
+          .toLowerCase()
+          .replace(/[¿@#$%^&/|*?"'`]/g, '')
+          .replace(/ /g, '+')
       : null;
-    const artist = data.artistName.toLowerCase().replace(/ /g, '+');
+
+    const artist = data.artistName
+      .toLowerCase()
+      .replace(/[¿@#$%^&/|*?"'`]/g, '')
+      .replace(/ /g, '+');
 
     return (
       <React.Fragment>

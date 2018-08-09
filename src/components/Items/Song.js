@@ -17,8 +17,15 @@ export class SongItem extends Component {
 
   render() {
     const { value } = this.props;
-    const song = value.trackName.toLowerCase().replace(/ /g, '+');
-    const album = value.collectionName.toLowerCase().replace(/ /g, '+');
+    const song = value.trackName
+      .toLowerCase()
+      .replace(/[¿@#$%^&/|*?"'`]/g, '')
+      .replace(/ /g, '+');
+
+    const album = value.collectionName
+      .toLowerCase()
+      .replace(/[¿@#$%^&/|*?"'`]/g, '')
+      .replace(/ /g, '+');
 
     return (
       <div className="track">

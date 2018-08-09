@@ -94,7 +94,7 @@ export default class Artist extends Component {
         {this.state.videos ? (
           <React.Fragment>
             <div className="inline">
-              <h3 className="grid__title">Videos</h3>
+              <h3 className="grid__title">Music videos</h3>
 
               <Link
                 to={`/artist/${this.state.artist[0].artistName}/${

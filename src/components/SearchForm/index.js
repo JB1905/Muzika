@@ -7,7 +7,10 @@ export default class SearchForm extends Component {
   state = { searchTerm: '', visible: false };
 
   handleChange = e => {
-    const value = e.target.value.toLowerCase().replace(/ /g, '+');
+    const value = e.target.value
+      .toLowerCase()
+      .replace(/[¿@#$%^&/|*?"'`]/g, '')
+      .replace(/ /g, '+');
 
     this.setState({ searchTerm: e.target.value });
     this.props.dataSearch(value);

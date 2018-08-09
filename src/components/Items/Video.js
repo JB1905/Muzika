@@ -2,8 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const VideoItem = ({ value }) => {
-  const video = value.trackName.toLowerCase().replace(/ /g, '+');
-  const artist = value.artistName.toLowerCase().replace(/ /g, '+');
+  const video = value.trackName
+    .toLowerCase()
+    .replace(/[¿@#$%^&/|*?"'`]/g, '')
+    .replace(/ /g, '+');
+
+  const artist = value.artistName
+    .toLowerCase()
+    .replace(/[¿@#$%^&/|*?"'`]/g, '')
+    .replace(/ /g, '+');
 
   return (
     <div className="video">

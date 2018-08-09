@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 
 export const VideoContent = ({ value }) => {
   const album = value.collectionName
-    ? value.collectionName.toLowerCase().replace(/ /g, '+')
+    ? value.collectionName
+        .toLowerCase()
+        .replace(/[¿@#$%^&/|*?"'`]/g, '')
+        .replace(/ /g, '+')
     : null;
-  const artist = value.artistName.toLowerCase().replace(/ /g, '+');
+
+  const artist = value.artistName
+    .toLowerCase()
+    .replace(/[¿@#$%^&/|*?"'`]/g, '')
+    .replace(/ /g, '+');
 
   return (
     <div className="video">

@@ -14,23 +14,31 @@ export default class More extends Component {
     console.log(this.props);
 
     let entity;
+    let kind;
 
-    if (type === 'songs') entity = 'song';
-    else if (type === 'albums') entity = 'album';
-    else if (type === 'music-videos') entity = 'musicVideo';
+    if (type === 'songs') {
+      entity = 'song';
+      kind = 'Songs';
+    } else if (type === 'albums') {
+      entity = 'album';
+      kind = 'Albums';
+    } else if (type === 'music-videos') {
+      entity = 'musicVideo';
+      kind = 'Music videos';
+    }
 
     if (this.props.location.pathname.includes('artist/') > 0) {
       const { id } = this.props.match.params;
 
       list({ id: id, entity: entity, limit: 100 }, res => {
-        this.setState({ title: `${type} by: ${res.data[0].artistName}` });
+        this.setState({ title: `${kind} by: ${res.data[0].artistName}` });
         this.content(res.data);
       });
     } else if (this.props.location.pathname.includes('search/') > 0) {
       const { query } = this.props.match.params;
 
       search({ term: query, entity: entity, limit: 100 }, res => {
-        this.setState({ title: `${type} for query: ${query}` });
+        this.setState({ title: `${kind} for query: ${query}` });
         this.content(res.data);
       });
     }

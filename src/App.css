@@ -6,7 +6,7 @@
 .container--sm aside {
   position: sticky;
   position: -webkit-sticky;
-  top: 25px;
+  top: 20px;
 }
 
 .content__header {
@@ -72,6 +72,10 @@
   width: auto;
 }
 
+.container--vertical {
+  margin-bottom: 16px;
+}
+
 .container--vertical .list__link--artist,
 .albums__container .list__link--album,
 .songs__container .list__link--song,
@@ -80,6 +84,7 @@
   font-weight: 600;
 }
 
+.container--vertical .track .list__link--album,
 .container--vertical .list__link--artist,
 .songs__container .list__link--album,
 .albums__container .list__link--artist,
@@ -100,6 +105,9 @@
 }
 
 .header__title h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin: 0 auto;
   padding: 10px 26px;
   max-width: 1250px;

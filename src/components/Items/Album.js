@@ -2,8 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const AlbumItem = ({ value }) => {
-  const artist = value.artistName.toLowerCase().replace(/ /g, '+');
-  const album = value.collectionName.toLowerCase().replace(/ /g, '+');
+  console.log(value);
+  const artist = value.artistName
+    .toLowerCase()
+    .replace(/[¿@#$%^&/|*?"'`]/g, '')
+    .replace(/ /g, '+');
+
+  const album = value.collectionName
+    .toLowerCase()
+    .replace(/[¿@#$%^&/|*?"'`]/g, '')
+    .replace(/ /g, '+');
 
   return (
     <div className="collection">

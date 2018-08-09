@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const SongList = ({ value }) => {
-  const song = value.trackName.toLowerCase().replace(/ /g, '+');
+  const song = value.trackName
+    .toLowerCase()
+    .replace(/[¿@#$%^&/|*?"'`]/g, '')
+    .replace(/ /g, '+');
 
   return (
     <div className="list__item">

@@ -83,7 +83,7 @@ export default class Search extends Component {
         {this.state.videos ? (
           <React.Fragment>
             <div className="inline">
-              <h3 className="grid__title">Videos</h3>
+              <h3 className="grid__title">Music videos</h3>
 
               <Link
                 to={`/search/${this.props.match.params.query}/music-videos`}>

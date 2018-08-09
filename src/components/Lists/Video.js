@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const VideoList = ({ value }) => {
-  const video = value.trackName.toLowerCase().replace(/ /g, '+');
+  const video = value.trackName
+    .toLowerCase()
+    .replace(/[¿@#$%^&/|*?"'`]/g, '')
+    .replace(/ /g, '+');
 
   return (
     <div className="videos__list">

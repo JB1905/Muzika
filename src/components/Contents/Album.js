@@ -30,6 +30,7 @@ export class AlbumContent extends Component {
                 className="link content__link--artist"
                 to={`/artist/${value[0].artistName
                   .toLowerCase()
+                  .replace(/[¿@#$%^&/|*?"'`]/g, '')
                   .replace(/ /g, '+')}/${value[0].artistId}`}>
                 {value[0].artistName}
               </Link>
