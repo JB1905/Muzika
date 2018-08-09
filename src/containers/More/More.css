@@ -1,5 +1,5 @@
 .more {
-  color: #ec445a;
+  color: var(--link-color);
   position: absolute;
   right: 26px;
   top: 15px;

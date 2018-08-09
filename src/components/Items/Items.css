@@ -13,7 +13,7 @@
 
 .video__img {
   position: relative;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-light);
   margin-bottom: 6px;
   border-radius: 4px;
   height: 0;
@@ -34,7 +34,7 @@
 }
 
 .dark .video__img {
-  border: 1px solid #444;
+  border: 1px solid var(--border-dark);
 }
 
 .track__secondary {
@@ -48,17 +48,17 @@
 }
 
 .collection__img {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-light);
   width: 100%;
   border-radius: 4px;
 }
 
 .dark .collection__img {
-  border: 1px solid #444;
+  border: 1px solid var(--border-dark);
 }
 
 .track__img {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-light);
   border-radius: 4px;
   height: auto;
   width: 50px;
@@ -66,7 +66,7 @@
 }
 
 .dark .track__img {
-  border: 1px solid #444;
+  border: 1px solid var(--border-dark);
 }
 
 .track__primary {

@@ -58,7 +58,7 @@ export default class Artist extends Component {
                 to={`/artist/${this.state.artist[0].artistName}/${
                   this.state.artist[0].artistId
                 }/songs`}>
-                <p className="more">Show more...</p>
+                <p className="link more">Show more...</p>
               </Link>
             </div>
 
@@ -79,7 +79,7 @@ export default class Artist extends Component {
                 to={`/artist/${this.state.artist[0].artistName}/${
                   this.state.artist[0].artistId
                 }/albums`}>
-                <p className="more">Show more...</p>
+                <p className="link more">Show more...</p>
               </Link>
             </div>
 
@@ -100,7 +100,7 @@ export default class Artist extends Component {
                 to={`/artist/${this.state.artist[0].artistName}/${
                   this.state.artist[0].artistId
                 }/music-videos`}>
-                <p className="more">Show more...</p>
+                <p className="link more">Show more...</p>
               </Link>
             </div>
 

@@ -46,7 +46,7 @@ export default class Search extends Component {
               <h3 className="grid__title">Songs</h3>
 
               <Link to={`/search/${this.props.match.params.query}/songs`}>
-                <p className="more">Show more...</p>
+                <p className="link more">Show more...</p>
               </Link>
             </div>
 
@@ -64,7 +64,7 @@ export default class Search extends Component {
               <h3 className="grid__title">Albums</h3>
 
               <Link to={`/search/${this.props.match.params.query}/albums`}>
-                <p className="more">Show more...</p>
+                <p className="link more">Show more...</p>
               </Link>
             </div>
 
@@ -83,7 +83,7 @@ export default class Search extends Component {
 
               <Link
                 to={`/search/${this.props.match.params.query}/music-videos`}>
-                <p className="more">Show more...</p>
+                <p className="link more">Show more...</p>
               </Link>
             </div>
 

@@ -1,14 +1,14 @@
 .list__item {
   display: flex;
   padding: 10px 6px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-light);
   align-items: center;
 }
 
 .dark .list__item {
   display: flex;
   padding: 10px 6px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .list__item .song-link {

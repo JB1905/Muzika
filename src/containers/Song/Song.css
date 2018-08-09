@@ -1,4 +1,3 @@
-.song .content {
-  display: flex;
-  flex-wrap: wrap;
+.lyrics {
+  margin-top: 20px;
 }

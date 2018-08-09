@@ -9,13 +9,13 @@ export const AlbumContent = ({ value }) => {
 
   return (
     <div className="video">
-      <div className="container--md">
+      <div className="container container--md">
         <video controls>
           <source src={value.previewUrl} type="video/mp4" />
         </video>
       </div>
 
-      <div className="container--sm">
+      <div className="container container--sm">
         <h2>
           {value.trackName}
           <span className={value.trackExplicitness} />

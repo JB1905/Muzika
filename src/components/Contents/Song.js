@@ -23,7 +23,7 @@ export class SongContent extends Component {
 
     return (
       <React.Fragment>
-        <div className="container--sm">
+        <div className="container container--sm">
           <img
             className="artwork content__artwork"
             src={data.artworkUrl100.replace('100x100', '400x400')}
@@ -39,7 +39,7 @@ export class SongContent extends Component {
           </audio>
         </div>
 
-        <div className="container--md">
+        <div className="container container--md">
           <div className="content__header">
             <h2 className="title title--song">
               {data.trackName}

@@ -37,7 +37,7 @@ export default class Album extends Component {
 
     return album ? (
       <div className="album">
-        <div className="container--sm">
+        <div className="container container--sm">
           <img
             className="artwork"
             src={album[0].artworkUrl100.replace('100x100', '400x400')}
@@ -45,7 +45,7 @@ export default class Album extends Component {
           />
         </div>
 
-        <div className="container--md">
+        <div className="container container--md">
           <div className="content__header">
             <h2 className="title">
               {album[0].collectionName}
