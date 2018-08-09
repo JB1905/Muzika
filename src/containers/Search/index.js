@@ -40,6 +40,10 @@ export default class Search extends Component {
   render() {
     return (
       <React.Fragment>
+        <div className="header__title">
+          <h2>Results for: {this.props.match.params.query}</h2>
+        </div>
+
         {this.state.songs ? (
           <React.Fragment>
             <div className="inline">

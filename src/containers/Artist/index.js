@@ -45,7 +45,7 @@ export default class Artist extends Component {
   render() {
     return this.state.artist ? (
       <React.Fragment>
-        <div className="artist">
+        <div className="header__title">
           <h2>{this.state.artist[0].artistName}</h2>
         </div>
 

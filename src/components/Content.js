@@ -31,9 +31,7 @@ export default class Content extends Component {
         <Route exact path="/" component={Welcome} />
         <Route exact path="/search" render={() => <Redirect to="/" />} />
         <Route exact path="/search/:query" component={Search} />
-        {/*<Route exact path="/search/:query/songs" component={Artist} />
-        <Route exact path="/search/:query/albums" component={Artist} />
-        <Route exact path="/search/:query/music-videos" component={Artist} />*/}
+        <Route exact path="/search/:query/:type" component={More} />
         <Route exact path="/album" render={() => <Redirect to="/" />} />
         <Route exact path="/album/:name/:id" component={Album} />
         <Route exact path="/music-video" render={() => <Redirect to="/" />} />

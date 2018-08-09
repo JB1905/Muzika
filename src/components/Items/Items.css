@@ -5,6 +5,7 @@
   min-width: 284px;
 }
 
+.container--vertical .video,
 .videos__container .video {
   display: inline-block;
   width: 132px;

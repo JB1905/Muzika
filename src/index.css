@@ -130,6 +130,7 @@ h2 span.explicit {
   font-size: 10px;
 }
 
+.container--vertical .explicit::before,
 .collection .explicit::before,
 .videos__container .explicit::before,
 .list__item .explicit::before,
@@ -154,9 +155,12 @@ h2 span.explicit::before {
 .content__link--album,
 .content__link--artist {
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   max-width: calc(100% - 28px);
+}
+
+.content__link--album {
+  overflow: hidden;
 }
 
 .list__link--artist,

@@ -80,7 +80,7 @@
   color: var(--headers-color);
 }
 
-.artist {
+.header__title {
   background-color: #fdfdfdf4;
   padding-top: 10px;
   z-index: 100;
@@ -90,13 +90,13 @@
   border-bottom: 1px solid var(--border-light);
 }
 
-.artist h2 {
+.header__title h2 {
   margin: 0 auto;
   padding: 10px 26px;
   max-width: 1250px;
 }
 
-.dark .artist {
+.dark .header__title {
   background-color: #131a20f4;
   border-bottom: 1px solid var(--border-dark);
 }
@@ -124,7 +124,6 @@
 }
 
 .button--play {
-  display: none;
   transition: all 120ms ease;
   bottom: 25px;
   right: 25px;
@@ -180,7 +179,7 @@
     padding: 0px 14px;
   }
 
-  .artist h2 {
+  .header__title h2 {
     padding: 10px 14px;
   }
 
