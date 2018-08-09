@@ -10,24 +10,9 @@ import Video from '../containers/Video';
 import More from '../containers/More';
 
 export default class Content extends Component {
-  state = { query: this.props.value, redirect: null };
-
-  componentDidUpdate(props) {
-    if (props.value !== this.state.query) {
-      this.setState({ query: props.value });
-
-      /*  if (props.value !== '' && window.location.pathname !== '') {
-        this.setState({ redirect: <Redirect to={`/search/${props.value}`} /> });
-      } else if (props.value === '' && window.location.pathname === '') {
-        this.setState({ redirect: <Redirect to={`/`} /> });
-      }*/
-    }
-  }
-
   render() {
     return (
       <Switch>
-        {this.state.redirect}
         <Route exact path="/" component={Welcome} />
         <Route exact path="/search" render={() => <Redirect to="/" />} />
         <Route exact path="/search/:query" component={Search} />
@@ -41,6 +26,7 @@ export default class Content extends Component {
         <Route exact path="/artist/:name/:id/:type" component={More} />
         <Route exact path="/song" render={() => <Redirect to="/" />} />
         <Route exact path="/song/:name/:id" component={Song} />
+        <Redirect from="/search" to={`/search/${this.props.value}`} />
       </Switch>
     );
   }
