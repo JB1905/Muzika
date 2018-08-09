@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './SearchForm.css';
 
@@ -29,7 +30,7 @@ export default class SearchForm extends Component {
           onChange={this.handleChange}
         />
         <button className="toggle" onClick={this.handleClick}>
-          &#128269;
+          <FontAwesomeIcon icon="search" />
         </button>
       </div>
     );

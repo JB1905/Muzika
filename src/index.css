@@ -87,9 +87,6 @@ video {
 }
 
 .artwork {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 25px;
   width: 100%;
   height: auto;
   border-radius: 4px;
@@ -97,13 +94,11 @@ video {
 
 video,
 .artwork {
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.34);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.34);
 }
 
 .dark video,
 .dark .artwork {
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.34);
   box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.34);
 }
 
@@ -219,7 +214,7 @@ h2 span.explicit::before {
     margin: 0;
   }
 
-  .artwork {
+  aside {
     width: calc(100% / 2 - 20px);
     margin-bottom: 14px;
     top: 0;

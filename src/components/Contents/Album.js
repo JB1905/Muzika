@@ -1,42 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-export const AlbumContent = ({ value }) => {
-  const album = value.collectionName
-    ? value.collectionName.toLowerCase().replace(/ /g, '+')
-    : null;
-  const artist = value.artistName.toLowerCase().replace(/ /g, '+');
+export class AlbumContent extends Component {
+  render() {
+    const { value } = this.props;
 
-  return (
-    <div className="video">
-      <div className="container container--md">
-        <video controls>
-          <source src={value.previewUrl} type="video/mp4" />
-        </video>
-      </div>
+    return (
+      <React.Fragment>
+        <div className="container container--sm">
+          <aside>
+            <img
+              className="artwork"
+              src={value[0].artworkUrl100.replace('100x100', '400x400')}
+              alt=""
+            />
+          </aside>
+        </div>
 
-      <div className="container container--sm">
-        <h2>
-          {value.trackName}
-          <span className={value.trackExplicitness} />
-        </h2>
+        <div className="container container--md">
+          <div className="content__header">
+            <h2 className="title">
+              {value[0].collectionName}
+              <span className={value[0].collectionExplicitness} />
+            </h2>
 
-        {value.collectionId ? (
-          <div className="content__link--song">
-            <Link to={`/album/${album}/${value.collectionId}`}>
-              <span>{value.collectionName}</span>
-            </Link>
+            <p>
+              By:{' '}
+              <Link
+                className="link content__link--artist"
+                to={`/artist/${value[0].artistName
+                  .toLowerCase()
+                  .replace(/ /g, '+')}/${value[0].artistId}`}>
+                {value[0].artistName}
+              </Link>
+            </p>
+
+            <p className="about about--album">
+              {value[0].primaryGenreName} &bull;{' '}
+              {value[0].releaseDate.substring(0, 4)}
+            </p>
           </div>
-        ) : null}
 
-        <Link to={`/artist/${artist}/${value.artistId}`}>
-          <h3>{value.artistName}</h3>
-        </Link>
+          {this.props.children}
 
-        <p>
-          {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}
-        </p>
-      </div>
-    </div>
-  );
-};
+          <div className="copyright">{value[0].copyright}</div>
+        </div>
+      </React.Fragment>
+    );
+  }
+}

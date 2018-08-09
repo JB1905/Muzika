@@ -71,5 +71,6 @@
 }
 
 .track__primary {
+  position: relative;
   margin-right: 8px;
 }

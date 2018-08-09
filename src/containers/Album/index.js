@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
+import { AlbumContent } from '../../components/Contents';
 import { SongList, VideoList } from '../../components/Lists';
 import { Spinner } from '../../components/Spinner';
 import { album } from '../../api';
@@ -37,38 +37,7 @@ export default class Album extends Component {
 
     return album ? (
       <div className="album">
-        <div className="container container--sm">
-          <img
-            className="artwork"
-            src={album[0].artworkUrl100.replace('100x100', '400x400')}
-            alt=""
-          />
-        </div>
-
-        <div className="container container--md">
-          <div className="content__header">
-            <h2 className="title">
-              {album[0].collectionName}
-              <span className={album[0].collectionExplicitness} />
-            </h2>
-
-            <p>
-              By:{' '}
-              <Link
-                className="link content__link--artist"
-                to={`/artist/${album[0].artistName
-                  .toLowerCase()
-                  .replace(/ /g, '+')}/${album[0].artistId}`}>
-                {album[0].artistName}
-              </Link>
-            </p>
-
-            <p className="about about--album">
-              {album[0].primaryGenreName} &bull;{' '}
-              {album[0].releaseDate.substring(0, 4)}
-            </p>
-          </div>
-
+        <AlbumContent value={album}>
           {songs}
 
           {videos ? (
@@ -79,9 +48,7 @@ export default class Album extends Component {
               </div>
             </React.Fragment>
           ) : null}
-
-          <div className="copyright">{album[0].copyright}</div>
-        </div>
+        </AlbumContent>
       </div>
     ) : (
       <Spinner />

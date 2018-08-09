@@ -7,21 +7,22 @@ export const AlbumItem = ({ value }) => {
 
   return (
     <div className="collection">
-      <div className="collection__primary">
+      <section className="collection__primary">
         <img
           className="collection__img"
           src={value.artworkUrl100.replace('100x100', '200x200')}
           alt=""
         />
-      </div>
+      </section>
 
-      <div className="collection__secondary">
+      <section className="collection__secondary">
         <div className="inline">
           <Link
             className="link list__link--album"
             to={`/album/${album}/${value.collectionId}`}>
             {value.collectionName}
           </Link>
+
           <span className={value.collectionExplicitness} />
         </div>
 
@@ -32,7 +33,7 @@ export const AlbumItem = ({ value }) => {
         </Link>
 
         <div className={value.trackExplicitness} />
-      </div>
+      </section>
     </div>
   );
 };

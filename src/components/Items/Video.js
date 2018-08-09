@@ -7,19 +7,20 @@ export const VideoItem = ({ value }) => {
 
   return (
     <div className="video">
-      <div className="video__primary">
+      <section className="video__primary">
         <div className="video__img">
           <img src={value.artworkUrl100.replace('100x100', '200x200')} alt="" />
         </div>
-      </div>
+      </section>
 
-      <div className="video__secondary">
+      <section className="video__secondary">
         <div className="inline">
           <Link
             className="link list__link--video"
             to={`/music-video/${video}/${value.trackId}`}>
             {value.trackName}
           </Link>
+
           <span className={value.trackExplicitness} />
         </div>
 
@@ -28,7 +29,7 @@ export const VideoItem = ({ value }) => {
           to={`/artist/${artist}/${value.artistId}`}>
           {value.artistName}
         </Link>
-      </div>
+      </section>
     </div>
   );
 };

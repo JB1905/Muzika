@@ -8,6 +8,10 @@ export const SongList = ({ value }) => {
     <div className="list__item">
       <p className="index">{value.trackNumber}.</p>
 
+      <audio ref={el => (this.el = el)} preload="false">
+        <source src={value.previewUrl} />
+      </audio>
+
       <Link
         className="link list__link--song"
         to={`/song/${song}/${value.trackId}`}>

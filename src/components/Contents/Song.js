@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class SongContent extends Component {
   state = { play: false };
@@ -24,19 +25,25 @@ export class SongContent extends Component {
     return (
       <React.Fragment>
         <div className="container container--sm">
-          <img
-            className="artwork content__artwork"
-            src={data.artworkUrl100.replace('100x100', '400x400')}
-            alt=""
-          />
+          <aside>
+            <img
+              className="artwork content__artwork"
+              src={data.artworkUrl100.replace('100x100', '400x400')}
+              alt=""
+            />
 
-          <button className="button--play" onClick={this.toggle}>
-            &#9654;
-          </button>
+            <button className="button--play" onClick={this.toggle}>
+              {this.state.play ? (
+                <FontAwesomeIcon icon="pause" />
+              ) : (
+                <FontAwesomeIcon icon="play" />
+              )}
+            </button>
 
-          <audio ref={el => (this.el = el)} preload="false">
-            <source src={data.previewUrl} />
-          </audio>
+            <audio ref={el => (this.el = el)} preload="false">
+              <source src={data.previewUrl} />
+            </audio>
+          </aside>
         </div>
 
         <div className="container container--md">
