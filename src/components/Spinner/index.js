@@ -5,8 +5,8 @@ import './Spinner.css';
 export const Spinner = () => {
   return (
     <div className="spinner">
-      <div className="double-bounce1" />
-      <div className="double-bounce2" />
+      <div className="spinner__bounce--1" />
+      <div className="spinner__bounce--2" />
     </div>
   );
 };

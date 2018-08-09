@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Song, Video } from '../../components/Parts';
+import { SongList, VideoList } from '../../components/Lists';
 import { Spinner } from '../../components/Spinner';
 import { album } from '../../api';
 
@@ -17,16 +17,16 @@ export default class Album extends Component {
       const data = res.data;
       this.setState({ album: res.data });
 
-      const songs = [];
-      const videos = [];
+      let songs = [];
+      let videos = [];
 
       data.map(value => {
-        if (value.kind === 'song') {
-          songs.push(<Song value={value} />);
-        } else if (value.kind === 'music-video') {
-          videos.push(<Video value={value} />);
-        }
+        if (value.kind === 'song') songs.push(<SongList value={value} />);
+        else if (value.kind === 'music-video')
+          videos.push(<VideoList value={value} />);
       });
+
+      if (videos.length === 0) videos = null;
 
       this.setState({ songs: songs, videos: videos });
     });
@@ -35,15 +35,9 @@ export default class Album extends Component {
   render() {
     const { album, songs, videos } = this.state;
 
-    let artist;
-
-    if (album) {
-      artist = album[0].artistName.toLowerCase().replace(/ /g, '+');
-    }
-
     return album ? (
       <div className="album">
-        <div className="container-small">
+        <div className="container--sm">
           <img
             className="artwork"
             src={album[0].artworkUrl100.replace('100x100', '400x400')}
@@ -51,21 +45,40 @@ export default class Album extends Component {
           />
         </div>
 
-        <div className="container-middle">
-          <h2>
-            {album[0].collectionName}
-            <span className={album[0].collectionExplicitness} />
-          </h2>
-          <Link to={`/artist/${artist}/${album[0].artistId}`}>
-            <h3>{album[0].artistName}</h3>
-          </Link>
-          <p className="album__about">
-            {album[0].primaryGenreName} &bull;{' '}
-            {album[0].releaseDate.substring(0, 4)}
-          </p>
+        <div className="container--md">
+          <div className="content__header">
+            <h2 className="title">
+              {album[0].collectionName}
+              <span className={album[0].collectionExplicitness} />
+            </h2>
+
+            <p>
+              By:{' '}
+              <Link
+                className="link content__link--artist"
+                to={`/artist/${album[0].artistName
+                  .toLowerCase()
+                  .replace(/ /g, '+')}/${album[0].artistId}`}>
+                {album[0].artistName}
+              </Link>
+            </p>
+
+            <p className="about about--album">
+              {album[0].primaryGenreName} &bull;{' '}
+              {album[0].releaseDate.substring(0, 4)}
+            </p>
+          </div>
 
           {songs}
-          {videos}
+
+          {videos ? (
+            <React.Fragment>
+              <h3 className="grid__title">Videos</h3>
+              <div className="grid">
+                <div className="videos__container">{videos}</div>
+              </div>
+            </React.Fragment>
+          ) : null}
 
           <div className="copyright">{album[0].copyright}</div>
         </div>

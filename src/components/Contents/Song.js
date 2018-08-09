@@ -2,51 +2,71 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export class SongContent extends Component {
+  state = { play: false };
+
+  toggle = () => {
+    if (this.state.play) {
+      this.setState({ play: false });
+      this.el.pause();
+    } else {
+      this.setState({ play: true });
+      this.el.play();
+    }
+  };
+
   render() {
-    const value = this.props.value;
-    const album = value.collectionName
-      ? value.collectionName.toLowerCase().replace(/ /g, '+')
+    const data = this.props.value;
+    const album = data.collectionName
+      ? data.collectionName.toLowerCase().replace(/ /g, '+')
       : null;
-    const artist = value.artistName.toLowerCase().replace(/ /g, '+');
+    const artist = data.artistName.toLowerCase().replace(/ /g, '+');
 
     return (
       <React.Fragment>
-        <div className="container-small">
+        <div className="container--sm">
           <img
-            className="artwork"
-            src={value.artworkUrl100.replace('100x100', '400x400')}
+            className="artwork content__artwork"
+            src={data.artworkUrl100.replace('100x100', '400x400')}
             alt=""
           />
 
-          <button className="play" onClick={null}>
+          <button className="button--play" onClick={this.toggle}>
             &#9654;
           </button>
 
-          <audio className="player" preload="false">
-            <source src={value.previewUrl} />
+          <audio ref={el => (this.el = el)} preload="false">
+            <source src={data.previewUrl} />
           </audio>
         </div>
 
-        <div className="container-middle">
-          <h2>
-            {value.trackName}
-            <span className={value.trackExplicitness} />
-          </h2>
+        <div className="container--md">
+          <div className="content__header">
+            <h2 className="title title--song">
+              {data.trackName}
+              <span className={data.trackExplicitness} />
+            </h2>
 
-          <div className="song__link">
-            Album: &nbsp;
-            <Link to={`/album/${album}/${value.collectionId}`}>
-              <span>{value.collectionName}</span>
-            </Link>
+            <p>
+              <Link
+                className="link content__link--album"
+                to={`/album/${album}/${data.collectionId}`}>
+                {data.collectionName}
+              </Link>
+            </p>
+
+            <p>
+              By:{' '}
+              <Link
+                className="link content__link--artist"
+                to={`/artist/${artist}/${data.artistId}`}>
+                {data.artistName}
+              </Link>
+            </p>
+
+            <p className="about about--song">
+              {data.primaryGenreName} &bull; {data.releaseDate.substring(0, 4)}
+            </p>
           </div>
-
-          <Link to={`/artist/${artist}/${value.artistId}`}>
-            <h3>{value.artistName}</h3>
-          </Link>
-
-          <p className="album__about">
-            {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}
-          </p>
 
           {this.props.children}
         </div>

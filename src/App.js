@@ -3,8 +3,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Darky from 'darky';
 
 import './App.css';
-import Menu from './components/Menu';
-import { Content } from './components/Content';
+import SearchForm from './components/SearchForm';
+import Content from './components/Content';
 
 const darky = new Darky();
 
@@ -18,7 +18,7 @@ export default class App extends Component {
     return (
       <Router basename={'/Muzika'}>
         <React.Fragment>
-          <Menu dataSearch={this.getValue} />
+          <SearchForm dataSearch={this.getValue} />
           <Content value={this.state.searchValue} />
         </React.Fragment>
       </Router>

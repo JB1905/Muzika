@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Spinner } from '../../components/Spinner';
-import { Song, Video, Album } from '../../components/Lists';
-import { artist, listSongs, listAlbums, listVideos } from '../../api';
+import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
+import { artist, list } from '../../api';
 
 import './Artist.css';
 
@@ -15,26 +15,27 @@ export default class Artist extends Component {
 
     artist(id, res => this.setState({ artist: res.data }));
 
-    listSongs(id, res => {
+    list({ id: id, entity: 'song', limit: 12 }, res => {
       const songs = res.data.map(
-        value => (value.kind === 'song' ? <Song value={value} /> : null)
+        value => (value.kind === 'song' ? <SongItem value={value} /> : null)
       );
 
       this.setState({ songs: songs });
     });
 
-    listAlbums(id, res => {
+    list({ id: id, entity: 'album', limit: 16 }, res => {
       const albums = res.data.map(
         value =>
-          value.collectionType === 'Album' ? <Album value={value} /> : null
+          value.collectionType === 'Album' ? <AlbumItem value={value} /> : null
       );
 
       this.setState({ albums: albums });
     });
 
-    listVideos(id, res => {
+    list({ id: id, entity: 'musicVideo', limit: 8 }, res => {
       const videos = res.data.map(
-        value => (value.kind === 'music-video' ? <Video value={value} /> : null)
+        value =>
+          value.kind === 'music-video' ? <VideoItem value={value} /> : null
       );
 
       this.setState({ videos: videos });
@@ -49,43 +50,64 @@ export default class Artist extends Component {
         </div>
 
         {this.state.songs ? (
-          <div className="grid">
-            <h3 className="grid__title">Songs</h3>
+          <React.Fragment>
+            <div className="inline">
+              <h3 className="grid__title">Songs</h3>
 
-            {/*<Link to={`/`}>
-              <p>Show more...</p>
-            </Link>*/}
+              <Link
+                to={`/artist/${this.state.artist[0].artistName}/${
+                  this.state.artist[0].artistId
+                }/songs`}>
+                <p className="more">Show more...</p>
+              </Link>
+            </div>
 
-            <div className="songs__container">{this.state.songs}</div>
-          </div>
+            <div className="grid">
+              <div className="songs__container">{this.state.songs}</div>
+            </div>
+          </React.Fragment>
         ) : (
           <Spinner />
         )}
 
         {this.state.albums ? (
-          <div className="grid">
-            <h3 className="grid__title">Albums</h3>
+          <React.Fragment>
+            <div className="inline">
+              <h3 className="grid__title">Albums</h3>
 
-            {/*<Link to={`/`}>
-              <p>Show more...</p>
-            </Link>*/}
+              <Link
+                to={`/artist/${this.state.artist[0].artistName}/${
+                  this.state.artist[0].artistId
+                }/albums`}>
+                <p className="more">Show more...</p>
+              </Link>
+            </div>
 
-            <div className="albums__container">{this.state.albums}</div>
-          </div>
+            <div className="grid">
+              <div className="albums__container">{this.state.albums}</div>
+            </div>
+          </React.Fragment>
         ) : (
           <Spinner />
         )}
 
         {this.state.videos ? (
-          <div className="grid">
-            <h3 className="grid__title">Videos</h3>
+          <React.Fragment>
+            <div className="inline">
+              <h3 className="grid__title">Videos</h3>
 
-            {/*<Link to={`/`}>
-              <p>Show more...</p>
-            </Link>*/}
+              <Link
+                to={`/artist/${this.state.artist[0].artistName}/${
+                  this.state.artist[0].artistId
+                }/music-videos`}>
+                <p className="more">Show more...</p>
+              </Link>
+            </div>
 
-            <div className="videos__container">{this.state.videos}</div>
-          </div>
+            <div className="grid">
+              <div className="videos__container">{this.state.videos}</div>
+            </div>
+          </React.Fragment>
         ) : (
           <Spinner />
         )}

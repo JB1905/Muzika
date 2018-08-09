@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Album = ({ value }) => {
+export const AlbumItem = ({ value }) => {
   const artist = value.artistName.toLowerCase().replace(/ /g, '+');
   const album = value.collectionName.toLowerCase().replace(/ /g, '+');
 
@@ -16,12 +16,19 @@ export const Album = ({ value }) => {
       </div>
 
       <div className="collection__secondary">
-        <Link to={`/album/${album}/${value.collectionId}`}>
-          <p className="album-link">{value.collectionName}</p>
-        </Link>
+        <div className="inline">
+          <Link
+            className="link list__link--album"
+            to={`/album/${album}/${value.collectionId}`}>
+            {value.collectionName}
+          </Link>
+          <span className={value.collectionExplicitness} />
+        </div>
 
-        <Link to={`/artist/${artist}/${value.artistId}`}>
-          <p className="author-link">{value.artistName}</p>
+        <Link
+          className="link list__link--artist"
+          to={`/artist/${artist}/${value.artistId}`}>
+          {value.artistName}
         </Link>
 
         <div className={value.trackExplicitness} />

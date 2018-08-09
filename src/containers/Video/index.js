@@ -12,15 +12,14 @@ export default class Video extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    video(id, res => {
-      const data = res.data[0];
-      const video = <VideoContent value={data} />;
-
-      this.setState({ video: video });
-    });
+    video(id, res => this.setState({ video: res.data[0] }));
   }
 
   render() {
-    return this.state.video ? this.state.video : <Spinner />;
+    return this.state.video ? (
+      <VideoContent value={this.state.video} />
+    ) : (
+      <Spinner />
+    );
   }
 }

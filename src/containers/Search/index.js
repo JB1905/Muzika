@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Spinner } from '../../components/Spinner';
-import { Song, Video, Album } from '../../components/Lists';
-import { searchSongs, searchAlbums, searchVideos } from '../../api';
+import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
+import { search } from '../../api';
 
 import './Search.css';
 
@@ -11,21 +12,26 @@ export default class Search extends Component {
 
   componentDidMount = () => this.results(this.props.match.params.query);
 
+  /*componentWillReceiveProps(newProps) {
+    if (newProps.match.params.query !== this.props.match.params.query) {
+    }
+  }*/
+
   results(query) {
-    searchSongs(query, res => {
-      const songs = res.data.map(value => <Song value={value} />);
+    search({ term: query, entity: 'song', limit: 12 }, res => {
+      const songs = res.data.map(value => <SongItem value={value} />);
 
       this.setState({ songs: songs });
     });
 
-    searchAlbums(query, res => {
-      const albums = res.data.map(value => <Album value={value} />);
+    search({ term: query, entity: 'album', limit: 16 }, res => {
+      const albums = res.data.map(value => <AlbumItem value={value} />);
 
       this.setState({ albums: albums });
     });
 
-    searchVideos(query, res => {
-      const videos = res.data.map(value => <Video value={value} />);
+    search({ term: query, entity: 'musicVideo', limit: 8 }, res => {
+      const videos = res.data.map(value => <VideoItem value={value} />);
 
       this.setState({ videos: videos });
     });
@@ -35,28 +41,56 @@ export default class Search extends Component {
     return (
       <React.Fragment>
         {this.state.songs ? (
-          <div className="grid">
-            <h3 className="grid__title">Songs</h3>
-            <div className="songs__container">{this.state.songs}</div>
-          </div>
+          <React.Fragment>
+            <div className="inline">
+              <h3 className="grid__title">Songs</h3>
+
+              <Link to={`/search/${this.props.match.params.query}/songs`}>
+                <p className="more">Show more...</p>
+              </Link>
+            </div>
+
+            <div className="grid">
+              <div className="songs__container">{this.state.songs}</div>
+            </div>
+          </React.Fragment>
         ) : (
           <Spinner />
         )}
 
         {this.state.albums ? (
-          <div className="grid">
-            <h3 className="grid__title">Albums</h3>
-            <div className="albums__container">{this.state.albums}</div>
-          </div>
+          <React.Fragment>
+            <div className="inline">
+              <h3 className="grid__title">Albums</h3>
+
+              <Link to={`/search/${this.props.match.params.query}/albums`}>
+                <p className="more">Show more...</p>
+              </Link>
+            </div>
+
+            <div className="grid">
+              <div className="albums__container">{this.state.albums}</div>
+            </div>
+          </React.Fragment>
         ) : (
           <Spinner />
         )}
 
         {this.state.videos ? (
-          <div className="grid">
-            <h3 className="grid__title">Videos</h3>
-            <div className="videos__container">{this.state.videos}</div>
-          </div>
+          <React.Fragment>
+            <div className="inline">
+              <h3 className="grid__title">Videos</h3>
+
+              <Link
+                to={`/search/${this.props.match.params.query}/music-videos`}>
+                <p className="more">Show more...</p>
+              </Link>
+            </div>
+
+            <div className="grid">
+              <div className="videos__container">{this.state.videos}</div>
+            </div>
+          </React.Fragment>
         ) : (
           <Spinner />
         )}

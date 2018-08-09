@@ -19,17 +19,8 @@ body.dark {
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
-.album__about {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-}
-
-.dark .album__about {
-  border-bottom: 1px solid #444;
+.light {
+  font-weight: 400;
 }
 
 .secondary a {
@@ -37,7 +28,6 @@ a {
 }
 
 h1 {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2);
   margin: 0;
   color: #ec445a;
   font-size: 130px;
@@ -54,13 +44,13 @@ video {
   width: 100%;
 }
 
-.container-small h2 {
+.container--sm h2 {
   margin-top: 0px;
   margin-bottom: 10px;
   color: #ec445a;
 }
 
-.container-small h3 {
+.container--sm h3 {
   margin: 10px auto;
 }
 
@@ -71,10 +61,10 @@ video {
   width: 100px;
 }
 
-.primary > div {
+.container--sm > div {
   position: sticky;
   position: -webkit-sticky;
-  top: 30px;
+  top: 20px;
 }
 
 h3 {
@@ -82,24 +72,17 @@ h3 {
   color: #ec445a;
 }
 
-.title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 140px);
-}
-
-.container-full {
+.container--lg {
   width: calc(100% - 24px);
   margin: 0 12px;
 }
 
-.container-small {
+.container--sm {
   width: calc(100% / 3 - 24px);
   margin: 0 12px;
 }
 
-.container-middle {
+.container--md {
   text-align: left;
   width: calc(100% / 3 * 2 - 24px);
   margin: 0 12px;
@@ -115,7 +98,7 @@ h3 {
 
 .content {
   position: relative;
-  width: calc(100% - 115px);
+  width: 100%;
 }
 
 .artwork {
@@ -151,7 +134,7 @@ video,
 }
 
 .explicit {
-  margin-top: -3px;
+  margin-top: -5px;
 }
 
 span.explicit,
@@ -173,6 +156,7 @@ h2 span.explicit {
   font-size: 10px;
 }
 
+.collection .explicit::before,
 .videos__container .explicit::before,
 .list__item .explicit::before,
 .track .explicit::before {
@@ -193,11 +177,18 @@ h2 span.explicit::before {
   color: #21272d;
 }
 
-.list__item .song-link {
-  width: 330px;
+.content__link--album,
+.content__link--artist {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 28px);
 }
 
-.song-link {
+.list__link--artist,
+.list__link--song,
+.list__link--album,
+.list__link--video {
   color: #ec445a;
   margin: 0;
   white-space: nowrap;
@@ -205,6 +196,7 @@ h2 span.explicit::before {
   text-overflow: ellipsis;
   font-size: 18px;
   width: 100%;
+  max-width: 350px;
 }
 
 .album-link {
@@ -217,26 +209,38 @@ h2 span.explicit::before {
   margin: 4px 0;
 }
 
-.song__link {
+.inline {
+  max-width: 1250px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inline a {
+  max-width: calc(100% - 30px);
+}
+
+.inline .explicit {
+  margin: -3px -8px 0 8px;
+}
+
+.content__link--song {
   color: #ec445a;
   font-size: 18px;
   margin-bottom: 10px;
 }
 
-.song__link a {
+.content__link--song a {
   color: #ec445a;
   display: inline;
-}
-
-.price {
-  margin: 14px 8px;
 }
 
 .author-link {
   color: #ec445a;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ;
   width: 100%;
   font-weight: 700;
   font-size: 14px;
@@ -244,18 +248,23 @@ h2 span.explicit::before {
 }
 
 @media screen and (max-width: 600px) {
-  .container-small,
-  .container-middle {
+  h1 {
+    font-size: 80px;
+  }
+
+  .container--sm,
+  .container--md {
     width: 100%;
+  }
+
+  .container--sm,
+  .container--md {
+    margin: 0;
   }
 
   .artwork {
     top: 0;
     position: relative;
-  }
-
-  .artist-pic {
-    margin-bottom: 14px;
   }
 
   video {

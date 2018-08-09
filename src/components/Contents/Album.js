@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const VideoContent = ({ value }) => {
+export const AlbumContent = ({ value }) => {
   const album = value.collectionName
     ? value.collectionName.toLowerCase().replace(/ /g, '+')
     : null;
@@ -16,29 +16,24 @@ export const VideoContent = ({ value }) => {
       </div>
 
       <div className="container--sm">
-        <h2 className="title title--video">
+        <h2>
           {value.trackName}
           <span className={value.trackExplicitness} />
         </h2>
 
         {value.collectionId ? (
-          <Link
-            className="link content__link--album"
-            to={`/album/${album}/${value.collectionId}`}>
-            <span>{value.collectionName}</span>
-          </Link>
+          <div className="content__link--song">
+            <Link to={`/album/${album}/${value.collectionId}`}>
+              <span>{value.collectionName}</span>
+            </Link>
+          </div>
         ) : null}
 
-        <p>
-          By:{' '}
-          <Link
-            className="link content__link--artist"
-            to={`/artist/${artist}/${value.artistId}`}>
-            {value.artistName}
-          </Link>
-        </p>
+        <Link to={`/artist/${artist}/${value.artistId}`}>
+          <h3>{value.artistName}</h3>
+        </Link>
 
-        <p className="about about--video">
+        <p>
           {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}
         </p>
       </div>

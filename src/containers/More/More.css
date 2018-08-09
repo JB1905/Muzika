@@ -5,3 +5,9 @@
   top: 15px;
   font-weight: 700;
 }
+
+@media screen and (max-width: 600px) {
+  .more {
+    right: 14px;
+  }
+}
