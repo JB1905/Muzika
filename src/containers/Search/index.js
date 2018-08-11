@@ -55,7 +55,6 @@ export default class Search extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <div className="header__title">

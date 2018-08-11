@@ -9,9 +9,7 @@
 }
 
 .grid--vertical .track {
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
+  width: calc(100% - 20px);
 }
 
 .grid--vertical .track:last-child {
@@ -144,23 +142,24 @@
 @supports (padding-left: env(safe-area-inset-left)) {
   .header__title h2,
   .grid__title {
-    padding-left: calc(10px + env(safe-area-inset-left));
-    padding-right: calc(10px + env(safe-area-inset-right));
-    margin-left: 0px;
-    margin-right: 0px;
+    width: 100%;
+    padding-left: calc(26px + env(safe-area-inset-left));
+    padding-right: calc(26px + env(safe-area-inset-right));
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .songs__container,
   .albums__container,
   .videos__container {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: auto;
+    padding-right: auto;
   }
 
   .more,
   .grid {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
@@ -240,6 +239,11 @@
   .videos__container,
   .albums__container {
     width: 1224px;
+  }
+
+  .grid--vertical .track {
+    width: 100%;
+    margin: 3px auto;
   }
 
   .title {
