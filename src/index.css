@@ -61,6 +61,10 @@ video {
   width: 100%;
 }
 
+button:focus {
+  outline: none;
+}
+
 .container--sm {
   width: calc(100% / 3 - 24px);
 }

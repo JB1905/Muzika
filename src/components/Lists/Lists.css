@@ -1,18 +1,29 @@
 .list__item {
   display: flex;
-  padding: 10px 6px;
-  border-bottom: 1px solid var(--border-light);
   align-items: center;
+  padding: 6px 3px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.list__artist {
+  font-size: 11px;
+}
+
+.part {
+  max-width: calc(100% - 40px);
+}
+
+.link .explicit {
+  padding-left: 10px;
 }
 
 .dark .list__item {
-  display: flex;
-  padding: 10px 6px;
   border-bottom: 1px solid var(--border-dark);
 }
 
-.list__item .song-link {
-  padding: 0 10px;
+.list__link--song {
+  font-weight: 500;
+  font-size: 17px;
 }
 
 .videos__container {

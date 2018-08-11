@@ -24,17 +24,21 @@ export default class SearchForm extends Component {
 
   render() {
     return (
-      <div
-        className={`search-form ${this.state.visible ? 'visible' : 'hidden'}`}>
-        <input
-          type="search"
-          placeholder="Search"
-          value={this.props.search}
-          onChange={this.handleChange}
-        />
-        <button className="toggle" onClick={this.handleClick}>
-          <FontAwesomeIcon icon="search" />
-        </button>
+      <div className="form__container">
+        <div
+          className={`search__form ${
+            this.state.visible ? 'visible' : 'hidden'
+          }`}>
+          <input
+            type="search"
+            placeholder="Search"
+            value={this.props.search}
+            onChange={this.handleChange}
+          />
+          <button className="toggle" onClick={this.handleClick}>
+            <FontAwesomeIcon icon="search" />
+          </button>
+        </div>
       </div>
     );
   }

@@ -15,15 +15,16 @@ export const SongList = ({ value }) => {
         <source src={value.previewUrl} />
       </audio>
 
-      <Link
-        className="link list__link--song"
-        to={`/song/${song}/${value.trackId}`}>
-        {value.trackName}
-      </Link>
+      <div className="part">
+        <Link
+          className="link list__link--song"
+          to={`/song/${song}/${value.trackId}`}>
+          {value.trackName}
+          <span className={value.trackExplicitness} />
+        </Link>
 
-      <span className={value.trackExplicitness} />
-
-      <p>{value.artistName}</p>
+        <p className="list__artist">{value.artistName}</p>
+      </div>
     </div>
   );
 };

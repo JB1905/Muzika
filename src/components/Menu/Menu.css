@@ -1,0 +1,57 @@
+.home {
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.34);
+  transition: all 200ms ease-in-out;
+  border: 0;
+  font-size: 20px;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 0 20px;
+  height: 40px;
+  color: #fff;
+  background-color: var(--link-color);
+}
+
+.home:active {
+  transform: scale(0.92);
+}
+
+.active .home {
+  border-radius: 4px;
+}
+
+.home span {
+  padding-left: 10px;
+  font-weight: 500;
+}
+
+.nav--bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+  width: 100vw;
+  background-color: #fdfdfdf4;
+  border-top: 1px solid var(--border-light);
+  position: fixed;
+  bottom: 0px;
+}
+
+.dark .nav--bottom {
+  background-color: #131a20f4;
+  border-top: 1px solid var(--border-dark);
+}
+
+.nav--bottom > div {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1250px;
+}
+
+@media screen and (max-width: 600px) {
+  .home {
+    padding: 0 9px;
+  }
+
+  .home span {
+    display: none;
+  }
+}

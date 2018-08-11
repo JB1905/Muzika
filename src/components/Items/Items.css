@@ -42,6 +42,10 @@
   width: 220px;
 }
 
+.container--vertical .track__secondary {
+  width: calc(100% - 60px);
+}
+
 .collection {
   display: inline-block;
   margin: 4px 10px;

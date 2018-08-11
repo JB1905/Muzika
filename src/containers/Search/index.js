@@ -10,38 +10,56 @@ import './Search.css';
 export default class Search extends Component {
   state = { songs: null, videos: null, albums: null };
 
-  componentDidMount = () => this.results(this.props.match.params.query);
+  componentDidMount = () =>
+    this.results(this.props.location.search.replace('?q=', ''));
 
-  /*componentWillReceiveProps(newProps) {
-    if (newProps.match.params.query !== this.props.match.params.query) {
+  componentWillReceiveProps(newProps) {
+    if (
+      newProps.value !== this.props.history.location.search.replace('?q=', '')
+    ) {
+      this.props.history.push(`/search?q=${newProps.value}`);
+      this.results(newProps.value);
     }
-  }*/
+  }
 
   results(query) {
     search({ term: query, entity: 'song', limit: 12 }, res => {
-      const songs = res.data.map(value => <SongItem value={value} />);
+      if (typeof res.data === 'object' && res.data.length > 0) {
+        const songs = res.data.map(value => <SongItem value={value} />);
 
-      this.setState({ songs: songs });
+        this.setState({ songs: songs });
+      } else {
+        this.setState({ songs: null });
+      }
     });
 
     search({ term: query, entity: 'album', limit: 16 }, res => {
-      const albums = res.data.map(value => <AlbumItem value={value} />);
+      if (typeof res.data === 'object' && res.data.length > 0) {
+        const albums = res.data.map(value => <AlbumItem value={value} />);
 
-      this.setState({ albums: albums });
+        this.setState({ albums: albums });
+      } else {
+        this.setState({ songs: null });
+      }
     });
 
     search({ term: query, entity: 'musicVideo', limit: 8 }, res => {
-      const videos = res.data.map(value => <VideoItem value={value} />);
+      if (typeof res.data === 'object' && res.data.length > 0) {
+        const videos = res.data.map(value => <VideoItem value={value} />);
 
-      this.setState({ videos: videos });
+        this.setState({ videos: videos });
+      } else {
+        this.setState({ songs: null });
+      }
     });
   }
 
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         <div className="header__title">
-          <h2>Results for: {this.props.match.params.query}</h2>
+          <h2>Results for: {this.props.location.search.replace('?q=', '')}</h2>
         </div>
 
         {this.state.songs ? (
@@ -49,7 +67,7 @@ export default class Search extends Component {
             <div className="inline">
               <h3 className="grid__title">Songs</h3>
 
-              <Link to={`/search/${this.props.match.params.query}/songs`}>
+              <Link to={`/search${this.props.location.search}&type=songs`}>
                 <p className="link more">Show more...</p>
               </Link>
             </div>
@@ -67,7 +85,7 @@ export default class Search extends Component {
             <div className="inline">
               <h3 className="grid__title">Albums</h3>
 
-              <Link to={`/search/${this.props.match.params.query}/albums`}>
+              <Link to={`/search${this.props.location.search}&type=albums`}>
                 <p className="link more">Show more...</p>
               </Link>
             </div>
@@ -86,7 +104,7 @@ export default class Search extends Component {
               <h3 className="grid__title">Music videos</h3>
 
               <Link
-                to={`/search/${this.props.match.params.query}/music-videos`}>
+                to={`/search${this.props.location.search}&type=music-videos`}>
                 <p className="link more">Show more...</p>
               </Link>
             </div>

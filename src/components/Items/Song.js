@@ -36,13 +36,13 @@ export class SongItem extends Component {
             <source src={value.previewUrl} />
           </audio>
 
-          <button className="button--play" onClick={this.toggle}>
+          {/*<button className="button--play" onClick={this.toggle}>
             {this.state.play ? (
               <FontAwesomeIcon icon="pause" />
             ) : (
               <FontAwesomeIcon icon="play" />
             )}
-          </button>
+          </button>*/}
         </section>
 
         <section className="track__secondary">

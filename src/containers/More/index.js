@@ -11,7 +11,6 @@ export default class More extends Component {
 
   componentDidMount() {
     const { type } = this.props.match.params;
-    console.log(this.props);
 
     let entity;
     let kind;

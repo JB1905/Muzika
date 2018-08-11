@@ -39,7 +39,9 @@ export class SongContent extends Component {
               alt=""
             />
 
-            <button className="button--play" onClick={this.toggle}>
+            <button
+              className={`button--play ${this.state.play ? 'played' : null}`}
+              onClick={this.toggle}>
               {this.state.play ? (
                 <FontAwesomeIcon icon="pause" />
               ) : (
