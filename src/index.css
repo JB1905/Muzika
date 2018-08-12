@@ -106,45 +106,26 @@ video,
   box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.34);
 }
 
-.explicit {
-  margin-top: -5px;
-}
-
-span.explicit,
-span.notExplicit {
-  width: 40px;
-}
-
-h2 span.explicit {
-  position: absolute;
-  margin-left: 7px;
-  margin-top: -4px;
-}
-
 .explicit::before {
-  content: 'Explicit';
+  margin: 0 8px;
+  color: #fff;
+  content: 'E';
   background-color: var(--headers-color);
-  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
   border-radius: 4px;
+  font-weight: 700;
   font-size: 10px;
 }
 
-.container--vertical .explicit::before,
-.collection .explicit::before,
-.videos__container .explicit::before,
-.list__item .explicit::before,
-.track .explicit::before {
-  content: 'E';
-  font-weight: 700;
-}
-
-h2 span.explicit::before {
-  padding: 4px 7px;
+.content__header--video span.explicit::before,
+.content__header span.explicit::before {
+  width: 21px;
+  height: 21px;
   font-size: 15px;
-}
-
-.explicit::before {
-  color: #fff;
 }
 
 .dark .explicit::before {
@@ -155,7 +136,7 @@ h2 span.explicit::before {
 .content__link--artist {
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: calc(100% - 28px);
+  max-width: 100%;
 }
 
 .content__link--album {
@@ -172,24 +153,15 @@ h2 span.explicit::before {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 18px;
-  width: 100%;
-  max-width: 350px;
+  max-width: 100%;
 }
 
 .inline {
   max-width: 1250px;
-  margin: 0 auto;
+  margin: 0 auto 4px auto;
   position: relative;
   display: flex;
   align-items: center;
-}
-
-.inline a {
-  max-width: calc(100% - 30px);
-}
-
-.inline .explicit {
-  margin: -3px -8px 0 8px;
 }
 
 .content__link--song {
@@ -206,6 +178,18 @@ h2 span.explicit::before {
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 80px;
+  }
+
+  .container {
+    margin: 0;
+  }
+
+  .content__header--video span.explicit::before,
+  .content__header span.explicit::before {
+    margin: 0 6px;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
   }
 
   h2 {

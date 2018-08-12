@@ -58,7 +58,9 @@ export default class Search extends Component {
     return (
       <React.Fragment>
         <div className="header__title">
-          <h2>Results for: {this.props.location.search.replace('?q=', '')}</h2>
+          <h2>
+            Results for: "{this.props.location.search.replace('?q=', '')}"
+          </h2>
         </div>
 
         {this.state.songs ? (
@@ -66,7 +68,7 @@ export default class Search extends Component {
             <div className="inline">
               <h3 className="grid__title">Songs</h3>
 
-              <Link to={`/search${this.props.location.search}&type=songs`}>
+              <Link to={`/songs${this.props.location.search}`}>
                 <p className="link more">Show more...</p>
               </Link>
             </div>
@@ -84,7 +86,7 @@ export default class Search extends Component {
             <div className="inline">
               <h3 className="grid__title">Albums</h3>
 
-              <Link to={`/search${this.props.location.search}&type=albums`}>
+              <Link to={`/albums${this.props.location.search}`}>
                 <p className="link more">Show more...</p>
               </Link>
             </div>
@@ -102,8 +104,7 @@ export default class Search extends Component {
             <div className="inline">
               <h3 className="grid__title">Music videos</h3>
 
-              <Link
-                to={`/search${this.props.location.search}&type=music-videos`}>
+              <Link to={`/music-videos${this.props.location.search}`}>
                 <p className="link more">Show more...</p>
               </Link>
             </div>

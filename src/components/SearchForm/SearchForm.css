@@ -35,6 +35,10 @@ input[type='search'] {
   -webkit-appearance: none;
 }
 
+input[type='search']:focus {
+  text-align: left;
+}
+
 .hidden input[type='search'] {
   width: 0;
   opacity: 0;
@@ -42,6 +46,7 @@ input[type='search'] {
 }
 
 .visible input[type='search'] {
+  padding: 0 8px;
   margin-left: 2px;
   opacity: 1;
   font-weight: 500;

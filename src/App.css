@@ -17,6 +17,7 @@
 }
 
 .track {
+  margin: 2px auto;
   border-bottom: 1px solid #ddd;
 }
 
@@ -45,7 +46,6 @@
 .list__link--video,
 .content__link--artist,
 .content__link--album {
-  margin: 4px 0;
   color: var(--link-color);
   font-weight: 700;
 }
@@ -184,9 +184,9 @@
   flex-wrap: wrap;
 }
 
-.title--video,
+.content__header--video .title,
 .content__header .title {
-  margin-bottom: 4px;
+  margin-bottom: 0px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -239,11 +239,6 @@
   .videos__container,
   .albums__container {
     width: 1224px;
-  }
-
-  .grid--vertical .track {
-    width: 100%;
-    margin: 3px auto;
   }
 
   .title {

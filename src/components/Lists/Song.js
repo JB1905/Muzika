@@ -16,12 +16,14 @@ export const SongList = ({ value }) => {
       </audio>
 
       <div className="part">
-        <Link
-          className="link list__link--song"
-          to={`/song/${song}/${value.trackId}`}>
-          {value.trackName}
+        <div className="inline">
+          <Link
+            className="link list__link--song"
+            to={`/song/${song}/${value.trackId}`}>
+            {value.trackName}
+          </Link>
           <span className={value.trackExplicitness} />
-        </Link>
+        </div>
 
         <p className="list__artist">{value.artistName}</p>
       </div>

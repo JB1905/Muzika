@@ -20,7 +20,13 @@ export default class Content extends Component {
   render() {
     return (
       <Switch>
-        {this.state.redirect ? <Redirect exact from="/" to="/search" /> : null}
+        {this.state.redirect ? (
+          <Redirect
+            exact
+            from={{ pathname: '*', search: '' }}
+            to={`/search?q=${this.props.value}`}
+          />
+        ) : null}
         {this.state.home ? <Redirect exact from="/search" to="/" /> : null}
 
         <Route exact path="/" component={Welcome} />
@@ -29,7 +35,9 @@ export default class Content extends Component {
           path="/search"
           render={props => <Search {...props} value={this.props.value} />}
         />
-        <Route exact path="/search/:type" component={More} />
+        <Route exact path="/songs" component={More} />
+        <Route exact path="/albums" component={More} />
+        <Route exact path="/music-videos" component={More} />
         <Route exact path="/album" render={() => <Redirect to="/" />} />
         <Route exact path="/album/:name/:id" component={Album} />
         <Route exact path="/music-video" render={() => <Redirect to="/" />} />

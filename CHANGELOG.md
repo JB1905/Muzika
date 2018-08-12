@@ -16,6 +16,9 @@
 - responsive design
 - dark mode improvements
 
+#### Bug Fix
+- fix search
+
 ## To do
 #### New Feature
 - artist social media accounts (Facebook, Twitter, Instagram) on artist page
@@ -25,6 +28,3 @@
 
 #### Improvements
 - code clean up
-
-#### Bug Fix
-- fix search
