@@ -164,17 +164,6 @@ video,
   align-items: center;
 }
 
-.content__link--song {
-  color: var(--link-color);
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.content__link--song a {
-  color: var(--link-color);
-  display: inline;
-}
-
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 80px;

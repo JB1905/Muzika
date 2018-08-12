@@ -10,12 +10,10 @@ export default class Welcome extends Component {
   componentDidMount() {
     this.size();
 
-    window.addEventListener('resize', () => this.size());
+    window.addEventListener('resize', this.size);
   }
 
-  size() {
-    this.setState({ minHeight: window.innerHeight - 60 });
-  }
+  size = () => this.setState({ minHeight: window.innerHeight - 60 });
 
   render() {
     return (

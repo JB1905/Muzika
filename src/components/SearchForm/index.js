@@ -16,11 +16,10 @@ export default class SearchForm extends Component {
     this.props.dataSearch(value);
   };
 
-  handleClick = () => {
+  handleClick = () =>
     this.state.visible
       ? this.setState({ visible: false })
       : this.setState({ visible: true });
-  };
 
   render() {
     return (

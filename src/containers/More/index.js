@@ -11,7 +11,6 @@ export default class More extends Component {
 
   componentDidMount() {
     let type;
-    console.log(this.props);
 
     if (this.props.location.pathname.includes('artist/') > 0) {
       const { id } = this.props.match.params;
@@ -23,6 +22,7 @@ export default class More extends Component {
         this.setState({
           title: `${params.kind} by: ${res.data[0].artistName}`
         });
+
         this.content(res.data);
       });
     } else {
@@ -33,6 +33,7 @@ export default class More extends Component {
 
       search({ term: query, entity: params.entity, limit: 100 }, res => {
         this.setState({ title: `${params.kind} for query: "${query}"` });
+
         this.content(res.data);
       });
     }
@@ -58,17 +59,10 @@ export default class More extends Component {
 
   content(data) {
     const list = data.map(item => {
-      if (item.kind === 'song') {
-        return <SongItem value={item} />;
-      }
-
-      if (item.collectionType === 'Album') {
+      if (item.kind === 'song') return <SongItem value={item} />;
+      else if (item.collectionType === 'Album')
         return <AlbumItem value={item} />;
-      }
-
-      if (item.kind === 'music-video') {
-        return <VideoItem value={item} />;
-      }
+      else if (item.kind === 'music-video') return <VideoItem value={item} />;
     });
 
     this.setState({ list: list });

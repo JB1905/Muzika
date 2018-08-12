@@ -5,8 +5,6 @@ import { Spinner } from '../../components/Spinner';
 import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
 import { search } from '../../api';
 
-import './Search.css';
-
 export default class Search extends Component {
   state = { songs: null, videos: null, albums: null };
 

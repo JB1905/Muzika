@@ -1,3 +1,7 @@
+.album .videos__container {
+  width: auto;
+}
+
 .copyright {
   margin-top: 16px;
 }

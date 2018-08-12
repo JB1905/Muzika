@@ -5,8 +5,6 @@ import { Spinner } from '../../components/Spinner';
 import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
 import { artist, list } from '../../api';
 
-import './Artist.css';
-
 export default class Artist extends Component {
   state = { artist: null, songs: null, videos: null, albums: null };
 
