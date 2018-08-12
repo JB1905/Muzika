@@ -39,7 +39,9 @@ export class SongContent extends Component {
               alt=""
             />
 
-            <button className="button--play" onClick={this.toggle}>
+            <button
+              className={`button--play ${this.state.play ? 'played' : ''}`}
+              onClick={this.toggle}>
               {this.state.play ? (
                 <FontAwesomeIcon icon="pause" />
               ) : (
@@ -55,10 +57,10 @@ export class SongContent extends Component {
 
         <div className="container container--md">
           <div className="content__header">
-            <h2 className="title title--song">
-              {data.trackName}
+            <div className="inline">
+              <h2 className="title title--song">{data.trackName}</h2>
               <span className={data.trackExplicitness} />
-            </h2>
+            </div>
 
             <p>
               <Link

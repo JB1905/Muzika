@@ -10,7 +10,7 @@ export const VideoList = ({ value }) => {
   return (
     <div className="videos__list">
       <div className="video__img">
-        <img src={value.artworkUrl100.replace('100x100', '300x300')} alt="" />
+        <img src={value.artworkUrl100.replace('100x100', '500x500')} alt="" />
       </div>
 
       <div className="desc">

@@ -10,13 +10,34 @@ import Video from '../containers/Video';
 import More from '../containers/More';
 
 export default class Content extends Component {
+  state = { redirect: false };
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.value !== '') this.setState({ redirect: true, home: false });
+    else this.setState({ redirect: false, home: true });
+  }
+
   render() {
     return (
       <Switch>
+        {this.state.redirect ? (
+          <Redirect
+            exact
+            from={{ pathname: '*', search: '' }}
+            to={`/search?q=${this.props.value}`}
+          />
+        ) : null}
+        {this.state.home ? <Redirect exact from="/search" to="/" /> : null}
+
         <Route exact path="/" component={Welcome} />
-        <Route exact path="/search" render={() => <Redirect to="/" />} />
-        <Route exact path="/search/:query" component={Search} />
-        <Route exact path="/search/:query/:type" component={More} />
+        <Route
+          exact
+          path="/search"
+          render={props => <Search {...props} value={this.props.value} />}
+        />
+        <Route exact path="/songs" component={More} />
+        <Route exact path="/albums" component={More} />
+        <Route exact path="/music-videos" component={More} />
         <Route exact path="/album" render={() => <Redirect to="/" />} />
         <Route exact path="/album/:name/:id" component={Album} />
         <Route exact path="/music-video" render={() => <Redirect to="/" />} />
@@ -26,7 +47,7 @@ export default class Content extends Component {
         <Route exact path="/artist/:name/:id/:type" component={More} />
         <Route exact path="/song" render={() => <Redirect to="/" />} />
         <Route exact path="/song/:name/:id" component={Song} />
-        <Redirect from="/search" to={`/search/${this.props.value}`} />
+        <Redirect from="*" to="/" />
       </Switch>
     );
   }

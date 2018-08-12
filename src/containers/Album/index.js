@@ -15,20 +15,23 @@ export default class Album extends Component {
 
     album(id, res => {
       const data = res.data;
-      this.setState({ album: res.data });
 
-      let songs = [];
-      let videos = [];
+      if (typeof res.data === 'object' && res.data.length > 0) {
+        this.setState({ album: res.data });
 
-      data.map(value => {
-        if (value.kind === 'song') songs.push(<SongList value={value} />);
-        else if (value.kind === 'music-video')
-          videos.push(<VideoList value={value} />);
-      });
+        let songs = [];
+        let videos = [];
 
-      if (videos.length === 0) videos = null;
+        data.map(value => {
+          if (value.kind === 'song') songs.push(<SongList value={value} />);
+          else if (value.kind === 'music-video')
+            videos.push(<VideoList value={value} />);
+        });
 
-      this.setState({ songs: songs, videos: videos });
+        if (videos.length === 0) videos = null;
+
+        this.setState({ songs: songs, videos: videos });
+      }
     });
   }
 

@@ -10,9 +10,36 @@ export default class More extends Component {
   state = { title: null, list: null };
 
   componentDidMount() {
-    const { type } = this.props.match.params;
-    console.log(this.props);
+    let type;
 
+    if (this.props.location.pathname.includes('artist/') > 0) {
+      const { id } = this.props.match.params;
+      type = this.props.match.params.type;
+
+      const params = this.checkKind(type);
+
+      list({ id: id, entity: params.entity, limit: 100 }, res => {
+        this.setState({
+          title: `${params.kind} by: ${res.data[0].artistName}`
+        });
+
+        this.content(res.data);
+      });
+    } else {
+      const query = this.props.history.location.search.replace('?q=', '');
+      type = this.props.history.location.pathname.replace('/', '');
+
+      const params = this.checkKind(type);
+
+      search({ term: query, entity: params.entity, limit: 100 }, res => {
+        this.setState({ title: `${params.kind} for query: "${query}"` });
+
+        this.content(res.data);
+      });
+    }
+  }
+
+  checkKind(type) {
     let entity;
     let kind;
 
@@ -27,36 +54,15 @@ export default class More extends Component {
       kind = 'Music videos';
     }
 
-    if (this.props.location.pathname.includes('artist/') > 0) {
-      const { id } = this.props.match.params;
-
-      list({ id: id, entity: entity, limit: 100 }, res => {
-        this.setState({ title: `${kind} by: ${res.data[0].artistName}` });
-        this.content(res.data);
-      });
-    } else if (this.props.location.pathname.includes('search/') > 0) {
-      const { query } = this.props.match.params;
-
-      search({ term: query, entity: entity, limit: 100 }, res => {
-        this.setState({ title: `${kind} for query: ${query}` });
-        this.content(res.data);
-      });
-    }
+    return { entity, kind };
   }
 
   content(data) {
     const list = data.map(item => {
-      if (item.kind === 'song') {
-        return <SongItem value={item} />;
-      }
-
-      if (item.collectionType === 'Album') {
+      if (item.kind === 'song') return <SongItem value={item} />;
+      else if (item.collectionType === 'Album')
         return <AlbumItem value={item} />;
-      }
-
-      if (item.kind === 'music-video') {
-        return <VideoItem value={item} />;
-      }
+      else if (item.kind === 'music-video') return <VideoItem value={item} />;
     });
 
     this.setState({ list: list });

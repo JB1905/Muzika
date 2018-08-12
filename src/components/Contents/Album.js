@@ -19,10 +19,10 @@ export class AlbumContent extends Component {
 
         <div className="container container--md">
           <div className="content__header">
-            <h2 className="title">
-              {value[0].collectionName}
+            <div className="inline">
+              <h2 className="title">{value[0].collectionName}</h2>
               <span className={value[0].collectionExplicitness} />
-            </h2>
+            </div>
 
             <p>
               By:{' '}

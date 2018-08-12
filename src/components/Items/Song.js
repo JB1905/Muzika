@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class SongItem extends Component {
   state = { play: false };
@@ -36,13 +36,13 @@ export class SongItem extends Component {
             <source src={value.previewUrl} />
           </audio>
 
-          <button className="button--play" onClick={this.toggle}>
+          {/*<button className="button--play" onClick={this.toggle}>
             {this.state.play ? (
               <FontAwesomeIcon icon="pause" />
             ) : (
               <FontAwesomeIcon icon="play" />
             )}
-          </button>
+          </button>*/}
         </section>
 
         <section className="track__secondary">
