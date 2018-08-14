@@ -29,8 +29,8 @@ export default class Song extends Component {
         <SongContent value={this.state.song}>
           <div className="lyrics">
             {this.state.lyrics ? (
-              this.state.lyrics.split('\n').map(item => (
-                <span>
+              this.state.lyrics.split('\n').map((item, index) => (
+                <span key={index}>
                   {item}
                   <br />
                 </span>

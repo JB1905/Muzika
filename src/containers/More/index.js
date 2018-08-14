@@ -58,11 +58,16 @@ export default class More extends Component {
   }
 
   content(data) {
-    const list = data.map(item => {
-      if (item.kind === 'song') return <SongItem value={item} />;
+    const list = data.map((item, index) => {
+      let items;
+
+      if (item.kind === 'song') items = <SongItem key={index} value={item} />;
       else if (item.collectionType === 'Album')
-        return <AlbumItem value={item} />;
-      else if (item.kind === 'music-video') return <VideoItem value={item} />;
+        items = <AlbumItem key={index} value={item} />;
+      else if (item.kind === 'music-video')
+        items = <VideoItem key={index} value={item} />;
+
+      return items;
     });
 
     this.setState({ list: list });

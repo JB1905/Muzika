@@ -23,7 +23,9 @@ export default class Search extends Component {
   results(query) {
     search({ term: query, entity: 'song', limit: 12 }, res => {
       if (typeof res.data === 'object' && res.data.length > 0) {
-        const songs = res.data.map(value => <SongItem value={value} />);
+        const songs = res.data.map((value, index) => (
+          <SongItem key={index} value={value} />
+        ));
 
         this.setState({ songs: songs });
       } else {
@@ -33,7 +35,9 @@ export default class Search extends Component {
 
     search({ term: query, entity: 'album', limit: 16 }, res => {
       if (typeof res.data === 'object' && res.data.length > 0) {
-        const albums = res.data.map(value => <AlbumItem value={value} />);
+        const albums = res.data.map((value, index) => (
+          <AlbumItem key={index} value={value} />
+        ));
 
         this.setState({ albums: albums });
       } else {
@@ -43,7 +47,9 @@ export default class Search extends Component {
 
     search({ term: query, entity: 'musicVideo', limit: 8 }, res => {
       if (typeof res.data === 'object' && res.data.length > 0) {
-        const videos = res.data.map(value => <VideoItem value={value} />);
+        const videos = res.data.map((value, index) => (
+          <VideoItem key={index} value={value} />
+        ));
 
         this.setState({ videos: videos });
       } else {

@@ -16,7 +16,10 @@ export default class Artist extends Component {
     list({ id: id, entity: 'song', limit: 12 }, res => {
       if (typeof res.data === 'object' && res.data.length > 0) {
         const songs = res.data.map(
-          value => (value.kind === 'song' ? <SongItem value={value} /> : null)
+          (value, index) =>
+            value.kind === 'song' ? (
+              <SongItem key={index} value={value} />
+            ) : null
         );
 
         this.setState({ songs: songs });
@@ -26,9 +29,9 @@ export default class Artist extends Component {
     list({ id: id, entity: 'album', limit: 16 }, res => {
       if (typeof res.data === 'object' && res.data.length > 0) {
         const albums = res.data.map(
-          value =>
+          (value, index) =>
             value.collectionType === 'Album' ? (
-              <AlbumItem value={value} />
+              <AlbumItem key={index} value={value} />
             ) : null
         );
 
@@ -39,8 +42,10 @@ export default class Artist extends Component {
     list({ id: id, entity: 'musicVideo', limit: 8 }, res => {
       if (typeof res.data === 'object' && res.data.length > 0) {
         const videos = res.data.map(
-          value =>
-            value.kind === 'music-video' ? <VideoItem value={value} /> : null
+          (value, index) =>
+            value.kind === 'music-video' ? (
+              <VideoItem key={index} value={value} />
+            ) : null
         );
 
         this.setState({ videos: videos });
@@ -61,9 +66,10 @@ export default class Artist extends Component {
               <h3 className="grid__title">Songs</h3>
 
               <Link
-                to={`/artist/${this.state.artist[0].artistName}/${
-                  this.state.artist[0].artistId
-                }/songs`}>
+                to={`/artist/${this.state.artist[0].artistName
+                  .toLowerCase()
+                  .replace(/[¿@#$%^&/|*?"'`]/g, '')
+                  .replace(/ /g, '+')}/${this.state.artist[0].artistId}/songs`}>
                 <p className="link more">Show more...</p>
               </Link>
             </div>
@@ -82,7 +88,10 @@ export default class Artist extends Component {
               <h3 className="grid__title">Albums</h3>
 
               <Link
-                to={`/artist/${this.state.artist[0].artistName}/${
+                to={`/artist/${this.state.artist[0].artistName
+                  .toLowerCase()
+                  .replace(/[¿@#$%^&/|*?"'`]/g, '')
+                  .replace(/ /g, '+')}/${
                   this.state.artist[0].artistId
                 }/albums`}>
                 <p className="link more">Show more...</p>
@@ -103,7 +112,10 @@ export default class Artist extends Component {
               <h3 className="grid__title">Music videos</h3>
 
               <Link
-                to={`/artist/${this.state.artist[0].artistName}/${
+                to={`/artist/${this.state.artist[0].artistName
+                  .toLowerCase()
+                  .replace(/[¿@#$%^&/|*?"'`]/g, '')
+                  .replace(/ /g, '+')}/${
                   this.state.artist[0].artistId
                 }/music-videos`}>
                 <p className="link more">Show more...</p>
