@@ -5,6 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export class SongContent extends Component {
   state = { play: false };
 
+  componentDidMount() {
+    this.el.addEventListener('ended', () => this.setState({ play: false }));
+  }
+
   toggle = () => {
     if (this.state.play) {
       this.setState({ play: false });
