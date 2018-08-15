@@ -97,10 +97,12 @@
   margin-bottom: 6px;
 }
 
-.container--vertical .list__link--artist,
+.container--vertical .list__link--album,
+.container--vertical .list__link--video,
 .albums__container .list__link--album,
 .songs__container .list__link--song,
 .videos__container .list__link--video {
+  font-size: 17px;
   margin: 0;
   font-weight: 600;
 }
