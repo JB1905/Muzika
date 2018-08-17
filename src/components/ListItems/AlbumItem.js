@@ -1,28 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const AlbumItem = ({ value }) => {
-  const artist = value.artistName
-    .toLowerCase()
-    .replace(/[¿@#$%^&/|*?"'`]/g, '')
-    .replace(/ /g, '+');
+import { queryString } from '../../helpers';
 
-  const album = value.collectionName
-    .toLowerCase()
-    .replace(/[¿@#$%^&/|*?"'`]/g, '')
-    .replace(/ /g, '+');
+export const AlbumItem = ({ value }) => {
+  const artist = queryString(value.artistName);
+  const album = queryString(value.collectionName);
 
   return (
-    <div className="collection">
-      <section className="collection__primary">
+    <div className="item--album">
+      <section className="primary--album">
         <img
-          className="collection__img"
+          className="img--album"
           src={value.artworkUrl100.replace('100x100', '200x200')}
           alt=""
         />
       </section>
 
-      <section className="collection__secondary">
+      <section className="secondary--album">
         <div className="inline">
           <Link
             className="link list__link--album"

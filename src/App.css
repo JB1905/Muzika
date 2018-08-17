@@ -3,54 +3,49 @@
   padding-bottom: calc(60px + env(safe-area-inset-bottom));
 }
 
-.grid--vertical .track {
+.grid--vertical .item--song {
   width: calc(100% - 20px);
 }
 
-.grid--vertical .track:last-child {
+.grid--vertical .item--song:last-child {
   border-bottom: 0;
 }
 
-.track {
+.item--song {
   margin: 2px auto;
-  border-bottom: 1px solid #ddd;
 }
 
-.dark .track {
-  border-bottom: 1px solid #444;
+.grid,
+.header__title,
+.content__header,
+.item--song {
+  border-bottom: 1px solid var(--border-light);
 }
 
-.songs__container .track:nth-last-child(-n + 4) {
+.dark .grid,
+.dark .header__title,
+.dark .content__header,
+.dark .item--song {
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.container--horizontal .item--song:nth-last-child(-n + 4) {
   border-bottom: 0;
 }
 
 .container--sm aside {
-  z-index: 200;
+  z-index: 100;
   position: sticky;
   position: -webkit-sticky;
   top: 20px;
 }
 
 .content__header {
-  border-bottom: 1px solid var(--border-light);
   padding-bottom: 6px;
-}
-
-.list__link--artist,
-.list__link--album,
-.list__link--video,
-.content__link--artist,
-.content__link--album {
-  color: var(--link-color);
-  font-weight: 700;
 }
 
 .about {
   margin: 4px 0;
-}
-
-.dark .content__header {
-  border-bottom: 1px solid var(--border-dark);
 }
 
 .grid {
@@ -58,20 +53,11 @@
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   margin: 0 auto;
-  border-bottom: 1px solid var(--border-light);
 }
 
 .grid:last-child,
 .dark .grid:last-child {
   border-bottom: 0px;
-}
-
-.grid--vertical .albums__container {
-  width: auto;
-}
-
-.dark .grid {
-  border-bottom: 1px solid var(--border-dark);
 }
 
 .grid--vertical {
@@ -84,9 +70,7 @@
   margin: 10px 26px;
 }
 
-.songs__container,
-.videos__container,
-.albums__container {
+.container--horizontal {
   width: 1250px;
   padding-left: 16px;
   padding-right: 16px;
@@ -97,24 +81,32 @@
   margin-bottom: 6px;
 }
 
-.container--vertical .list__link--album,
-.container--vertical .list__link--video,
-.albums__container .list__link--album,
-.songs__container .list__link--song,
-.videos__container .list__link--video {
+.item--album .list__link--album,
+.item--song .list__link--song,
+.item--video .list__link--video {
   font-size: 17px;
   margin: 0;
   font-weight: 600;
 }
 
-.container--vertical .track .list__link--album,
+.container--vertical .item--song .list__link--album,
 .container--vertical .list__link--artist,
-.songs__container .list__link--album,
-.albums__container .list__link--artist,
-.videos__container .list__link--artist {
+.container--horizontal .list__link--album,
+.item--album .list__link--artist,
+.item--video .list__link--artist {
   font-weight: 400;
   font-size: 14px;
   color: var(--headers-color);
+}
+
+.list__link--artist,
+.inline .list__link--album,
+.list__link--video,
+.content__link--artist,
+.content__link--album {
+  color: var(--link-color);
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .header__title {
@@ -124,7 +116,6 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0px;
-  border-bottom: 1px solid var(--border-light);
 }
 
 .header__title h2 {
@@ -146,9 +137,7 @@
     margin-right: auto;
   }
 
-  .songs__container,
-  .albums__container,
-  .videos__container {
+  .container--horizontal {
     padding-left: auto;
     padding-right: auto;
   }
@@ -167,7 +156,7 @@
   border-bottom: 1px solid var(--border-dark);
 }
 
-.grid .video {
+.item--video {
   padding: 0px;
 }
 
@@ -207,16 +196,12 @@
   cursor: pointer;
 }
 
-.button--play.played {
-  border-radius: 4px;
+.dark .button--play {
+  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.34);
 }
 
-.track__primary .button--play {
-  height: 30px;
-  width: 30px;
-  font-size: 16px;
-  right: 10px;
-  bottom: 14px;
+.button--play.played {
+  border-radius: 4px;
 }
 
 .button--play:active {
@@ -227,17 +212,7 @@
   opacity: 1;
 }
 
-.dark .button--play {
-  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.34);
-}
-
 @media screen and (max-width: 600px) {
-  .songs__container,
-  .videos__container,
-  .albums__container {
-    width: 1224px;
-  }
-
   .title {
     font-size: 22px;
   }
@@ -285,9 +260,8 @@
     padding: 10px 14px;
   }
 
-  .songs__container,
-  .videos__container,
-  .albums__container {
+  .container--horizontal {
+    width: 1224px;
     padding-left: 4px;
     padding-right: 4px;
   }

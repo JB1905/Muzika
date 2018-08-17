@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { queryString } from '../../helpers';
 
 import './SearchForm.css';
 
 export default class SearchForm extends Component {
-  state = { searchTerm: '', visible: false };
+  state = { searchTerm: '', redirect: '', visible: false };
 
   handleChange = e => {
-    const value = e.target.value
-      .toLowerCase()
-      .replace(/[¿@#$%^&/|*?"'`]/g, '')
-      .replace(/ /g, '+');
+    const value = queryString(e.target.value);
+    if (value !== '') {
+      this.setState({ redirect: <Redirect to={`/search?q=${value}`} /> });
+    } else {
+      this.setState({ redirect: <Redirect to={`/`} /> });
+    }
 
     this.setState({ searchTerm: e.target.value });
-    this.props.dataSearch(value);
   };
 
   handleClick = () =>
@@ -24,6 +28,7 @@ export default class SearchForm extends Component {
   render() {
     return (
       <div className="form__container">
+        {this.state.redirect}
         <div
           className={`search__form ${
             this.state.visible ? 'visible' : 'hidden'
