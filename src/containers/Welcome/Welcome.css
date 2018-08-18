@@ -9,7 +9,7 @@
   padding: 20px;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .welcome__content {
     padding: 20px 14px;
   }

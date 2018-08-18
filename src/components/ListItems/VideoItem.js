@@ -1,26 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const VideoItem = ({ value }) => {
-  const video = value.trackName
-    .toLowerCase()
-    .replace(/[¿@#$%^&/|*?"'`]/g, '')
-    .replace(/ /g, '+');
+import { queryString } from '../../helpers';
 
-  const artist = value.artistName
-    .toLowerCase()
-    .replace(/[¿@#$%^&/|*?"'`]/g, '')
-    .replace(/ /g, '+');
+export const VideoItem = ({ value }) => {
+  const video = queryString(value.trackName);
+  const artist = queryString(value.artistName);
 
   return (
-    <div className="video">
-      <section className="video__primary">
-        <div className="video__img">
+    <div className="item--video">
+      <section className="primary--video">
+        <div className="img--video">
           <img src={value.artworkUrl100.replace('100x100', '200x200')} alt="" />
         </div>
       </section>
 
-      <section className="video__secondary">
+      <section className="secondary--video">
         <div className="inline">
           <Link
             className="link list__link--video"

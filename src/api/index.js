@@ -25,12 +25,6 @@ export const song = (id, callback) =>
     .then(data => callback({ data: data.results }))
     .catch(err => callback({ data: err }));
 
-export const lyrics = (artist, album, callback) =>
-  fetch(`${LYRICS_API}${artist}/${album}`)
-    .then(res => res.json())
-    .then(data => callback({ data: data.lyrics }))
-    .catch(err => callback({ data: err }));
-
 export const album = (id, callback) =>
   fetch(`${MUSIC_API}lookup?id=${id}&entity=song`)
     .then(res => res.json())
@@ -47,4 +41,10 @@ export const artist = (id, callback) =>
   fetch(`${MUSIC_API}lookup?id=${id}`)
     .then(res => res.json())
     .then(data => callback({ data: data.results }))
+    .catch(err => callback({ data: err }));
+
+export const lyrics = (artist, album, callback) =>
+  fetch(`${LYRICS_API}${artist}/${album}`)
+    .then(res => res.json())
+    .then(data => callback({ data: data.lyrics }))
     .catch(err => callback({ data: err }));

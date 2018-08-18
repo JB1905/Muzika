@@ -1,4 +1,2 @@
-import './Lists.css';
-
-export { SongList } from './Song';
-export { VideoList } from './Video';
+export { SearchList } from './SearchList';
+export { ArtistList } from './ArtistList';

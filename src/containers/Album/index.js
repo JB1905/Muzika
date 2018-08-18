@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { AlbumContent } from '../../components/Contents';
-import { SongList, VideoList } from '../../components/Lists';
+import { SongList, VideoList } from '../../components/ContentLists';
 import { Spinner } from '../../components/Spinner';
 import { album } from '../../api';
 
@@ -50,7 +50,7 @@ export default class Album extends Component {
 
           {videos ? (
             <React.Fragment>
-              <h3 className="grid__title">Videos</h3>
+              <h3 className="grid__title">Music videos</h3>
               <div className="grid">
                 <div className="videos__container">{videos}</div>
               </div>

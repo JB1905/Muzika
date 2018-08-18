@@ -60,10 +60,6 @@ input[type='search']:focus {
   background-color: #21272d;
 }
 
-input[type='search']:focus {
-  outline: 0;
-}
-
 .toggle {
   color: #fff;
   height: 40px;

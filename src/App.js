@@ -11,8 +11,8 @@ import Darky from 'darky';
 
 import './App.css';
 
-import Content from './components/Content';
-import Menu from './components/Menu';
+import { Content } from './components/Content';
+import { Menu } from './components/Menu';
 
 const darky = new Darky();
 

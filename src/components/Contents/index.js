@@ -1,3 +1,3 @@
-export { SongContent } from './Song';
-export { AlbumContent } from './Album';
-export { VideoContent } from './Video';
+export { SongContent } from './SongContent';
+export { AlbumContent } from './AlbumContent';
+export { VideoContent } from './VideoContent';

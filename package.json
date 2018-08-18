@@ -1,6 +1,6 @@
 {
   "name": "Muzika",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "author": "Jakub Biesiada",
   "descripton": "React.js app build with iTunes API. Muzika allows You search music in iTunes, display artists, albums, songs (with lyrics & 30s preview) and music videos. App contains dark mode.",
   "license": "MIT",
@@ -26,17 +26,5 @@
   },
   "devDependencies": {
     "gh-pages": "^1.2.0"
-  },
-  "browserslist": {
-    "development": [
-      "last 2 chrome versions",
-      "last 2 firefox versions",
-      "last 2 edge versions"
-    ],
-    "production": [
-      ">0.25%",
-      "not op_mini all",
-      "ie 11"
-    ]
   }
 }

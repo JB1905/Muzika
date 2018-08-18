@@ -1,23 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const VideoContent = ({ value }) => {
-  const album = value.collectionName
-    ? value.collectionName
-        .toLowerCase()
-        .replace(/[¿@#$%^&/|*?"'`]/g, '')
-        .replace(/ /g, '+')
-    : null;
+import { queryString } from '../../helpers';
 
-  const artist = value.artistName
-    .toLowerCase()
-    .replace(/[¿@#$%^&/|*?"'`]/g, '')
-    .replace(/ /g, '+');
+export const VideoContent = ({ value }) => {
+  const album = value.collectionName ? queryString(value.collectionName) : null;
+  const artist = queryString(value.artistName);
 
   return (
     <div className="video">
       <div className="container container--md">
-        <video controls>
+        <video
+          controls
+          poster={value.artworkUrl100.replace('100x100', '800x800')}>
           <source src={value.previewUrl} type="video/mp4" />
         </video>
       </div>

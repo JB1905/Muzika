@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Spinner } from '../../components/Spinner';
-import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
+import { SongItem, AlbumItem, VideoItem } from '../../components/ListItems';
 import { search, list } from '../../api';
 
 import './More.css';
