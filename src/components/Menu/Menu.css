@@ -46,7 +46,7 @@
   max-width: 1250px;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .home {
     padding: 0 9px;
   }

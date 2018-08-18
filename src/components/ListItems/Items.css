@@ -87,14 +87,14 @@
   border: 1px solid var(--border-dark);
 }
 
-@media screen and (max-width: 1100px) {
+@media (max-width: 1100px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
     width: calc(100% / 7 - 20px);
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
     width: calc(100% / 6 - 20px);
@@ -105,7 +105,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media (max-width: 900px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
     width: calc(100% / 5 - 20px);
@@ -116,14 +116,14 @@
   }
 }
 
-@media screen and (max-width: 780px) {
+@media (max-width: 780px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
     width: calc(100% / 4 - 20px);
   }
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
     width: calc(100% / 3 - 20px);
@@ -134,7 +134,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media (max-width: 420px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
     width: calc(100% / 2 - 20px);

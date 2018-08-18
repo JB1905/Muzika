@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Spinner } from '../components/Spinner';
-import { List } from '../components/Lists';
+import { SearchList } from '../components/Lists';
 import { search } from '../api';
 
 export default class Search extends Component {
@@ -12,18 +12,20 @@ export default class Search extends Component {
     videos: <Spinner />
   };
 
-  shouldComponentUpdate(newProps, nextState) {
-    return newProps.location.search !== this.props.location.search;
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.location.search !== nextProps.location.search) {
+      return true;
+    }
+    if (this.state.songs !== nextState.songs) {
+      return true;
+    }
+    return false;
   }
 
-  componentDidMount() {
-    const query = this.props.location.search.replace('?q=', '');
+  componentDidMount = () => this.update();
+  componentDidUpdate = () => this.update();
 
-    this.setState({ title: query });
-    this.results(query);
-  }
-
-  componentDidUpdate() {
+  update() {
     const query = this.props.location.search.replace('?q=', '');
 
     this.setState({ title: query });
@@ -34,20 +36,24 @@ export default class Search extends Component {
     const query = this.props.location.search.replace('?q=', '');
 
     search({ term: query, entity: 'song', limit: 12 }, res => {
-      const songs = <List {...this.props} values={res.data} type="Songs" />;
+      const songs = (
+        <SearchList {...this.props} values={res.data} type="Songs" />
+      );
 
       this.setState({ songs: songs });
     });
 
     search({ term: query, entity: 'album', limit: 16 }, res => {
-      const albums = <List {...this.props} values={res.data} type="Albums" />;
+      const albums = (
+        <SearchList {...this.props} values={res.data} type="Albums" />
+      );
 
       this.setState({ albums: albums });
     });
 
     search({ term: query, entity: 'musicVideo', limit: 8 }, res => {
       const videos = (
-        <List {...this.props} values={res.data} type="Music videos" />
+        <SearchList {...this.props} values={res.data} type="Music videos" />
       );
 
       this.setState({ videos: videos });

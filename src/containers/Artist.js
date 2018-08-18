@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Spinner } from '../components/Spinner';
-import { List } from '../components/Lists';
+import { ArtistList } from '../components/Lists';
 import { artist, list } from '../api';
 
 export default class Artist extends Component {
@@ -18,20 +18,24 @@ export default class Artist extends Component {
     artist(id, res => this.setState({ artist: res.data[0] }));
 
     list({ id: id, entity: 'song', limit: 12 }, res => {
-      const songs = <List {...this.props} values={res.data} type="Songs" />;
+      const songs = (
+        <ArtistList {...this.props} values={res.data} type="Songs" />
+      );
 
       this.setState({ songs: songs });
     });
 
     list({ id: id, entity: 'album', limit: 16 }, res => {
-      const albums = <List {...this.props} values={res.data} type="Albums" />;
+      const albums = (
+        <ArtistList {...this.props} values={res.data} type="Albums" />
+      );
 
       this.setState({ albums: albums });
     });
 
     list({ id: id, entity: 'musicVideo', limit: 8 }, res => {
       const videos = (
-        <List {...this.props} values={res.data} type="Music videos" />
+        <ArtistList {...this.props} values={res.data} type="Music videos" />
       );
 
       this.setState({ videos: videos });
