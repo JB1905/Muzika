@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -18,23 +18,18 @@ const darky = new Darky();
 
 library.add(faPlay, faPause, faSearch, faHome);
 
-export default class App extends Component {
-  state = { searchValue: '' };
+export const App = () => {
+  darky.auto();
 
-  componentDidMount = () => darky.auto();
-  getValue = value => this.setState({ searchValue: value });
+  return (
+    <Router basename={'/Muzika'}>
+      <React.Fragment>
+        <div className="main">
+          <Content />
+        </div>
 
-  render() {
-    return (
-      <Router basename={'/Muzika'}>
-        <React.Fragment>
-          <div className="main">
-            <Content value={this.state.searchValue} />
-          </div>
-
-          <Menu dataSearch={this.getValue} />
-        </React.Fragment>
-      </Router>
-    );
-  }
-}
+        <Menu />
+      </React.Fragment>
+    </Router>
+  );
+};

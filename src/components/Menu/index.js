@@ -16,7 +16,7 @@ export const Menu = () => (
         </button>
       </NavLink>
 
-      <SearchForm dataSearch={this.getValue} />
+      <SearchForm />
     </div>
   </div>
 );
