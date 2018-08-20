@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Title } from '../Title';
 import { AlbumLink, ArtistLink } from '../Links';
+import { Info } from '../Info';
 
 export const VideoContent = ({ value }) => (
   <div className="video">
@@ -18,10 +19,7 @@ export const VideoContent = ({ value }) => (
         <Title title={value.trackName} explicit={value.trackExplicitness} />
         {value.collectionId ? <AlbumLink value={value} /> : null}
         <ArtistLink value={value} />
-
-        <p className="about about--video">
-          {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}
-        </p>
+        <Info value={value} />
       </div>
     </div>
   </div>

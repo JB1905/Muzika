@@ -3,6 +3,7 @@ import React from 'react';
 import { Title } from '../Title';
 import { AlbumLink, ArtistLink } from '../Links';
 import AudioPlayer from '../Player/AudioPlayer';
+import { Info } from '../Info';
 
 export const SongContent = ({ value, children }) => (
   <React.Fragment>
@@ -23,10 +24,7 @@ export const SongContent = ({ value, children }) => (
         <Title title={value.trackName} explicit={value.trackExplicitness} />
         <AlbumLink value={value} />
         <ArtistLink value={value} />
-
-        <p className="about about--song">
-          {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}
-        </p>
+        <Info value={value} />
       </div>
 
       {children}

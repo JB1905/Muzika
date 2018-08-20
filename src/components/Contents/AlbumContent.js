@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Title } from '../Title';
 import { ArtistLink } from '../Links';
+import { Info } from '../Info';
 
 export const AlbumContent = ({ value, children }) => (
   <React.Fragment>
@@ -23,11 +24,7 @@ export const AlbumContent = ({ value, children }) => (
         />
 
         <ArtistLink value={value[0]} />
-
-        <p className="about about--album">
-          {value[0].primaryGenreName} &bull;{' '}
-          {value[0].releaseDate.substring(0, 4)}
-        </p>
+        <Info value={value[0]} />
       </div>
 
       {children}
