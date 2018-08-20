@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Title } from '../Title';
 import { AlbumLink, ArtistLink } from '../Links';
-import AudioPlayer from '../Player/AudioPlayer';
+import AudioPlayer from '../AudioPlayer';
 import { Info } from '../Info';
 
 export const SongContent = ({ value, children }) => (
