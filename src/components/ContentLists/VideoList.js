@@ -7,9 +7,9 @@ export const VideoList = ({ value }) => {
   const video = queryString(value.trackName);
 
   return (
-    <div className="list__item--video">
+    <div className="item--video">
       <div className="img--video">
-        <img src={value.artworkUrl100.replace('100x100', '500x500')} alt="" />
+        <img src={value.artworkUrl100.replace('100x100', '450x450')} alt="" />
       </div>
 
       <div className="inline">

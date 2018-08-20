@@ -16,6 +16,10 @@
   transform: scale(0.92);
 }
 
+.active .home:active {
+  transform: scale(1);
+}
+
 .active .home {
   border-radius: 4px;
 }

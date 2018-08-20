@@ -12,13 +12,11 @@ export default class Song extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    song(id, res => {
-      const data = res.data[0];
+    song(id).then(data => {
+      this.setState({ song: data.results[0] });
 
-      this.setState({ song: data });
-
-      lyrics(data.artistName, data.trackName, res =>
-        this.setState({ lyrics: res.data })
+      lyrics(data.results[0].artistName, data.results[0].trackName).then(data =>
+        this.setState({ lyrics: data.lyrics })
       );
     });
   }

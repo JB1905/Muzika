@@ -15,17 +15,25 @@
   margin: 2px auto;
 }
 
-.grid,
+.grid.error > .inline {
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .header__title,
 .content__header,
-.item--song {
+.item--song,
+.album .grid {
   border-bottom: 1px solid var(--border-light);
 }
 
-.dark .grid,
 .dark .header__title,
 .dark .content__header,
-.dark .item--song {
+.dark .item--song,
+.dark .album .grid {
   border-bottom: 1px solid var(--border-dark);
 }
 
@@ -36,7 +44,6 @@
 .container--sm aside {
   z-index: 100;
   position: sticky;
-  position: -webkit-sticky;
   top: 20px;
 }
 
@@ -50,9 +57,12 @@
 
 .grid {
   max-width: 1250px;
+  margin: 0 auto;
+}
+
+.scrollable {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
 }
 
 .grid:last-child,
@@ -65,16 +75,27 @@
   border-bottom: 0px;
 }
 
+.grid > .inline {
+  padding-top: 10px;
+  margin: 0px 26px 10px 26px;
+  position: relative;
+}
+
+.grid ~ .grid > .inline {
+  border-top: 1px solid var(--border-light);
+}
+
+.dark .grid ~ .grid > .inline {
+  border-top: 1px solid var(--border-dark);
+}
+
 .grid__title {
   font-size: 24px;
-  margin: 10px 26px;
 }
 
 .container--horizontal {
   width: 1250px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 10px;
+  padding: 0 16px 10px 16px;
 }
 
 .container--vertical {
@@ -114,7 +135,6 @@
   padding-top: 3px;
   z-index: 100;
   position: sticky;
-  position: -webkit-sticky;
   top: 0px;
 }
 
@@ -128,26 +148,29 @@
 }
 
 @supports (padding-left: env(safe-area-inset-left)) {
-  .header__title h2,
-  .grid__title {
-    width: 100%;
-    padding-left: calc(26px + env(safe-area-inset-left));
-    padding-right: calc(26px + env(safe-area-inset-right));
+  .song,
+  .album,
+  .video,
+  .header__title h2 {
+    padding-left: calc(26px + env(safe-area-inset-left)) !important;
+    padding-right: calc(26px + env(safe-area-inset-right)) !important;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .container--horizontal {
-    padding-left: auto;
-    padding-right: auto;
-  }
-
-  .more,
   .grid {
-    margin-left: auto;
-    margin-right: auto;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
+  }
+
+  .grid__title {
+    width: 100%;
+  }
+
+  .grid__title,
+  .more {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -266,8 +289,7 @@
     padding-right: 4px;
   }
 
-  .grid__title {
-    padding: 0;
-    margin: 10px 14px;
+  .grid > .inline {
+    margin: 0px 14px 10px 14px;
   }
 }

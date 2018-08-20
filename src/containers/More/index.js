@@ -18,12 +18,12 @@ export default class More extends Component {
 
       const params = this.checkKind(type);
 
-      list({ id: id, entity: params.entity, limit: 100 }, res => {
+      list({ id: id, entity: params.entity, limit: 100 }).then(data => {
         this.setState({
-          title: `${params.kind} by: ${res.data[0].artistName}`
+          title: `${params.kind} by: ${data.results[0].artistName}`
         });
 
-        this.content(res.data);
+        this.content(data.results);
       });
     } else {
       const query = this.props.history.location.search.replace('?q=', '');
@@ -31,10 +31,10 @@ export default class More extends Component {
 
       const params = this.checkKind(type);
 
-      search({ term: query, entity: params.entity, limit: 100 }, res => {
+      search({ term: query, entity: params.entity, limit: 100 }).then(data => {
         this.setState({ title: `${params.kind} for query: "${query}"` });
 
-        this.content(res.data);
+        this.content(data.results);
       });
     }
   }

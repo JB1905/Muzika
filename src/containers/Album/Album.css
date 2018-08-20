@@ -1,7 +1,11 @@
-.album .videos__container {
-  width: auto;
-}
-
 .copyright {
   margin-top: 16px;
+}
+
+.album .grid > .inline {
+  margin: 0px 10px 10px 10px;
+}
+
+.album .grid .container {
+  margin: 0;
 }

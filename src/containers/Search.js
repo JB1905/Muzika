@@ -22,42 +22,37 @@ export default class Search extends Component {
     return false;
   }
 
-  componentDidMount = () => this.update();
-  componentDidUpdate = () => this.update();
-
-  update() {
-    const query = this.props.location.search.replace('?q=', '');
-
-    this.setState({ title: query });
-    this.results(query);
-  }
+  componentDidMount = () => this.results();
+  componentDidUpdate = () => this.results();
 
   results() {
     const query = this.props.location.search.replace('?q=', '');
 
-    search({ term: query, entity: 'song', limit: 12 }, res => {
+    search({ term: query, entity: 'song', limit: 12 }).then(data => {
       const songs = (
-        <SearchList {...this.props} values={res.data} type="Songs" />
+        <SearchList {...this.props} values={data.results} type="Songs" />
       );
 
       this.setState({ songs: songs });
     });
 
-    search({ term: query, entity: 'album', limit: 16 }, res => {
+    search({ term: query, entity: 'album', limit: 16 }).then(data => {
       const albums = (
-        <SearchList {...this.props} values={res.data} type="Albums" />
+        <SearchList {...this.props} values={data.results} type="Albums" />
       );
 
       this.setState({ albums: albums });
     });
 
-    search({ term: query, entity: 'musicVideo', limit: 8 }, res => {
+    search({ term: query, entity: 'musicVideo', limit: 8 }).then(data => {
       const videos = (
-        <SearchList {...this.props} values={res.data} type="Music videos" />
+        <SearchList {...this.props} values={data.results} type="Music videos" />
       );
 
       this.setState({ videos: videos });
     });
+
+    this.setState({ title: query });
   }
 
   render() {

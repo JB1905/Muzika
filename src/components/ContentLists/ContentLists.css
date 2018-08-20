@@ -23,19 +23,6 @@
   font-size: 17px;
 }
 
-.list__item--video {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
-  width: calc(100% / 3 - 20px);
-}
-
-.list__item--video a {
-  max-width: 190px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .index {
   text-align: center;
   min-width: 40px;

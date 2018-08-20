@@ -15,27 +15,27 @@ export default class Artist extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    artist(id, res => this.setState({ artist: res.data[0] }));
+    artist(id).then(data => this.setState({ artist: data.results[0] }));
 
-    list({ id: id, entity: 'song', limit: 12 }, res => {
+    list({ id: id, entity: 'song', limit: 12 }).then(data => {
       const songs = (
-        <ArtistList {...this.props} values={res.data} type="Songs" />
+        <ArtistList {...this.props} values={data.results} type="Songs" />
       );
 
       this.setState({ songs: songs });
     });
 
-    list({ id: id, entity: 'album', limit: 16 }, res => {
+    list({ id: id, entity: 'album', limit: 16 }).then(data => {
       const albums = (
-        <ArtistList {...this.props} values={res.data} type="Albums" />
+        <ArtistList {...this.props} values={data.results} type="Albums" />
       );
 
       this.setState({ albums: albums });
     });
 
-    list({ id: id, entity: 'musicVideo', limit: 8 }, res => {
+    list({ id: id, entity: 'musicVideo', limit: 8 }).then(data => {
       const videos = (
-        <ArtistList {...this.props} values={res.data} type="Music videos" />
+        <ArtistList {...this.props} values={data.results} type="Music videos" />
       );
 
       this.setState({ videos: videos });

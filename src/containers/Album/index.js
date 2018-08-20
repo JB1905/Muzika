@@ -13,16 +13,14 @@ export default class Album extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
 
-    album(id, res => {
-      const data = res.data;
-
-      if (typeof res.data === 'object' && res.data.length > 0) {
-        this.setState({ album: res.data });
+    album(id).then(data => {
+      if (typeof data.results === 'object' && data.results.length > 0) {
+        this.setState({ album: data.results });
 
         let songs = [];
         let videos = [];
 
-        data.map((value, index) => {
+        data.results.map((value, index) => {
           let items;
 
           if (value.kind === 'song')
@@ -50,9 +48,11 @@ export default class Album extends Component {
 
           {videos ? (
             <React.Fragment>
-              <h3 className="grid__title">Music videos</h3>
               <div className="grid">
-                <div className="videos__container">{videos}</div>
+                <div className="inline">
+                  <h3 className="grid__title">Music videos</h3>
+                </div>
+                <div className="container">{videos}</div>
               </div>
             </React.Fragment>
           ) : null}

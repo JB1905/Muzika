@@ -1,50 +1,64 @@
 const MUSIC_API = 'https://itunes.apple.com/';
 const LYRICS_API = 'https://api.lyrics.ovh/v1/';
 
-export const search = (query, callback) =>
-  fetch(
+let res;
+let data;
+
+export async function search(query) {
+  res = await fetch(
     `${MUSIC_API}search?term=${query.term}&entity=${query.entity}&limit=${
       query.limit
     }`
-  )
-    .then(res => res.json())
-    .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: err }));
+  );
 
-export const list = (data, callback) =>
-  fetch(
-    `${MUSIC_API}lookup?id=${data.id}&entity=${data.entity}&limit=${data.limit}`
-  )
-    .then(res => res.json())
-    .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: err }));
+  data = await res.json();
 
-export const song = (id, callback) =>
-  fetch(`${MUSIC_API}lookup?id=${id}`)
-    .then(res => res.json())
-    .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: err }));
+  return data;
+}
 
-export const album = (id, callback) =>
-  fetch(`${MUSIC_API}lookup?id=${id}&entity=song`)
-    .then(res => res.json())
-    .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: err }));
+export async function list(value) {
+  res = await fetch(
+    `${MUSIC_API}lookup?id=${value.id}&entity=${value.entity}&limit=${
+      value.limit
+    }`
+  );
 
-export const video = (id, callback) =>
-  fetch(`${MUSIC_API}lookup?id=${id}&entity=album`)
-    .then(res => res.json())
-    .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: err }));
+  data = await res.json();
 
-export const artist = (id, callback) =>
-  fetch(`${MUSIC_API}lookup?id=${id}`)
-    .then(res => res.json())
-    .then(data => callback({ data: data.results }))
-    .catch(err => callback({ data: err }));
+  return data;
+}
 
-export const lyrics = (artist, album, callback) =>
-  fetch(`${LYRICS_API}${artist}/${album}`)
-    .then(res => res.json())
-    .then(data => callback({ data: data.lyrics }))
-    .catch(err => callback({ data: err }));
+export async function song(id) {
+  res = await fetch(`${MUSIC_API}lookup?id=${id}`);
+  data = await res.json();
+
+  return data;
+}
+
+export async function album(id) {
+  res = await fetch(`${MUSIC_API}lookup?id=${id}&entity=song`);
+  data = await res.json();
+
+  return data;
+}
+
+export async function video(id) {
+  res = await fetch(`${MUSIC_API}lookup?id=${id}&entity=album`);
+  data = await res.json();
+
+  return data;
+}
+
+export async function artist(id) {
+  res = await fetch(`${MUSIC_API}lookup?id=${id}`);
+  data = await res.json();
+
+  return data;
+}
+
+export async function lyrics(artist, album) {
+  res = await fetch(`${LYRICS_API}${artist}/${album}`);
+  data = await res.json();
+
+  return data;
+}

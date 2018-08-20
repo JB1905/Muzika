@@ -1,13 +1,7 @@
 .more {
   color: var(--link-color);
   position: absolute;
-  right: 26px;
+  right: 0px;
   top: 15px;
   font-weight: 700;
-}
-
-@media (max-width: 600px) {
-  .more {
-    right: 14px;
-  }
 }

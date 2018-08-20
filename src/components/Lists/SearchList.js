@@ -8,19 +8,17 @@ export const SearchList = ({ values, type, location }) => {
     const data = values.map((value, index) => {
       let list;
 
-      if (value.kind === 'song') {
-        list = <SongItem key={index} value={value} />;
-      } else if (value.collectionType === 'Album') {
+      if (value.kind === 'song') list = <SongItem key={index} value={value} />;
+      else if (value.collectionType === 'Album')
         list = <AlbumItem key={index} value={value} />;
-      } else if (value.kind === 'music-video') {
+      else if (value.kind === 'music-video')
         list = <VideoItem key={index} value={value} />;
-      }
 
       return list;
     });
 
     return (
-      <React.Fragment>
+      <div className="grid">
         <div className="inline">
           <h3 className="grid__title">{type}</h3>
 
@@ -30,16 +28,18 @@ export const SearchList = ({ values, type, location }) => {
           </Link>
         </div>
 
-        <div className="grid">
+        <div className="scrollable">
           <div className="container--horizontal">{data}</div>
         </div>
-      </React.Fragment>
+      </div>
     );
   } else {
     return (
       <React.Fragment>
-        <div className="grid">
-          <h3 className="grid__title">{type} not found!</h3>
+        <div className="grid error">
+          <div className="inline">
+            <h3 className="grid__title">{type} not found!</h3>
+          </div>
         </div>
       </React.Fragment>
     );
