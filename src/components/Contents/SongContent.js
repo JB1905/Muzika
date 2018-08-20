@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
+import { ArtistLink } from '../Links';
 import AudioPlayer from '../Player/AudioPlayer';
 
 export const SongContent = ({ value, children }) => {
   const album = value.collectionName ? queryString(value.collectionName) : null;
-  const artist = queryString(value.artistName);
 
   return (
     <React.Fragment>
@@ -37,14 +37,7 @@ export const SongContent = ({ value, children }) => {
             </Link>
           </p>
 
-          <p>
-            By:{' '}
-            <Link
-              className="link content__link--artist"
-              to={`/artist/${artist}/${value.artistId}`}>
-              {value.artistName}
-            </Link>
-          </p>
+          <ArtistLink value={value} />
 
           <p className="about about--song">
             {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}

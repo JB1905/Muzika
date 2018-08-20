@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
+import { ArtistLink } from '../Links';
 
 export const VideoContent = ({ value }) => {
   const album = value.collectionName ? queryString(value.collectionName) : null;
-  const artist = queryString(value.artistName);
 
   return (
     <div className="video">
@@ -32,14 +32,7 @@ export const VideoContent = ({ value }) => {
             </Link>
           ) : null}
 
-          <p>
-            By:{' '}
-            <Link
-              className="link content__link--artist"
-              to={`/artist/${artist}/${value.artistId}`}>
-              {value.artistName}
-            </Link>
-          </p>
+          <ArtistLink value={value} />
 
           <p className="about about--video">
             {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}

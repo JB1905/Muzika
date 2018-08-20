@@ -1,0 +1,1 @@
+export { ArtistLink } from './ArtistLink';
