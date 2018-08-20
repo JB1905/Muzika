@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Title } from '../Title';
 import { ArtistLink } from '../Links';
 
 export const AlbumContent = ({ value, children }) => (
@@ -16,10 +17,10 @@ export const AlbumContent = ({ value, children }) => (
 
     <div className="container container--md">
       <div className="content__header">
-        <div className="inline">
-          <h2 className="title">{value[0].collectionName}</h2>
-          <span className={value[0].collectionExplicitness} />
-        </div>
+        <Title
+          title={value[0].collectionName}
+          explicit={value[0].collectionExplicitness}
+        />
 
         <ArtistLink value={value[0]} />
 
