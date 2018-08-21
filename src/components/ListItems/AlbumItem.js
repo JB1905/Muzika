@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
+import { ListLink } from '../Links';
 
 export const AlbumItem = ({ value }) => {
   const artist = queryString(value.artistName);
-  const album = queryString(value.collectionName);
 
   return (
     <div className="item--album">
@@ -19,13 +19,13 @@ export const AlbumItem = ({ value }) => {
 
       <section className="secondary--album">
         <div className="inline">
-          <Link
-            className="link list__link--album"
-            to={`/album/${album}/${value.collectionId}`}>
-            {value.collectionName}
-          </Link>
-
-          <span className={value.collectionExplicitness} />
+          <ListLink
+            list="list__link--album"
+            name={value.collectionName}
+            id={value.collectionId}
+            explicit={value.collectionExplicitness}
+            type="album"
+          />
         </div>
 
         <Link

@@ -1,28 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import { queryString } from '../../helpers';
+import { ListLink } from '../Links';
 
-export const VideoList = ({ value }) => {
-  const video = queryString(value.trackName);
-
-  return (
-    <div className="item--video">
-      <div className="img--video">
-        <img src={value.artworkUrl100.replace('100x100', '450x450')} alt="" />
-      </div>
-
-      <div className="inline">
-        <p className="index">{value.trackNumber}.</p>
-
-        <Link
-          className="link list__link--video"
-          to={`/music-video/${video}/${value.trackId}`}>
-          {value.trackName}
-        </Link>
-
-        <span className={value.trackExplicitness} />
-      </div>
+export const VideoList = ({ value }) => (
+  <div className="item--video">
+    <div className="img--video">
+      <img src={value.artworkUrl100.replace('100x100', '450x450')} alt="" />
     </div>
-  );
-};
+
+    <div className="inline">
+      <p className="index">{value.trackNumber}.</p>
+
+      <ListLink
+        list="list__link--video"
+        name={value.trackName}
+        id={value.trackId}
+        explicit={value.trackExplicitness}
+        type="music-video"
+      />
+    </div>
+  </div>
+);

@@ -1,28 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import { queryString } from '../../helpers';
+import { ListLink } from '../Links';
 
-export const SongList = ({ value }) => {
-  const song = queryString(value.trackName);
+export const SongList = ({ value }) => (
+  <div className="list__item--song">
+    <p className="index">{value.trackNumber}.</p>
 
-  return (
-    <div className="list__item--song">
-      <p className="index">{value.trackNumber}.</p>
-
-      <div>
-        <div className="inline">
-          <Link
-            className="link list__link--song"
-            to={`/song/${song}/${value.trackId}`}>
-            {value.trackName}
-          </Link>
-
-          <span className={value.trackExplicitness} />
-        </div>
-
-        <p className="artist">{value.artistName}</p>
+    <div>
+      <div className="inline">
+        <ListLink
+          list="list__link--song"
+          name={value.trackName}
+          id={value.trackId}
+          explicit={value.trackExplicitness}
+          type="song"
+        />
       </div>
+
+      <p className="artist">{value.artistName}</p>
     </div>
-  );
-};
+  </div>
+);

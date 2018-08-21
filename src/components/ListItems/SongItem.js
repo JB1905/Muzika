@@ -2,34 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
+import { ListLink } from '../Links';
 
-export const SongItem = ({ value }) => {
-  const song = queryString(value.trackName);
-  const album = queryString(value.collectionName);
+export const SongItem = ({ value }) => (
+  <div className="item--song">
+    <section className="primary--song">
+      <img className="img--song" src={value.artworkUrl60} alt="" />
+    </section>
 
-  return (
-    <div className="item--song">
-      <section className="primary--song">
-        <img className="img--song" src={value.artworkUrl60} alt="" />
-      </section>
+    <section className="secondary--song">
+      <div className="inline">
+        <ListLink
+          list="list__link--song"
+          name={value.trackName}
+          id={value.trackId}
+          explicit={value.trackExplicitness}
+          type="song"
+        />
+      </div>
 
-      <section className="secondary--song">
-        <div className="inline">
-          <Link
-            className="link list__link--song"
-            to={`/song/${song}/${value.trackId}`}>
-            {value.trackName}
-          </Link>
-
-          <div className={value.trackExplicitness} />
-        </div>
-
-        <Link
-          className="link list__link--album"
-          to={`/album/${album}/${value.collectionId}`}>
-          {value.collectionName} &bull; {value.releaseDate.substring(0, 4)}
-        </Link>
-      </section>
-    </div>
-  );
-};
+      <Link
+        className="link list__link--album"
+        to={`/album/${queryString(value.collectionName)}/${
+          value.collectionId
+        }`}>
+        {value.collectionName} &bull; {value.releaseDate.substring(0, 4)}
+      </Link>
+    </section>
+  </div>
+);
