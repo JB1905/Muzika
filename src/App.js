@@ -24,10 +24,7 @@ export const App = () => {
   return (
     <Router basename={'/Muzika'}>
       <React.Fragment>
-        <div className="main">
-          <Content />
-        </div>
-
+        <Content />
         <Menu />
       </React.Fragment>
     </Router>

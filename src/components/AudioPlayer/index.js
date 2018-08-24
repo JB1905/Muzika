@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import './AudioPlayer.css';
+
 export default class AudioPlayer extends Component {
   state = { play: false };
 
@@ -30,9 +32,7 @@ export default class AudioPlayer extends Component {
           )}
         </button>
 
-        <audio ref={el => (this.el = el)} preload="false">
-          <source src={this.props.src} />
-        </audio>
+        <audio src={this.props.src} ref={el => (this.el = el)} />
       </React.Fragment>
     );
   }
