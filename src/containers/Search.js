@@ -12,18 +12,12 @@ export default class Search extends Component {
     videos: <Spinner />
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.location.search !== nextProps.location.search) {
-      return true;
-    }
-    if (this.state.songs !== nextState.songs) {
-      return true;
-    }
-    return false;
-  }
-
   componentDidMount = () => this.results();
-  componentDidUpdate = () => this.results();
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.title !== this.props.location.search.replace('?q=', ''))
+      this.results();
+  };
 
   results() {
     const query = this.props.location.search.replace('?q=', '');
