@@ -5,53 +5,59 @@ import { ArtistList } from '../components/Lists';
 import { artist, list } from '../api';
 
 export default class Artist extends Component {
-  state = {
-    artist: null,
-    songs: <Spinner />,
-    videos: <Spinner />,
-    albums: <Spinner />
-  };
+  state = { artist: null, songs: null, albums: null, videos: null };
 
   componentDidMount() {
     const { id } = this.props.match.params;
 
     artist(id).then(data => this.setState({ artist: data.results[0] }));
 
-    list({ id: id, entity: 'song', limit: 12 }).then(data => {
-      const songs = (
-        <ArtistList {...this.props} values={data.results} type="Songs" />
-      );
+    list({ id: id, entity: 'song', limit: 12 }).then(data =>
+      this.setState({ songs: data.results })
+    );
 
-      this.setState({ songs: songs });
-    });
+    list({ id: id, entity: 'album', limit: 16 }).then(data =>
+      this.setState({ albums: data.results })
+    );
 
-    list({ id: id, entity: 'album', limit: 16 }).then(data => {
-      const albums = (
-        <ArtistList {...this.props} values={data.results} type="Albums" />
-      );
-
-      this.setState({ albums: albums });
-    });
-
-    list({ id: id, entity: 'musicVideo', limit: 8 }).then(data => {
-      const videos = (
-        <ArtistList {...this.props} values={data.results} type="Music videos" />
-      );
-
-      this.setState({ videos: videos });
-    });
+    list({ id: id, entity: 'musicVideo', limit: 8 }).then(data =>
+      this.setState({ videos: data.results })
+    );
   }
 
   render() {
-    return this.state.artist ? (
+    return (
       <React.Fragment>
         <div className="header__title">
-          <h2>{this.state.artist.artistName}</h2>
+          <h2>{this.state.artist ? this.state.artist.artistName : null}</h2>
         </div>
-        {this.state.songs} {this.state.albums} {this.state.videos}
+
+        {this.state.songs ? (
+          <ArtistList {...this.props} values={this.state.songs} type="Songs" />
+        ) : (
+          <Spinner />
+        )}
+
+        {this.state.albums ? (
+          <ArtistList
+            {...this.props}
+            values={this.state.albums}
+            type="Albums"
+          />
+        ) : (
+          <Spinner />
+        )}
+
+        {this.state.videos ? (
+          <ArtistList
+            {...this.props}
+            values={this.state.videos}
+            type="Music videos"
+          />
+        ) : (
+          <Spinner />
+        )}
       </React.Fragment>
-    ) : (
-      <Spinner />
     );
   }
 }

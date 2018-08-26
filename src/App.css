@@ -131,6 +131,7 @@
 }
 
 .header__title {
+  height: 60px;
   background-color: #fdfdfdf4;
   padding-top: 3px;
   z-index: 100;

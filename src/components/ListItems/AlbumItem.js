@@ -4,38 +4,34 @@ import { Link } from 'react-router-dom';
 import { queryString } from '../../helpers';
 import { ListLink } from '../Links';
 
-export const AlbumItem = ({ value }) => {
-  const artist = queryString(value.artistName);
+export const AlbumItem = ({ value }) => (
+  <div className="item--album">
+    <section className="primary--album">
+      <img
+        className="img--album"
+        src={value.artworkUrl100.replace('100x100', '200x200')}
+        alt=""
+      />
+    </section>
 
-  return (
-    <div className="item--album">
-      <section className="primary--album">
-        <img
-          className="img--album"
-          src={value.artworkUrl100.replace('100x100', '200x200')}
-          alt=""
+    <section className="secondary--album">
+      <div className="inline">
+        <ListLink
+          list="list__link--album"
+          name={value.collectionName}
+          id={value.collectionId}
+          explicit={value.collectionExplicitness}
+          type="album"
         />
-      </section>
+      </div>
 
-      <section className="secondary--album">
-        <div className="inline">
-          <ListLink
-            list="list__link--album"
-            name={value.collectionName}
-            id={value.collectionId}
-            explicit={value.collectionExplicitness}
-            type="album"
-          />
-        </div>
+      <Link
+        className="link list__link--artist"
+        to={`/artist/${queryString(value.artistName)}/${value.artistId}`}>
+        {value.artistName}
+      </Link>
 
-        <Link
-          className="link list__link--artist"
-          to={`/artist/${artist}/${value.artistId}`}>
-          {value.artistName}
-        </Link>
-
-        <div className={value.trackExplicitness} />
-      </section>
-    </div>
-  );
-};
+      <div className={value.trackExplicitness} />
+    </section>
+  </div>
+);
