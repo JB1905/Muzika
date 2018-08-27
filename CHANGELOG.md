@@ -7,6 +7,16 @@
 - search by song lyrics
 - artist picture & info on artist page
 
+## 1.0.1
+#### Improvements
+- update player ref to React 16.3 Refs API
+
+#### Other
+- update README.md images
+
+#### Bug Fix
+- add background color to video element
+
 ## 1.0.0
 #### New Feature
 - music search (songs, albums & videos)

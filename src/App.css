@@ -238,6 +238,10 @@
     padding: 0px 14px;
   }
 
+  .header__title {
+    height: 55px;
+  }
+
   .header__title h2 {
     padding: 10px 14px;
   }

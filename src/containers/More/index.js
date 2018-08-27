@@ -11,12 +11,13 @@ export default class More extends Component {
 
   componentDidMount() {
     let type;
+    let params;
 
     if (this.props.location.pathname.includes('artist/') > 0) {
       const { id } = this.props.match.params;
       type = this.props.match.params.type;
 
-      const params = this.checkKind(type);
+      params = this.checkKind(type);
 
       list({ id: id, entity: params.entity, limit: 100 }).then(data => {
         this.setState({
@@ -29,7 +30,7 @@ export default class More extends Component {
       const query = this.props.history.location.search.replace('?q=', '');
       type = this.props.history.location.pathname.replace('/', '');
 
-      const params = this.checkKind(type);
+      params = this.checkKind(type);
 
       search({ term: query, entity: params.entity, limit: 100 }).then(data => {
         this.setState({ title: `${params.kind} for query: "${query}"` });
@@ -74,7 +75,7 @@ export default class More extends Component {
   }
 
   render() {
-    return this.state.title ? (
+    return this.state.list ? (
       <React.Fragment>
         <div className="header__title">
           <h2>{this.state.title}</h2>

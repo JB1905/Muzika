@@ -4,18 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './AudioPlayer.css';
 
 export default class AudioPlayer extends Component {
-  state = { play: false };
+  constructor() {
+    super();
+
+    this.state = { play: false };
+
+    this.player = React.createRef();
+  }
 
   componentDidMount = () =>
-    this.el.addEventListener('ended', () => this.setState({ play: false }));
+    this.player.current.addEventListener('ended', () =>
+      this.setState({ play: false })
+    );
 
   toggle = () => {
     if (this.state.play) {
       this.setState({ play: false });
-      this.el.pause();
+      this.player.current.pause();
     } else {
       this.setState({ play: true });
-      this.el.play();
+      this.player.current.play();
     }
   };
 
@@ -32,7 +40,7 @@ export default class AudioPlayer extends Component {
           )}
         </button>
 
-        <audio src={this.props.src} ref={el => (this.el = el)} />
+        <audio src={this.props.src} ref={this.player} />
       </React.Fragment>
     );
   }

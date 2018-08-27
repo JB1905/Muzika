@@ -5,12 +5,7 @@ import { SearchList } from '../components/Lists';
 import { search } from '../api';
 
 export default class Search extends Component {
-  state = {
-    title: null,
-    songs: null,
-    albums: null,
-    videos: null
-  };
+  state = { title: null, songs: null, albums: null, videos: null };
 
   componentDidMount = () => this.results();
 
