@@ -9,11 +9,9 @@ import './Menu.css';
 export const Menu = () => (
   <div className="nav--bottom">
     <div>
-      <NavLink exact to="/">
-        <button className="home">
-          <FontAwesomeIcon icon="home" />
-          <span>Home</span>
-        </button>
+      <NavLink exact to="/" className="home">
+        <FontAwesomeIcon icon="home" />
+        <span>Home</span>
       </NavLink>
 
       <SearchForm />

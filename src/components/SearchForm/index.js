@@ -29,6 +29,7 @@ export default class SearchForm extends Component {
     return (
       <div className="form__container">
         {this.state.redirect}
+
         <div
           className={`search__form ${
             this.state.visible ? 'visible' : 'hidden'
@@ -39,6 +40,7 @@ export default class SearchForm extends Component {
             value={this.props.search}
             onChange={this.handleChange}
           />
+
           <button className="toggle" onClick={this.handleClick}>
             <FontAwesomeIcon icon="search" />
           </button>
