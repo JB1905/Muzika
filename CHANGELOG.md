@@ -7,6 +7,14 @@
 - search by song lyrics
 - artist picture & info on artist page
 
+## 1.0.2
+#### Improvements
+- code clean up
+- performance improvements
+
+#### Other
+- update dependencies
+
 ## 1.0.1
 #### Improvements
 - update player ref to React 16.3 Refs API
