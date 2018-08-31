@@ -69,7 +69,7 @@ export default class More extends Component {
       return false;
     });
 
-    this.setState({ list: list });
+    this.setState({ list });
   }
 
   render() {

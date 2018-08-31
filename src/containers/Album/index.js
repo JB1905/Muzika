@@ -32,7 +32,7 @@ export default class Album extends Component {
 
         if (videos.length === 0) videos = null;
 
-        this.setState({ songs: songs, videos: videos });
+        this.setState({ songs, videos });
       }
     });
   }
