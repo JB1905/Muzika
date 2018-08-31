@@ -1,4 +1,6 @@
 import './ContentLists.css';
 
-export { SongList } from './SongList';
-export { VideoList } from './VideoList';
+import { SongList } from './SongList';
+import { VideoList } from './VideoList';
+
+export { SongList, VideoList };

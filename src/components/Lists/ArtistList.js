@@ -7,15 +7,15 @@ import { SongItem, AlbumItem, VideoItem } from '../ListItems';
 export const ArtistList = ({ values, type, location }) => {
   if (values.length > 1) {
     const data = values.map((value, index) => {
-      let list;
+      if (value.kind === 'song') {
+        return <SongItem key={index} value={value} />;
+      } else if (value.collectionType === 'Album') {
+        return <AlbumItem key={index} value={value} />;
+      } else if (value.kind === 'music-video') {
+        return <VideoItem key={index} value={value} />;
+      }
 
-      if (value.kind === 'song') list = <SongItem key={index} value={value} />;
-      else if (value.collectionType === 'Album')
-        list = <AlbumItem key={index} value={value} />;
-      else if (value.kind === 'music-video')
-        list = <VideoItem key={index} value={value} />;
-
-      return list;
+      return false;
     });
 
     return (
@@ -36,5 +36,7 @@ export const ArtistList = ({ values, type, location }) => {
         </div>
       </div>
     );
-  } else return null;
+  } else {
+    return null;
+  }
 };

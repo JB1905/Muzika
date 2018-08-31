@@ -1,3 +1,5 @@
-export { AlbumLink } from './AlbumLink';
-export { ArtistLink } from './ArtistLink';
-export { ListLink } from './ListLink';
+import { AlbumLink } from './AlbumLink';
+import { ArtistLink } from './ArtistLink';
+import { ListLink } from './ListLink';
+
+export { AlbumLink, ArtistLink, ListLink };

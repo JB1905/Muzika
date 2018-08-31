@@ -10,8 +10,9 @@ export default class Search extends Component {
   componentDidMount = () => this.results();
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.title !== this.props.location.search.replace('?q=', ''))
+    if (prevState.title !== this.props.location.search.replace('?q=', '')) {
       this.results();
+    }
   }
 
   results() {

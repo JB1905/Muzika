@@ -1,8 +1,7 @@
 const MUSIC_API = 'https://itunes.apple.com/';
 const LYRICS_API = 'https://api.lyrics.ovh/v1/';
 
-let res;
-let data;
+let res, data;
 
 export async function search(query) {
   res = await fetch(

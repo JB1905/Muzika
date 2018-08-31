@@ -11,6 +11,7 @@ export default class SearchForm extends Component {
 
   handleChange = e => {
     const value = queryString(e.target.value);
+
     if (value !== '') {
       this.setState({ redirect: <Redirect to={`/search?q=${value}`} /> });
     } else {

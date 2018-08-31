@@ -10,8 +10,7 @@ export default class More extends Component {
   state = { title: null, list: null };
 
   componentDidMount() {
-    let type;
-    let params;
+    let type, params;
 
     if (this.props.location.pathname.includes('artist/') > 0) {
       const { id } = this.props.match.params;
@@ -41,8 +40,7 @@ export default class More extends Component {
   }
 
   checkKind(type) {
-    let entity;
-    let kind;
+    let entity, kind;
 
     if (type === 'songs') {
       entity = 'song';
@@ -60,15 +58,15 @@ export default class More extends Component {
 
   content(data) {
     const list = data.map((item, index) => {
-      let items;
+      if (item.kind === 'song') {
+        return <SongItem key={index} value={item} />;
+      } else if (item.collectionType === 'Album') {
+        return <AlbumItem key={index} value={item} />;
+      } else if (item.kind === 'music-video') {
+        return <VideoItem key={index} value={item} />;
+      }
 
-      if (item.kind === 'song') items = <SongItem key={index} value={item} />;
-      else if (item.collectionType === 'Album')
-        items = <AlbumItem key={index} value={item} />;
-      else if (item.kind === 'music-video')
-        items = <VideoItem key={index} value={item} />;
-
-      return items;
+      return false;
     });
 
     this.setState({ list: list });

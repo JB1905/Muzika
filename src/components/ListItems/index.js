@@ -1,5 +1,7 @@
 import './Items.css';
 
-export { AlbumItem } from './AlbumItem';
-export { SongItem } from './SongItem';
-export { VideoItem } from './VideoItem';
+import { AlbumItem } from './AlbumItem';
+import { SongItem } from './SongItem';
+import { VideoItem } from './VideoItem';
+
+export { AlbumItem, SongItem, VideoItem };

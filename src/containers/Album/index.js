@@ -21,14 +21,13 @@ export default class Album extends Component {
         let videos = [];
 
         data.results.map((value, index) => {
-          let items;
+          if (value.kind === 'song') {
+            return songs.push(<SongList key={index} value={value} />);
+          } else if (value.kind === 'music-video') {
+            return videos.push(<VideoList key={index} value={value} />);
+          }
 
-          if (value.kind === 'song')
-            items = songs.push(<SongList key={index} value={value} />);
-          else if (value.kind === 'music-video')
-            items = videos.push(<VideoList key={index} value={value} />);
-
-          return items;
+          return false;
         });
 
         if (videos.length === 0) videos = null;
@@ -43,7 +42,7 @@ export default class Album extends Component {
 
     return album ? (
       <div className="album">
-        <AlbumContent value={album}>
+        <AlbumContent value={album[0]}>
           {songs}
 
           {videos ? (
