@@ -8,7 +8,7 @@
 - artist picture & info on artist page
 
 ## 1.0.2
-#### Improvements
+#### Improvement
 - code clean up
 - performance improvements
 
@@ -16,7 +16,7 @@
 - update dependencies
 
 ## 1.0.1
-#### Improvements
+#### Improvement
 - update player ref to React 16.3 Refs API
 
 #### Other
@@ -37,7 +37,7 @@
 - "show more" button on search & artist page to list more songs, albums & videos
 - back to home button
 
-#### Improvements
+#### Improvement
 - better album covers quality
 - responsive design
 - dark mode improvements
