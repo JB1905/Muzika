@@ -18,13 +18,13 @@ body {
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  outline: 0;
+  outline: 0px;
 }
 
 .link {
@@ -41,7 +41,7 @@ body {
 }
 
 h1 {
-  margin: 0;
+  margin: 0px;
   color: var(--link-color);
   font-size: 130px;
 }
@@ -71,7 +71,7 @@ video {
 }
 
 .container {
-  margin: 0 12px;
+  margin: 0px 12px;
 }
 
 .content {
@@ -96,7 +96,7 @@ video,
 }
 
 .explicit::before {
-  margin: 0 8px;
+  margin: 0px 8px;
   color: #fff;
   content: 'E';
   background-color: var(--headers-color);
@@ -137,7 +137,7 @@ video,
 .list__link--album,
 .list__link--video {
   color: var(--link-color);
-  margin: 0;
+  margin: 0px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -147,7 +147,7 @@ video,
 
 .inline {
   max-width: 1250px;
-  margin: 0 auto 4px auto;
+  margin: 0px auto 4px auto;
   position: relative;
   display: flex;
   align-items: center;
@@ -159,12 +159,12 @@ video,
   }
 
   .container {
-    margin: 0;
+    margin: 0px;
   }
 
   .content__header--video span.explicit::before,
   .content__header span.explicit::before {
-    margin: 0 6px;
+    margin: 0px 6px;
     width: 16px;
     height: 16px;
     font-size: 10px;
@@ -177,13 +177,13 @@ video,
   .container--sm,
   .container--md {
     width: 100%;
-    margin: 0;
+    margin: 0px;
   }
 
   aside {
     width: calc(100% / 2 - 20px);
     margin-bottom: 14px;
-    top: 0;
+    top: 0px;
   }
 
   video {

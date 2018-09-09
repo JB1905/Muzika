@@ -13,44 +13,21 @@
   background-color: var(--link-color);
   opacity: 0.6;
   position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-animation: sk-bounce 1.4s infinite ease-in-out;
-  animation: sk-bounce 1.4s infinite ease-in-out;
+  top: 0px;
+  left: 0px;
+  animation: bounce 1.4s infinite ease-in-out;
 }
 
 .spinner__bounce--2 {
-  -webkit-animation-delay: -0.7s;
   animation-delay: -0.7s;
 }
 
-@-webkit-keyframes sk-bounce {
-  0%,
-  100% {
-    -webkit-transform: scale(0);
-  }
-  50% {
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes sk-bounce {
+@keyframes bounce {
   0%,
   100% {
     transform: scale(0);
-    -webkit-transform: scale(0);
   }
   50% {
     transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }

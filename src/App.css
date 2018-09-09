@@ -8,7 +8,7 @@
 }
 
 .grid--vertical .item--song:last-child {
-  border-bottom: 0;
+  border-bottom: 0px;
 }
 
 .item--song {
@@ -38,7 +38,7 @@
 }
 
 .container--horizontal .item--song:nth-last-child(-n + 4) {
-  border-bottom: 0;
+  border-bottom: 0px;
 }
 
 .container--sm aside {
@@ -52,12 +52,12 @@
 }
 
 .info {
-  margin: 4px 0;
+  margin: 4px 0px;
 }
 
 .grid {
   max-width: 1250px;
-  margin: 0 auto;
+  margin: 0px auto;
 }
 
 .scrollable {
@@ -90,12 +90,12 @@
 }
 
 .grid__title {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .container--horizontal {
   width: 1250px;
-  padding: 0 16px 10px 16px;
+  padding: 0px 16px 10px 16px;
 }
 
 .container--vertical {
@@ -106,7 +106,7 @@
 .item--song .list__link--song,
 .item--video .list__link--video {
   font-size: 17px;
-  margin: 0;
+  margin: 0px;
   font-weight: 600;
 }
 
@@ -143,7 +143,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0 auto;
+  margin: 0px auto;
   padding: 10px 26px;
   max-width: 1250px;
 }
@@ -213,7 +213,7 @@
     position: absolute;
     top: 16px;
     left: 0px;
-    border-bottom: 0;
+    border-bottom: 0px;
   }
 
   .content__header > * {

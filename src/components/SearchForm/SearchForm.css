@@ -9,7 +9,7 @@
   background-color: var(--link-color);
   height: 40px;
   width: 40px;
-  border: 0;
+  border: 0px;
   border-radius: 30px;
   text-align: center;
   color: #fff;
@@ -40,13 +40,13 @@ input[type='search']:focus {
 }
 
 .hidden input[type='search'] {
-  width: 0;
+  width: 0px;
   opacity: 0;
   transition: all 200ms ease-in-out;
 }
 
 .visible input[type='search'] {
-  padding: 0 8px;
+  padding: 0px 8px;
   margin-left: 2px;
   opacity: 1;
   font-weight: 500;
@@ -66,7 +66,7 @@ input[type='search']:focus {
   width: 40px;
   top: 0px;
   right: 0px;
-  border: 0;
+  border: 0px;
   background: transparent;
   font-size: 20px;
   cursor: pointer;
