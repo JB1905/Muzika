@@ -12,7 +12,7 @@ export default class More extends Component {
   componentDidMount() {
     let type, params;
 
-    if (this.props.location.pathname.includes('artist/') > 0) {
+    if (this.props.location.pathname.includes('artist/')) {
       const { id } = this.props.match.params;
       type = this.props.match.params.type;
 
