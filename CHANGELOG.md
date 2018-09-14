@@ -7,6 +7,18 @@
 - search by song lyrics
 - artist picture & info on artist page
 
+#### Improvement
+- better horizontal scroll list
+- columns in vertical list for songs
+
+## 1.0.3
+#### Improvement
+- remove unused code
+- add PropTypes
+
+#### Other
+- update dependencies
+
 ## 1.0.2
 #### Improvement
 - code clean up
