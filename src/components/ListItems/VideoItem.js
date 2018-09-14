@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
@@ -31,3 +32,14 @@ export const VideoItem = ({ value }) => (
     </section>
   </div>
 );
+
+VideoItem.propTypes = {
+  value: PropTypes.shape({
+    artworkUrl100: PropTypes.string.isRequired,
+    trackName: PropTypes.string.isRequired,
+    trackId: PropTypes.number.isRequired,
+    trackExplicitness: PropTypes.string.isRequired,
+    artistName: PropTypes.string.isRequired,
+    artistId: PropTypes.number.isRequired
+  })
+};

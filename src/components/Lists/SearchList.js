@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { SongItem, AlbumItem, VideoItem } from '../ListItems';
@@ -44,4 +45,12 @@ export const SearchList = ({ values, type, location }) => {
       </React.Fragment>
     );
   }
+};
+
+SearchList.propTypes = {
+  values: PropTypes.array.isRequired,
+  type: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string
+  })
 };

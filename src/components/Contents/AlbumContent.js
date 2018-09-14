@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Title } from '../Title';
 import { ArtistLink } from '../Links';
@@ -33,3 +34,14 @@ export const AlbumContent = ({ value, children }) => (
     </div>
   </React.Fragment>
 );
+
+AlbumContent.propTypes = {
+  value: PropTypes.shape({
+    artworkUrl100: PropTypes.string.isRequired,
+    collectionName: PropTypes.string.isRequired,
+    collectionExplicitness: PropTypes.string.isRequired,
+    copyright: PropTypes.string
+  }),
+
+  children: PropTypes.array
+};

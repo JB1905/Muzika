@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
 import { SongItem, AlbumItem, VideoItem } from '../ListItems';
 
-export const ArtistList = ({ values, type, location }) => {
+export const ArtistList = ({ values, type }) => {
   if (values.length > 1) {
     const data = values.map((value, index) => {
       if (value.kind === 'song') {
@@ -39,4 +40,9 @@ export const ArtistList = ({ values, type, location }) => {
   } else {
     return null;
   }
+};
+
+ArtistList.propTypes = {
+  values: PropTypes.array.isRequired,
+  type: PropTypes.string.isRequired
 };

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './AudioPlayer.css';
@@ -45,3 +46,7 @@ export default class AudioPlayer extends Component {
     );
   }
 }
+
+AudioPlayer.propTypes = {
+  src: PropTypes.string.isRequired
+};

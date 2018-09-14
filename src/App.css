@@ -153,8 +153,8 @@
   .album,
   .video,
   .header__title h2 {
-    padding-left: calc(26px + env(safe-area-inset-left)) !important;
-    padding-right: calc(26px + env(safe-area-inset-right)) !important;
+    padding-left: calc(26px + env(safe-area-inset-left));
+    padding-right: calc(26px + env(safe-area-inset-right));
     margin-left: auto;
     margin-right: auto;
   }

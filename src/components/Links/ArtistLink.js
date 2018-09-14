@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
@@ -13,3 +14,10 @@ export const ArtistLink = ({ value }) => (
     </Link>
   </p>
 );
+
+ArtistLink.propTypes = {
+  value: PropTypes.shape({
+    artistName: PropTypes.string.isRequired,
+    artistId: PropTypes.number.isRequired
+  })
+};

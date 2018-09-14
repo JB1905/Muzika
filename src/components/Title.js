@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Title = ({ title, explicit }) => (
   <div className="inline">
@@ -6,3 +7,8 @@ export const Title = ({ title, explicit }) => (
     <span className={explicit} />
   </div>
 );
+
+Title.propTypes = {
+  title: PropTypes.string.isRequired,
+  explicit: PropTypes.string.isRequired
+};

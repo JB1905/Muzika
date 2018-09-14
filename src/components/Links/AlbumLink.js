@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
@@ -12,3 +13,10 @@ export const AlbumLink = ({ value }) => (
     </Link>
   </p>
 );
+
+AlbumLink.propTypes = {
+  value: PropTypes.shape({
+    collectionName: PropTypes.string.isRequired,
+    collectionId: PropTypes.number.isRequired
+  })
+};

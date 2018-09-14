@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
@@ -30,8 +31,17 @@ export const AlbumItem = ({ value }) => (
         to={`/artist/${queryString(value.artistName)}/${value.artistId}`}>
         {value.artistName}
       </Link>
-
-      <div className={value.trackExplicitness} />
     </section>
   </div>
 );
+
+AlbumItem.propTypes = {
+  value: PropTypes.shape({
+    artworkUrl100: PropTypes.string.isRequired,
+    collectionName: PropTypes.string.isRequired,
+    collectionId: PropTypes.number.isRequired,
+    collectionExplicitness: PropTypes.string.isRequired,
+    artistName: PropTypes.string.isRequired,
+    artistId: PropTypes.number.isRequired
+  })
+};

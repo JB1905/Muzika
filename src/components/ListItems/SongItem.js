@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
@@ -31,3 +32,15 @@ export const SongItem = ({ value }) => (
     </section>
   </div>
 );
+
+SongItem.propTypes = {
+  value: PropTypes.shape({
+    artworkUrl60: PropTypes.string.isRequired,
+    trackName: PropTypes.string.isRequired,
+    trackId: PropTypes.number.isRequired,
+    trackExplicitness: PropTypes.string.isRequired,
+    collectionName: PropTypes.string.isRequired,
+    collectionId: PropTypes.number.isRequired,
+    releaseDate: PropTypes.string.isRequired
+  })
+};

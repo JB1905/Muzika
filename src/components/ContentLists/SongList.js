@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { ListLink } from '../Links';
 
@@ -21,3 +22,15 @@ export const SongList = ({ value }) => (
     </div>
   </div>
 );
+
+SongList.propTypes = {
+  value: PropTypes.shape({
+    trackNumber: PropTypes.number.isRequired,
+    trackName: PropTypes.string.isRequired,
+    trackId: PropTypes.number.isRequired,
+    trackExplicitness: PropTypes.string.isRequired,
+    artistName: PropTypes.string.isRequired
+  }),
+
+  children: PropTypes.array
+};

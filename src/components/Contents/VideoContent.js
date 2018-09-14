@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Title } from '../Title';
 import { AlbumLink, ArtistLink } from '../Links';
@@ -24,3 +25,13 @@ export const VideoContent = ({ value }) => (
     </div>
   </div>
 );
+
+VideoContent.propTypes = {
+  value: PropTypes.shape({
+    artworkUrl100: PropTypes.string.isRequired,
+    previewUrl: PropTypes.string.isRequired,
+    trackName: PropTypes.string.isRequired,
+    trackExplicitness: PropTypes.string.isRequired,
+    collectionId: PropTypes.number
+  })
+};
