@@ -21,7 +21,7 @@
 }
 
 .button--play.played {
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 .button--play:active {
