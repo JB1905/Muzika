@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { queryString } from '../../helpers';
 import { SongItem, AlbumItem, VideoItem } from '../ListItems';
 
-export const ArtistList = ({ values, type }) => {
+export const ArtistList = ({ values, type, className }) => {
   if (values.length > 1) {
     const data = values.map((value, index) => {
       if (value.kind === 'song') {
@@ -33,7 +33,7 @@ export const ArtistList = ({ values, type }) => {
         </div>
 
         <div className="scrollable">
-          <div className="container--horizontal">{data}</div>
+          <div className={`container--horizontal ${className}`}>{data}</div>
         </div>
       </div>
     );

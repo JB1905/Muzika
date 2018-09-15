@@ -20,15 +20,15 @@ export default class Search extends Component {
 
     this.setState({ title: query });
 
-    search({ term: query, entity: 'song', limit: 12 }).then(data =>
+    search({ term: query, entity: 'song', limit: 15 }).then(data =>
       this.setState({ songs: data.results })
     );
 
-    search({ term: query, entity: 'album', limit: 16 }).then(data =>
+    search({ term: query, entity: 'album', limit: 20 }).then(data =>
       this.setState({ albums: data.results })
     );
 
-    search({ term: query, entity: 'musicVideo', limit: 8 }).then(data =>
+    search({ term: query, entity: 'musicVideo', limit: 12 }).then(data =>
       this.setState({ videos: data.results })
     );
   }
@@ -41,7 +41,12 @@ export default class Search extends Component {
         </div>
 
         {this.state.songs ? (
-          <SearchList {...this.props} values={this.state.songs} type="Songs" />
+          <SearchList
+            {...this.props}
+            values={this.state.songs}
+            className="scroller--songs"
+            type="Songs"
+          />
         ) : (
           <Spinner />
         )}
@@ -50,6 +55,7 @@ export default class Search extends Component {
           <SearchList
             {...this.props}
             values={this.state.albums}
+            className="scroller--albums"
             type="Albums"
           />
         ) : (
@@ -60,6 +66,7 @@ export default class Search extends Component {
           <SearchList
             {...this.props}
             values={this.state.videos}
+            className="scroller--videos"
             type="Music videos"
           />
         ) : (

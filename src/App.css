@@ -37,7 +37,7 @@
   border-bottom: 1px solid var(--border-dark);
 }
 
-.container--horizontal .item--song:nth-last-child(-n + 4) {
+.container--horizontal .item--song:nth-last-child(3n + 1) {
   border-bottom: 0px;
 }
 
@@ -94,8 +94,26 @@
 }
 
 .container--horizontal {
-  width: 1250px;
-  padding: 0px 16px 10px 16px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  vertical-align: bottom;
+  width: calc(100% - 52px);
+  margin: 0px auto;
+}
+
+.scroller--songs {
+  height: 186px;
+}
+
+.scroller--albums {
+  height: 384px;
+}
+
+.scroller--videos {
+  height: 140px;
 }
 
 .container--vertical {
@@ -148,33 +166,6 @@
   max-width: 1250px;
 }
 
-@supports (padding-left: env(safe-area-inset-left)) {
-  .song,
-  .album,
-  .video,
-  .header__title h2 {
-    padding-left: calc(26px + env(safe-area-inset-left));
-    padding-right: calc(26px + env(safe-area-inset-right));
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .grid {
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-  }
-
-  .grid__title {
-    width: 100%;
-  }
-
-  .grid__title,
-  .more {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 .dark .header__title {
   background-color: #131a20f4;
   border-bottom: 1px solid var(--border-dark);
@@ -200,6 +191,35 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@supports (padding-left: env(safe-area-inset-left)) {
+  @media screen and (orientation: landscape) {
+    .song,
+    .album,
+    .video,
+    .header__title h2 {
+      padding-left: calc(26px + env(safe-area-inset-left));
+      padding-right: calc(26px + env(safe-area-inset-right));
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .main > .grid {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .grid__title {
+    width: 100%;
+  }
+
+  .grid__title,
+  .more {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (max-width: 600px) {
@@ -247,9 +267,7 @@
   }
 
   .container--horizontal {
-    width: 1224px;
-    padding-left: 4px;
-    padding-right: 4px;
+    width: calc(100% - 28px);
   }
 
   .grid > .inline {

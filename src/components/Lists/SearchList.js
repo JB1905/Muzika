@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { SongItem, AlbumItem, VideoItem } from '../ListItems';
 
-export const SearchList = ({ values, type, location }) => {
+export const SearchList = ({ values, type, location, className }) => {
   if (values.length > 0) {
     const data = values.map((value, index) => {
       if (value.kind === 'song') {
@@ -30,7 +30,7 @@ export const SearchList = ({ values, type, location }) => {
         </div>
 
         <div className="scrollable">
-          <div className="container--horizontal">{data}</div>
+          <div className={`container--horizontal ${className}`}>{data}</div>
         </div>
       </div>
     );
