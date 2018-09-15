@@ -7,9 +7,17 @@
 - search by song lyrics
 - artist picture & info on artist page
 
+## 1.0.4
+#### Change
+- change item order to column in horizontal scroll list
+- increase item number in horizontal scroll list
+
 #### Improvement
-- better horizontal scroll list
+- better horizontal scroll list UI
 - columns in vertical list for songs
+
+#### Bug Fix
+- fixed scaling on iPhone models with notch in landscape position
 
 ## 1.0.3
 #### Improvement
