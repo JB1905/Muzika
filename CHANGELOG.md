@@ -7,10 +7,14 @@
 - search by song lyrics
 - artist picture & info on artist page
 
-## 1.0.4
+## 1.0.5 (2018-09-16)
+#### Bug Fix
+- fixed positioning of elements in horizontal scroll list
+
+## 1.0.4 (2018-09-15)
 #### Change
-- change item order to column in horizontal scroll list
-- increase item number in horizontal scroll list
+- changed item order to column in horizontal scroll list
+- increased item number in horizontal scroll list
 
 #### Improvement
 - better horizontal scroll list UI
@@ -19,33 +23,33 @@
 #### Bug Fix
 - fixed scaling on iPhone models with notch in landscape position
 
-## 1.0.3
+## 1.0.3 (2018-09-14)
 #### Improvement
-- remove unused code
-- add PropTypes
+- removed unused code
+- added PropTypes
 
 #### Other
-- update dependencies
+- updated dependencies
 
-## 1.0.2
+## 1.0.2 (2018-08-31)
 #### Improvement
-- code clean up
+- code cleaned up
 - performance improvements
 
 #### Other
-- update dependencies
+- updated dependencies
 
-## 1.0.1
+## 1.0.1 (2018-08-27)
 #### Improvement
-- update player ref to React 16.3 Refs API
+- updated player ref to React 16.3 Refs API
 
 #### Other
-- update README.md images
+- updated README.md images
 
 #### Bug Fix
-- add background color to video element
+- added background color to video element
 
-## 1.0.0
+## 1.0.0 (2018-08-25)
 #### New Feature
 - music search (songs, albums & videos)
 - song page (with lyrics)
@@ -65,8 +69,8 @@
 - code clean up
 
 #### Bug Fix
-- fix search
+- fixed search
 - handle fetch errors
-- fix error on artist page
+- fixed error on artist page
 - reduce data usage
 - auto change play button icon after preview
