@@ -21,7 +21,7 @@
 }
 
 .button--play.played {
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .button--play:active {
@@ -38,6 +38,6 @@
     width: 40px;
     font-size: 20px;
     right: 10px;
-    bottom: 14px;
+    bottom: 10px;
   }
 }

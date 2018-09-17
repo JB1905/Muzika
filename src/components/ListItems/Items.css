@@ -2,12 +2,12 @@
   height: 58px;
   display: inline-flex;
   align-items: center;
-  width: 276px;
-  margin: 0px 10px;
+  width: 280px;
+  margin: 0px 8px;
 }
 
 .container--vertical .item--song {
-  width: calc(100% / 3 - 20px);
+  width: calc(100% / 3 - 16px);
 }
 
 .container--horizontal .item--song:nth-child(n + 1):nth-child(-n + 3),
@@ -28,13 +28,13 @@
 .item--album,
 .item--video {
   display: inline-block;
-  width: 128px;
-  margin: 3px 10px 12px 10px;
+  width: 132px;
+  margin: 3px 8px 12px 8px;
 }
 
 .container--vertical .item--album,
 .container--vertical .item--video {
-  width: calc(100% / 8 - 20px);
+  width: calc(100% / 8 - 16px);
 }
 
 .item--album:nth-child(2n) {
@@ -45,7 +45,7 @@
   position: relative;
   border: 1px solid var(--border-light);
   margin-bottom: 6px;
-  border-radius: 5px;
+  border-radius: 4px;
   height: 0px;
   top: 0px;
   overflow: hidden;
@@ -63,10 +63,6 @@
   position: absolute;
 }
 
-.dark .img--video {
-  border: 1px solid var(--border-dark);
-}
-
 .primary--song {
   width: 50px;
   height: 50px;
@@ -75,23 +71,26 @@
 }
 
 .secondary--song {
-  width: 216px;
+  width: 222px;
 }
 
-.img--song {
-  border-radius: 5px;
-  height: auto;
-  width: 50px;
-  max-height: 50px;
+.img--song,
+.img--album {
   border: 1px solid var(--border-light);
+  position: absolute;
+  border-radius: 4px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.dark .img--song {
+.dark .img--song,
+.dark .img--album,
+.dark .img--video {
   border: 1px solid var(--border-dark);
 }
 
 .container--vertical {
-  padding: 0px 4px;
+  padding: 0px 6px;
 }
 
 .container--vertical .secondary--song {
@@ -99,85 +98,76 @@
 }
 
 .img--album {
-  position: absolute;
   bottom: 0px;
-  border: 1px solid var(--border-light);
-  max-width: 100%;
-  max-height: 100%;
   object-fit: contain;
-  border-radius: 5px;
-}
-
-.dark .img--album {
-  border: 1px solid var(--border-dark);
 }
 
 .album .item--video {
-  width: calc(100% / 3 - 20px);
+  width: calc(100% / 3 - 16px);
 }
 
 @media (max-width: 1100px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
-    width: calc(100% / 7 - 20px);
+    width: calc(100% / 7 - 16px);
   }
 }
 
 @media (max-width: 1000px) {
   .container--vertical .item--song {
-    width: calc(100% / 2 - 20px);
+    width: calc(100% / 2 - 16px);
   }
 
   .container--vertical .item--album,
   .container--vertical .item--video {
-    width: calc(100% / 6 - 20px);
+    width: calc(100% / 6 - 16px);
   }
 
   .album .item--video {
-    width: calc(100% / 2 - 20px);
+    width: calc(100% / 2 - 16px);
   }
 }
 
 @media (max-width: 900px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
-    width: calc(100% / 5 - 20px);
+    width: calc(100% / 5 - 16px);
   }
 }
 
 @media (max-width: 780px) {
   .container--vertical .item--song {
-    width: calc(100% - 20px);
+    width: calc(100% - 16px);
   }
 
   .container--vertical .item--album,
   .container--vertical .item--video {
-    width: calc(100% / 4 - 20px);
+    width: calc(100% / 4 - 16px);
   }
 
   .album .item--video {
-    width: calc(100% - 20px);
+    width: calc(100% - 16px);
   }
 }
 
 @media (max-width: 600px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
-    width: calc(100% / 3 - 20px);
+    width: calc(100% / 3 - 16px);
   }
 
   .album .item--video {
-    width: calc(100% / 2 - 20px);
+    width: calc(100% / 2 - 16px);
   }
 }
 
 @media (max-width: 420px) {
   .container--vertical .item--album,
   .container--vertical .item--video {
-    width: calc(100% / 2 - 20px);
+    width: calc(100% / 2 - 16px);
   }
 
   .album .item--video {
-    width: calc(100% - 20px);
+    width: calc(100% - 16px);
   }
 }

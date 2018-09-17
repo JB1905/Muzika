@@ -7,6 +7,11 @@
 - search by song lyrics
 - artist picture & info on artist page
 
+## 1.0.6 (2018-09-17)
+#### Bug Fix
+- fixed album cover place during image loading
+- fixed positioning of elements in horizontal scroll list when scrollbar is visible
+
 ## 1.0.5 (2018-09-16)
 #### Bug Fix
 - fixed positioning of elements in horizontal scroll list

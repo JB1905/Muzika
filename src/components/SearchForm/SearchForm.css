@@ -21,7 +21,7 @@
 }
 
 .search__form.visible {
-  border-radius: 5px;
+  border-radius: 4px;
   width: 280px;
 }
 
@@ -50,7 +50,7 @@ input[type='search']:focus {
   margin-left: 2px;
   opacity: 1;
   font-weight: 500;
-  border-radius: 3px;
+  border-radius: 2px;
   color: var(--link-color);
   width: calc(100% - 44px);
   transition: all 200ms ease-in-out;

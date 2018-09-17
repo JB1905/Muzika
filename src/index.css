@@ -58,7 +58,7 @@ h3 {
 
 video {
   background-color: #0c0c0c;
-  border-radius: 5px;
+  border-radius: 4px;
   width: 100%;
 }
 
@@ -80,9 +80,10 @@ video {
 }
 
 .artwork {
+  display: block;
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 video,
