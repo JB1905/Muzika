@@ -22,7 +22,7 @@ export const App = () => {
   darky.auto();
 
   return (
-    <Router basename={'/Muzika'}>
+    <Router basename="/Muzika">
       <React.Fragment>
         <Content />
         <Menu />
