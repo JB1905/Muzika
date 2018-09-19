@@ -7,6 +7,15 @@
 - search by song lyrics
 - artist picture & info on artist page
 
+## 1.0.7 (2018-09-19)
+#### Change
+- better typography size
+
+#### Improvement
+- CSS cleaned up
+- removed unnecessary components
+- better scaling scrollable elements
+
 ## 1.0.6 (2018-09-17)
 #### Bug Fix
 - fixed album cover place during image loading

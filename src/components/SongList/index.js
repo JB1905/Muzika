@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { ListLink } from '../Links';
 
+import './SongList.css';
+
 export const SongList = ({ value }) => (
   <div className="list__item--song">
     <p className="index">{value.trackNumber}.</p>

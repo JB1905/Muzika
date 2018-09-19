@@ -13,7 +13,7 @@ export const ArtistList = ({ values, type, className }) => {
       } else if (value.collectionType === 'Album') {
         return <AlbumItem key={index} value={value} />;
       } else if (value.kind === 'music-video') {
-        return <VideoItem key={index} value={value} />;
+        return <VideoItem key={index} value={value} contentList={false} />;
       }
 
       return false;
@@ -32,14 +32,10 @@ export const ArtistList = ({ values, type, className }) => {
           </Link>
         </div>
 
-        <div className="scrollable">
-          <div className={`container--horizontal ${className}`}>{data}</div>
-        </div>
+        <div className={`container--horizontal ${className}`}>{data}</div>
       </div>
     );
-  } else {
-    return null;
-  }
+  } else return null;
 };
 
 ArtistList.propTypes = {

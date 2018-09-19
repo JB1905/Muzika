@@ -5,16 +5,24 @@ import { Link } from 'react-router-dom';
 import { queryString } from '../../helpers';
 import { ListLink } from '../Links';
 
-export const VideoItem = ({ value }) => (
+export const VideoItem = ({ value, contentList }) => (
   <div className="item--video">
     <section className="primary--video">
-      <div className="img--video">
-        <img src={value.artworkUrl100.replace('100x100', '200x200')} alt="" />
-      </div>
+      <img
+        className="img--video"
+        src={
+          contentList
+            ? value.artworkUrl100.replace('100x100', '450x450')
+            : value.artworkUrl100.replace('100x100', '200x200')
+        }
+        alt=""
+      />
     </section>
 
     <section className="secondary--video">
       <div className="inline">
+        {contentList ? <p className="index">{value.trackNumber}.</p> : null}
+
         <ListLink
           list="list__link--video"
           name={value.trackName}
@@ -24,11 +32,13 @@ export const VideoItem = ({ value }) => (
         />
       </div>
 
-      <Link
-        className="link list__link--artist"
-        to={`/artist/${queryString(value.artistName)}/${value.artistId}`}>
-        {value.artistName}
-      </Link>
+      {!contentList ? (
+        <Link
+          className="link list__link--artist"
+          to={`/artist/${queryString(value.artistName)}/${value.artistId}`}>
+          {value.artistName}
+        </Link>
+      ) : null}
     </section>
   </div>
 );

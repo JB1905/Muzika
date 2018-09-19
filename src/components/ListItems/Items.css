@@ -6,6 +6,17 @@
   margin: 0px 8px;
 }
 
+.item--album,
+.item--video {
+  display: inline-block;
+  width: 132px;
+  margin: 3px 8px 12px 8px;
+}
+
+.album .item--video {
+  width: calc(100% / 3 - 16px);
+}
+
 .container--vertical .item--song {
   width: calc(100% / 3 - 16px);
 }
@@ -16,71 +27,71 @@
   margin-left: 0;
 }
 
-.primary--album {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  height: 0px;
-  padding-top: 100%;
-  margin-bottom: 4px;
-}
-
-.item--album,
-.item--video {
-  display: inline-block;
-  width: 132px;
-  margin: 3px 8px 12px 8px;
-}
-
 .container--vertical .item--album,
 .container--vertical .item--video {
   width: calc(100% / 8 - 16px);
 }
 
-.item--album:nth-child(2n) {
+.item--album:nth-child(2n),
+.container--horizontal .item--video {
   margin-bottom: 0px;
 }
 
-.img--video {
+.primary--song,
+.primary--album,
+.primary--video {
   position: relative;
-  border: 1px solid var(--border-light);
-  margin-bottom: 6px;
-  border-radius: 4px;
-  height: 0px;
-  top: 0px;
-  overflow: hidden;
-  padding-top: calc(100% / 16 * 9);
-  width: 100%;
-  display: flex;
-}
-
-.img--video img {
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  object-fit: cover;
-  top: 0px;
-  position: absolute;
 }
 
 .primary--song {
   width: 50px;
   height: 50px;
-  position: relative;
   margin-right: 8px;
+}
+
+.primary--album,
+.primary--video {
+  display: flex;
+  justify-content: center;
+  height: 0px;
+  margin-bottom: 5px;
+}
+
+.primary--album {
+  padding-top: 100%;
+}
+
+.primary--video {
+  padding-top: calc(100% / 16 * 9);
 }
 
 .secondary--song {
   width: 222px;
 }
 
+.container--vertical .secondary--song {
+  width: calc(100% - 60px);
+}
+
 .img--song,
-.img--album {
+.img--album,
+.img--video {
+  bottom: 0;
   border: 1px solid var(--border-light);
   position: absolute;
   border-radius: 4px;
   max-width: 100%;
   max-height: 100%;
+}
+
+.img--album {
+  object-fit: contain;
+}
+
+.img--video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .dark .img--song,
@@ -91,19 +102,6 @@
 
 .container--vertical {
   padding: 0px 6px;
-}
-
-.container--vertical .secondary--song {
-  width: calc(100% - 60px);
-}
-
-.img--album {
-  bottom: 0px;
-  object-fit: contain;
-}
-
-.album .item--video {
-  width: calc(100% / 3 - 16px);
 }
 
 @media (max-width: 1100px) {
@@ -143,10 +141,6 @@
   .container--vertical .item--album,
   .container--vertical .item--video {
     width: calc(100% / 4 - 16px);
-  }
-
-  .album .item--video {
-    width: calc(100% - 16px);
   }
 }
 

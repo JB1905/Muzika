@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import { AlbumContent } from '../../components/Contents';
-import { SongList, VideoList } from '../../components/ContentLists';
+import { SongList } from '../../components/SongList';
+import { VideoItem } from '../../components/ListItems';
 import { Spinner } from '../../components/Spinner';
 import { album } from '../../api';
 
@@ -24,7 +25,9 @@ export default class Album extends Component {
           if (value.kind === 'song') {
             return songs.push(<SongList key={index} value={value} />);
           } else if (value.kind === 'music-video') {
-            return videos.push(<VideoList key={index} value={value} />);
+            return videos.push(
+              <VideoItem key={index} value={value} contentList={true} />
+            );
           }
 
           return false;

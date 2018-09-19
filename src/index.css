@@ -104,18 +104,18 @@ video,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   border-radius: 4px;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .content__header--video span.explicit::before,
 .content__header span.explicit::before {
   width: 21px;
   height: 21px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .dark .explicit::before {
@@ -130,6 +130,7 @@ video,
 }
 
 .content__link--album {
+  display: block;
   overflow: hidden;
 }
 
@@ -138,11 +139,9 @@ video,
 .list__link--album,
 .list__link--video {
   color: var(--link-color);
-  margin: 0px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 18px;
   max-width: 100%;
 }
 
@@ -188,6 +187,6 @@ video,
   }
 
   video {
-    margin-bottom: 14px;
+    margin-bottom: 6px;
   }
 }

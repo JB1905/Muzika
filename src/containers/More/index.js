@@ -63,7 +63,7 @@ export default class More extends Component {
       } else if (item.collectionType === 'Album') {
         return <AlbumItem key={index} value={item} />;
       } else if (item.kind === 'music-video') {
-        return <VideoItem key={index} value={item} />;
+        return <VideoItem key={index} value={item} contentList={false} />;
       }
 
       return false;
