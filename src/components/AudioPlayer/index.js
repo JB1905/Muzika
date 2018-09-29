@@ -30,7 +30,7 @@ export default class AudioPlayer extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <button
           className={`button--play ${this.state.play ? 'played' : ''}`}
           onClick={this.toggle}>
@@ -42,7 +42,7 @@ export default class AudioPlayer extends Component {
         </button>
 
         <audio src={this.props.src} ref={this.player} />
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -49,14 +49,14 @@ export default class Album extends Component {
           {songs}
 
           {videos ? (
-            <React.Fragment>
+            <>
               <div className="grid">
                 <div className="inline">
                   <h3 className="grid__title">Music videos</h3>
                 </div>
                 <div className="container">{videos}</div>
               </div>
-            </React.Fragment>
+            </>
           ) : null}
         </AlbumContent>
       </div>

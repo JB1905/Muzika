@@ -23,10 +23,10 @@ export const App = () => {
 
   return (
     <Router basename="/Muzika">
-      <React.Fragment>
+      <>
         <Content />
         <Menu />
-      </React.Fragment>
+      </>
     </Router>
   );
 };

@@ -6,7 +6,7 @@ import { ArtistLink } from '../Links';
 import { Info } from '../Info';
 
 export const AlbumContent = ({ value, children }) => (
-  <React.Fragment>
+  <>
     <div className="container container--sm">
       <aside>
         <img
@@ -32,7 +32,7 @@ export const AlbumContent = ({ value, children }) => (
 
       <div className="copyright">{value.copyright}</div>
     </div>
-  </React.Fragment>
+  </>
 );
 
 AlbumContent.propTypes = {

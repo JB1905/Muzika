@@ -7,7 +7,7 @@ import AudioPlayer from '../AudioPlayer';
 import { Info } from '../Info';
 
 export const SongContent = ({ value, children }) => (
-  <React.Fragment>
+  <>
     <div className="container container--sm">
       <aside>
         <img
@@ -30,7 +30,7 @@ export const SongContent = ({ value, children }) => (
 
       {children}
     </div>
-  </React.Fragment>
+  </>
 );
 
 SongContent.propTypes = {

@@ -35,7 +35,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <div className="header__title">
           <h2>Results for: "{this.state.title}"</h2>
         </div>
@@ -72,7 +72,7 @@ export default class Search extends Component {
         ) : (
           <Spinner />
         )}
-      </React.Fragment>
+      </>
     );
   }
 }

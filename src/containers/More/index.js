@@ -74,7 +74,7 @@ export default class More extends Component {
 
   render() {
     return this.state.list ? (
-      <React.Fragment>
+      <>
         <div className="header__title">
           <h2>{this.state.title}</h2>
         </div>
@@ -82,7 +82,7 @@ export default class More extends Component {
         <div className="grid grid--vertical">
           <div className="container container--vertical">{this.state.list}</div>
         </div>
-      </React.Fragment>
+      </>
     ) : (
       <Spinner />
     );

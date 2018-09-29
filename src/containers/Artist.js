@@ -27,7 +27,7 @@ export default class Artist extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <div className="header__title">
           <h2>{this.state.artist ? this.state.artist.artistName : null}</h2>
         </div>
@@ -64,7 +64,7 @@ export default class Artist extends Component {
         ) : (
           <Spinner />
         )}
-      </React.Fragment>
+      </>
     );
   }
 }
