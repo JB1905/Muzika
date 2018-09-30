@@ -16,7 +16,7 @@ export const SongContent = ({ value, children }) => (
           alt=""
         />
 
-        <AudioPlayer src={value.previewUrl} />
+        {value.previewUrl ? <AudioPlayer src={value.previewUrl} /> : null}
       </aside>
     </div>
 

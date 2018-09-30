@@ -34,13 +34,13 @@ export const SearchList = ({ values, type, location, className }) => {
     );
   } else {
     return (
-      <React.Fragment>
+      <>
         <div className="grid error">
           <div className="inline">
             <h3 className="grid__title">{type} not found!</h3>
           </div>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 };
