@@ -7,7 +7,7 @@ import { song, lyrics } from '../../api';
 import './Song.css';
 
 export default class Song extends Component {
-  state = { song: null, lyrics: null };
+  state = { song: null, lyrics: null, error: null };
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -16,7 +16,7 @@ export default class Song extends Component {
       this.setState({ song: data.results[0] });
 
       lyrics(data.results[0].artistName, data.results[0].trackName).then(data =>
-        this.setState({ lyrics: data.lyrics })
+        this.setState({ lyrics: data.lyrics, error: data.error })
       );
     });
   }
@@ -26,15 +26,21 @@ export default class Song extends Component {
       <div className="song">
         <SongContent value={this.state.song}>
           <div className="lyrics">
-            {this.state.lyrics ? (
-              this.state.lyrics.split('\n').map((item, index) => (
-                <span key={index}>
-                  {item}
-                  <br />
-                </span>
-              ))
+            {this.state.error ? (
+              this.state.error
             ) : (
-              <Spinner />
+              <>
+                {this.state.lyrics ? (
+                  this.state.lyrics.split('\n').map((item, index) => (
+                    <span key={index}>
+                      {item}
+                      <br />
+                    </span>
+                  ))
+                ) : (
+                  <Spinner />
+                )}
+              </>
             )}
           </div>
         </SongContent>
