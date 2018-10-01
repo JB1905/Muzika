@@ -7,19 +7,19 @@ import {
   faSearch,
   faHome
 } from '@fortawesome/free-solid-svg-icons';
-import Darky from 'darky';
+import Night from 'night.js';
 
 import './App.css';
 
 import { Content } from './components/Content';
 import { Menu } from './components/Menu';
 
-const darky = new Darky();
+const night = new Night();
 
 library.add(faPlay, faPause, faSearch, faHome);
 
 export const App = () => {
-  darky.auto();
+  night.auto();
 
   return (
     <Router basename="/Muzika">
