@@ -24,9 +24,8 @@ export const SongItem = ({ value }) => (
 
       <Link
         className="link list__link--album"
-        to={`/album/${queryString(value.collectionName)}/${
-          value.collectionId
-        }`}>
+        to={`/album/${queryString(value.collectionName)}/${value.collectionId}`}
+      >
         {value.collectionName} &bull; {value.releaseDate.substring(0, 4)}
       </Link>
     </section>

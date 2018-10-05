@@ -27,7 +27,8 @@ export const ArtistList = ({ values, type, className }) => {
           <Link
             to={`/artist/${queryString(values[0].artistName)}/${
               values[0].artistId
-            }/${type.toLowerCase().replace(' ', '-')}`}>
+            }/${type.toLowerCase().replace(' ', '-')}`}
+          >
             <p className="link more">Show more...</p>
           </Link>
         </div>

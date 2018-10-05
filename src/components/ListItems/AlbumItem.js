@@ -28,7 +28,8 @@ export const AlbumItem = ({ value }) => (
 
       <Link
         className="link list__link--artist"
-        to={`/artist/${queryString(value.artistName)}/${value.artistId}`}>
+        to={`/artist/${queryString(value.artistName)}/${value.artistId}`}
+      >
         {value.artistName}
       </Link>
     </section>

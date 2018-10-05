@@ -33,7 +33,8 @@ export default class AudioPlayer extends Component {
       <>
         <button
           className={`button--play ${this.state.play ? 'played' : ''}`}
-          onClick={this.toggle}>
+          onClick={this.toggle}
+        >
           {this.state.play ? (
             <FontAwesomeIcon icon="pause" />
           ) : (

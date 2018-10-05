@@ -19,7 +19,8 @@ export default class Welcome extends Component {
     return (
       <div
         className="welcome__page"
-        style={{ minHeight: this.state.minHeight }}>
+        style={{ minHeight: this.state.minHeight }}
+      >
         <div className="welcome__content">
           <h1>{json.name}.</h1>
 

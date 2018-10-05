@@ -15,18 +15,15 @@ import { Content } from './components/Content';
 import { Menu } from './components/Menu';
 
 const night = new Night();
+night.auto();
 
 library.add(faPlay, faPause, faSearch, faHome);
 
-export const App = () => {
-  night.auto();
-
-  return (
-    <Router basename="/Muzika">
-      <>
-        <Content />
-        <Menu />
-      </>
-    </Router>
-  );
-};
+export const App = () => (
+  <Router basename="/Muzika">
+    <>
+      <Content />
+      <Menu />
+    </>
+  </Router>
+);

@@ -34,7 +34,8 @@ export default class SearchForm extends Component {
         <div
           className={`search__form ${
             this.state.visible ? 'visible' : 'hidden'
-          }`}>
+          }`}
+        >
           <input
             type="search"
             placeholder="Search"

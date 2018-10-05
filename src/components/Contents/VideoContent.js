@@ -10,7 +10,8 @@ export const VideoContent = ({ value }) => (
     <div className="container container--md">
       <video
         controls
-        poster={value.artworkUrl100.replace('100x100', '800x800')}>
+        poster={value.artworkUrl100.replace('100x100', '800x800')}
+      >
         <source src={value.previewUrl} type="video/mp4" />
       </video>
     </div>
