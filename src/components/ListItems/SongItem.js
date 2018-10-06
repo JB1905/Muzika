@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
 import { ListLink } from '../Links';
+import Inline from '../Inline';
 
 export const SongItem = ({ value }) => (
   <div className="item--song">
@@ -12,7 +13,7 @@ export const SongItem = ({ value }) => (
     </section>
 
     <section className="secondary--song">
-      <div className="inline">
+      <Inline>
         <ListLink
           list="list__link--song"
           name={value.trackName}
@@ -20,7 +21,7 @@ export const SongItem = ({ value }) => (
           explicit={value.trackExplicitness}
           type="song"
         />
-      </div>
+      </Inline>
 
       <Link
         className="link list__link--album"

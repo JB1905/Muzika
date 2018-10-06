@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Title } from '../Title';
+import Title from '../Title';
 import { AlbumLink, ArtistLink } from '../Links';
 import AudioPlayer from '../AudioPlayer';
-import { Info } from '../Info';
+import Info from '../Info';
+import Container from '../Container';
 
 export const SongContent = ({ value, children }) => (
   <>
-    <div className="container container--sm">
+    <Container className="container--sm">
       <aside>
         <img
           className="artwork content__artwork"
@@ -18,9 +19,9 @@ export const SongContent = ({ value, children }) => (
 
         {value.previewUrl ? <AudioPlayer src={value.previewUrl} /> : null}
       </aside>
-    </div>
+    </Container>
 
-    <div className="container container--md">
+    <Container className="container--md">
       <div className="content__header">
         <Title title={value.trackName} explicit={value.trackExplicitness} />
         <AlbumLink value={value} />
@@ -29,14 +30,14 @@ export const SongContent = ({ value, children }) => (
       </div>
 
       {children}
-    </div>
+    </Container>
   </>
 );
 
 SongContent.propTypes = {
   value: PropTypes.shape({
     artworkUrl100: PropTypes.string.isRequired,
-    previewUrl: PropTypes.string.isRequired,
+    previewUrl: PropTypes.string,
     trackName: PropTypes.string.isRequired,
     trackExplicitness: PropTypes.string.isRequired
   }),

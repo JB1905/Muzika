@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { SongItem, AlbumItem, VideoItem } from '../ListItems';
+import Grid from '../Grid';
+import Inline from '../Inline';
 
 export const SearchList = ({ values, type, location, className }) => {
   if (values.length > 0) {
@@ -19,27 +21,28 @@ export const SearchList = ({ values, type, location, className }) => {
     });
 
     return (
-      <div className="grid">
-        <div className="inline">
+      <Grid>
+        <Inline>
           <h3 className="grid__title">{type}</h3>
 
           <Link
-            to={`/${type.toLowerCase().replace(' ', '-')}${location.search}`}>
+            to={`/${type.toLowerCase().replace(' ', '-')}${location.search}`}
+          >
             <p className="link more">Show more...</p>
           </Link>
-        </div>
+        </Inline>
 
         <div className={`container--horizontal ${className}`}>{data}</div>
-      </div>
+      </Grid>
     );
   } else {
     return (
       <>
-        <div className="grid error">
-          <div className="inline">
+        <Grid className="error">
+          <Inline>
             <h3 className="grid__title">{type} not found!</h3>
-          </div>
-        </div>
+          </Inline>
+        </Grid>
       </>
     );
   }

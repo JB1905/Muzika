@@ -4,8 +4,29 @@
 #### New Feature
 - artist social media accounts (Facebook, Twitter, Instagram) on artist page
 - concerts info on artist page
-- search by song lyrics
 - artist picture & info on artist page
+
+## 1.1.0 (2018-10-07)
+#### Repository Changes
+- disabled map files for build
+
+#### Change
+- elements have been divided into smaller components
+- rewritten CSS to SCSS
+- dropped support for IE
+
+#### Improvement
+- improved live search
+- better sizing on bigger screens
+- improved PropTypes check
+
+#### Bug Fix
+- hidden play button for unreleased songs
+- hidden spinner and shown message when lyrics aren't available
+
+#### Other
+- updated react-scripts to v2 stable
+- updated night.js
 
 ## 1.0.7 (2018-09-19)
 #### Change

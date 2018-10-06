@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
 import { SongItem, AlbumItem, VideoItem } from '../ListItems';
+import Grid from '../Grid';
+import Inline from '../Inline';
 
 export const ArtistList = ({ values, type, className }) => {
   if (values.length > 1) {
@@ -20,8 +22,8 @@ export const ArtistList = ({ values, type, className }) => {
     });
 
     return (
-      <div className="grid">
-        <div className="inline">
+      <Grid>
+        <Inline>
           <h3 className="grid__title">{type}</h3>
 
           <Link
@@ -31,10 +33,10 @@ export const ArtistList = ({ values, type, className }) => {
           >
             <p className="link more">Show more...</p>
           </Link>
-        </div>
+        </Inline>
 
         <div className={`container--horizontal ${className}`}>{data}</div>
-      </div>
+      </Grid>
     );
   } else return null;
 };

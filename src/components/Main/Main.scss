@@ -1,0 +1,7 @@
+.main {
+  padding-bottom: 60px;
+
+  @supports (padding-left: env(safe-area-inset-left)) {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  }
+}

@@ -4,20 +4,20 @@
   padding: 6px 3px;
   border-bottom: 1px solid var(--border-light);
   overflow: hidden;
-}
 
-.list__item--song > div {
-  overflow: hidden;
-}
+  div {
+    overflow: hidden;
+  }
 
-.dark .list__item--song {
-  border-bottom: 1px solid var(--border-dark);
-}
-
-.list__item--song .artist {
-  font-size: 11px;
+  .artist {
+    font-size: 11px;
+  }
 }
 
 .list__link--song {
   font-weight: 600;
+}
+
+.dark .list__item--song {
+  border-bottom: 1px solid var(--border-dark);
 }

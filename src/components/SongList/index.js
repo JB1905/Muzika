@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ListLink } from '../Links';
+import Inline from '../Inline';
 
-import './SongList.css';
+import './SongList.scss';
 
 export const SongList = ({ value }) => (
   <div className="list__item--song">
     <p className="index">{value.trackNumber}.</p>
 
     <div>
-      <div className="inline">
+      <Inline>
         <ListLink
           list="list__link--song"
           name={value.trackName}
@@ -18,7 +19,7 @@ export const SongList = ({ value }) => (
           explicit={value.trackExplicitness}
           type="song"
         />
-      </div>
+      </Inline>
 
       <p className="artist">{value.artistName}</p>
     </div>

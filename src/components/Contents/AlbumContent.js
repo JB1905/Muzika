@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Title } from '../Title';
+import Title from '../Title';
 import { ArtistLink } from '../Links';
-import { Info } from '../Info';
+import Info from '../Info';
+import Container from '../Container';
 
 export const AlbumContent = ({ value, children }) => (
   <>
-    <div className="container container--sm">
+    <Container className="container--sm">
       <aside>
         <img
           className="artwork"
@@ -15,9 +16,9 @@ export const AlbumContent = ({ value, children }) => (
           alt=""
         />
       </aside>
-    </div>
+    </Container>
 
-    <div className="container container--md">
+    <Container className="container--md">
       <div className="content__header">
         <Title
           title={value.collectionName}
@@ -31,7 +32,7 @@ export const AlbumContent = ({ value, children }) => (
       {children}
 
       <div className="copyright">{value.copyright}</div>
-    </div>
+    </Container>
   </>
 );
 

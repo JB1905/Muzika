@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { queryString } from '../../helpers';
 
-import './SearchForm.css';
+import './SearchForm.scss';
 
-export default class SearchForm extends Component {
-  state = { searchTerm: '', redirect: '', visible: false };
+class SearchForm extends Component {
+  state = { searchTerm: '', visible: false };
 
   handleChange = e => {
     const value = queryString(e.target.value);
 
     if (value !== '') {
-      this.setState({ redirect: <Redirect to={`/search?q=${value}`} /> });
+      this.props.history.push({ pathname: 'search', search: `?q=${value}` });
     } else {
-      this.setState({ redirect: <Redirect to={`/`} /> });
+      this.props.history.push({ pathname: '/', search: '' });
     }
 
     this.setState({ searchTerm: e.target.value });
@@ -29,8 +29,6 @@ export default class SearchForm extends Component {
   render() {
     return (
       <div className="form__container">
-        {this.state.redirect}
-
         <div
           className={`search__form ${
             this.state.visible ? 'visible' : 'hidden'
@@ -51,3 +49,5 @@ export default class SearchForm extends Component {
     );
   }
 }
+
+export default withRouter(SearchForm);

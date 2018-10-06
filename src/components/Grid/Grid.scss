@@ -1,0 +1,37 @@
+.grid {
+  position: relative;
+  max-width: 1300px;
+  margin: 0px auto;
+
+   > .inline {
+    padding-top: 10px;
+    margin: 0px 27px 10px 27px;
+    position: relative;
+  }
+
+   ~ .grid > .inline {
+    border-top: 1px solid var(--border-light);
+  }
+
+  @media (max-width: 600px) {
+    box-shadow: none;
+  }
+}
+
+.grid:last-child,
+.dark .grid:last-child {
+  border-bottom: 0px;
+}
+
+.grid--vertical {
+  padding-top: 14px;
+  border-bottom: 0px;
+}
+
+.dark .grid ~ .grid > .inline {
+  border-top: 1px solid var(--border-dark);
+}
+
+.grid__title {
+  font-size: 22px;
+}

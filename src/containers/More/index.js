@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
-import { Spinner } from '../../components/Spinner';
+import Spinner from '../../components/Spinner';
 import { SongItem, AlbumItem, VideoItem } from '../../components/ListItems';
-import { search, list } from '../../api';
+import Grid from '../../components/Grid';
+import Container from '../../components/Container';
 
-import './More.css';
+import './More.scss';
+
+import { search, list } from '../../api';
 
 export default class More extends Component {
   state = { title: null, list: null };
@@ -79,9 +82,11 @@ export default class More extends Component {
           <h2>{this.state.title}</h2>
         </div>
 
-        <div className="grid grid--vertical">
-          <div className="container container--vertical">{this.state.list}</div>
-        </div>
+        <Grid className="grid--vertical">
+          <Container className="container--vertical">
+            {this.state.list}
+          </Container>
+        </Grid>
       </>
     ) : (
       <Spinner />

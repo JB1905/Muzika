@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import json from '../../../package.json';
+import './Welcome.scss';
 
-import './Welcome.css';
+import json from '../../../package.json';
 
 export default class Welcome extends Component {
   state = { minHeight: null };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import './AudioPlayer.css';
+import './AudioPlayer.scss';
 
 export default class AudioPlayer extends Component {
   constructor() {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
+import Spinner from '../components/Spinner';
 import { VideoContent } from '../components/Contents';
-import { Spinner } from '../components/Spinner';
+
 import { video } from '../api';
 
 export default class Video extends Component {

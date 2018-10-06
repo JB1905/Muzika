@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
+import Main from './Main';
+
 import Welcome from '../containers/Welcome';
 import Search from '../containers/Search';
 import Album from '../containers/Album';
@@ -9,8 +11,8 @@ import Song from '../containers/Song';
 import Video from '../containers/Video';
 import More from '../containers/More';
 
-export const Content = () => (
-  <div className="main">
+const Content = () => (
+  <Main>
     <Switch>
       <Route exact path="/" component={Welcome} />
       <Route exact path="/search" component={Search} />
@@ -28,5 +30,7 @@ export const Content = () => (
       <Route exact path="/song/:name/:id" component={Song} />
       <Redirect from="*" to="/" />
     </Switch>
-  </div>
+  </Main>
 );
+
+export default Content;

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
 import { ListLink } from '../Links';
+import Inline from '../Inline';
 
 export const AlbumItem = ({ value }) => (
   <div className="item--album">
@@ -16,7 +17,7 @@ export const AlbumItem = ({ value }) => (
     </section>
 
     <section className="secondary--album">
-      <div className="inline">
+      <Inline>
         <ListLink
           list="list__link--album"
           name={value.collectionName}
@@ -24,7 +25,7 @@ export const AlbumItem = ({ value }) => (
           explicit={value.collectionExplicitness}
           type="album"
         />
-      </div>
+      </Inline>
 
       <Link
         className="link list__link--artist"
@@ -43,6 +44,6 @@ AlbumItem.propTypes = {
     collectionId: PropTypes.number.isRequired,
     collectionExplicitness: PropTypes.string.isRequired,
     artistName: PropTypes.string.isRequired,
-    artistId: PropTypes.number.isRequired
+    artistId: PropTypes.string.isRequired
   })
 };

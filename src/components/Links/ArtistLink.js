@@ -19,6 +19,6 @@ export const ArtistLink = ({ value }) => (
 ArtistLink.propTypes = {
   value: PropTypes.shape({
     artistName: PropTypes.string.isRequired,
-    artistId: PropTypes.number.isRequired
+    artistId: PropTypes.string.isRequired
   })
 };

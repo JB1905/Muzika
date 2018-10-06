@@ -9,17 +9,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Night from 'night.js';
 
-import './App.css';
+import Content from './components/Content';
+import Menu from './components/Menu';
 
-import { Content } from './components/Content';
-import { Menu } from './components/Menu';
+import './App.scss';
 
 const night = new Night();
 night.auto();
 
 library.add(faPlay, faPause, faSearch, faHome);
 
-export const App = () => (
+const App = () => (
   <Router basename="/Muzika">
     <>
       <Content />
@@ -27,3 +27,5 @@ export const App = () => (
     </>
   </Router>
 );
+
+export default App;

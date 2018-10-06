@@ -14,15 +14,15 @@
   text-align: center;
   color: #fff;
   max-width: calc(100% - 20px);
+
+  &.visible {
+    border-radius: 4px;
+    width: 280px;
+  }
 }
 
 .form__container {
   max-width: calc(100% - 60px);
-}
-
-.search__form.visible {
-  border-radius: 4px;
-  width: 280px;
 }
 
 input[type='search'] {
@@ -33,10 +33,10 @@ input[type='search'] {
   font-size: 20px;
   transition: all 200ms ease-in-out;
   -webkit-appearance: none;
-}
 
-input[type='search']:focus {
-  text-align: left;
+  &:focus {
+    text-align: left;
+  }
 }
 
 .hidden input[type='search'] {

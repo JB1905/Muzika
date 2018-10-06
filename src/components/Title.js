@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Title = ({ title, explicit }) => (
-  <div className="inline">
+import Inline from './Inline';
+
+const Title = ({ title, explicit }) => (
+  <Inline>
     <h2 className="title">{title}</h2>
     <span className={explicit} />
-  </div>
+  </Inline>
 );
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
   explicit: PropTypes.string.isRequired
 };
+
+export default Title;

@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import SearchForm from '../SearchForm';
 
-import './Menu.css';
+import './Menu.scss';
 
-export const Menu = () => (
+const Menu = () => (
   <div className="nav--bottom">
     <div>
       <NavLink exact to="/" className="home">
@@ -18,3 +18,5 @@ export const Menu = () => (
     </div>
   </div>
 );
+
+export default Menu;

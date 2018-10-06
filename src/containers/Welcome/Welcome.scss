@@ -7,10 +7,8 @@
 .welcome__content {
   max-width: 640px;
   padding: 20px;
-}
 
-@media (max-width: 600px) {
-  .welcome__content {
+  @media (max-width: 600px) {
     padding: 20px 14px;
   }
 }

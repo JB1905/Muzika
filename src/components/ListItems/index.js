@@ -1,4 +1,4 @@
-import './Items.css';
+import './Items.scss';
 
 import { AlbumItem } from './AlbumItem';
 import { SongItem } from './SongItem';

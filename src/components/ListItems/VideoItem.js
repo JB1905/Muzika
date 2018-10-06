@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
 import { ListLink } from '../Links';
+import Inline from '../Inline';
 
 export const VideoItem = ({ value, contentList }) => (
   <div className="item--video">
@@ -20,7 +21,7 @@ export const VideoItem = ({ value, contentList }) => (
     </section>
 
     <section className="secondary--video">
-      <div className="inline">
+      <Inline>
         {contentList ? <p className="index">{value.trackNumber}.</p> : null}
 
         <ListLink
@@ -30,7 +31,7 @@ export const VideoItem = ({ value, contentList }) => (
           explicit={value.trackExplicitness}
           type="music-video"
         />
-      </div>
+      </Inline>
 
       {!contentList ? (
         <Link
@@ -51,6 +52,6 @@ VideoItem.propTypes = {
     trackId: PropTypes.number.isRequired,
     trackExplicitness: PropTypes.string.isRequired,
     artistName: PropTypes.string.isRequired,
-    artistId: PropTypes.number.isRequired
+    artistId: PropTypes.string.isRequired
   })
 };

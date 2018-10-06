@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import { Spinner } from '../components/Spinner';
+import Spinner from '../components/Spinner';
 import { SearchList } from '../components/Lists';
+
 import { search } from '../api';
 
 export default class Search extends Component {

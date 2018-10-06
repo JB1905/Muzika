@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 
+import Spinner from '../../components/Spinner';
 import { AlbumContent } from '../../components/Contents';
 import { SongList } from '../../components/SongList';
 import { VideoItem } from '../../components/ListItems';
-import { Spinner } from '../../components/Spinner';
-import { album } from '../../api';
+import Inline from '../../components/Inline';
+import Grid from '../../components/Grid';
 
-import './Album.css';
+import './Album.scss';
+
+import { album } from '../../api';
 
 export default class Album extends Component {
   state = { album: null, songs: null, videos: null };
@@ -49,14 +52,13 @@ export default class Album extends Component {
           {songs}
 
           {videos ? (
-            <>
-              <div className="grid">
-                <div className="inline">
-                  <h3 className="grid__title">Music videos</h3>
-                </div>
-                <div className="container">{videos}</div>
-              </div>
-            </>
+            <Grid>
+              <Inline>
+                <h3 className="grid__title">Music videos</h3>
+              </Inline>
+
+              {videos}
+            </Grid>
           ) : null}
         </AlbumContent>
       </div>
