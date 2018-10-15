@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Container from '../Container';
 import Title from '../Title';
 import { AlbumLink, ArtistLink } from '../Links';
 import AudioPlayer from '../AudioPlayer';
 import Info from '../Info';
-import Container from '../Container';
 
 export const SongContent = ({ value, children }) => (
   <>

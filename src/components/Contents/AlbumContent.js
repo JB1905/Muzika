@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Container from '../Container';
 import Title from '../Title';
 import { ArtistLink } from '../Links';
 import Info from '../Info';
-import Container from '../Container';
 
 export const AlbumContent = ({ value, children }) => (
   <>

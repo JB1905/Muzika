@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ListLink } from '../Links';
 import Inline from '../Inline';
+import { ListLink } from '../Links';
 
 import './SongList.scss';
 

@@ -13,7 +13,7 @@ class SearchForm extends Component {
     const value = queryString(e.target.value);
 
     if (value !== '') {
-      this.props.history.push({ pathname: 'search', search: `?q=${value}` });
+      this.props.history.push({ pathname: '/search', search: `?q=${value}` });
     } else {
       this.props.history.push({ pathname: '/', search: '' });
     }

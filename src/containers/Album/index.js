@@ -4,8 +4,8 @@ import Spinner from '../../components/Spinner';
 import { AlbumContent } from '../../components/Contents';
 import { SongList } from '../../components/SongList';
 import { VideoItem } from '../../components/ListItems';
-import Inline from '../../components/Inline';
 import Grid from '../../components/Grid';
+import Inline from '../../components/Inline';
 
 import './Album.scss';
 
