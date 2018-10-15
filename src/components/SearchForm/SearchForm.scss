@@ -1,4 +1,4 @@
-.dark input[type='search'] {
+.dark input[type="search"] {
   background-color: #21272d;
 }
 
@@ -22,7 +22,7 @@
     color: #fff;
     max-width: calc(100% - 20px);
 
-    input[type='search'] {
+    input[type="search"] {
       border: 0;
       text-align: center;
       height: 34px;
@@ -39,7 +39,7 @@
       border-radius: 4px;
       width: 280px;
 
-      input[type='search'] {
+      input[type="search"] {
         padding: 0 8px;
         margin-left: 2px;
         opacity: 1;
@@ -51,7 +51,7 @@
       }
     }
 
-    &.hidden input[type='search'] {
+    &.hidden input[type="search"] {
       width: 0;
       opacity: 0;
       transition: all 200ms ease-in-out;

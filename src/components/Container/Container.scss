@@ -7,10 +7,10 @@
 }
 
 .container {
-  margin: 0px 12px;
+  margin: 0 12px;
 
   @media (max-width: 600px) {
-    margin: 0px;
+    margin: 0;
   }
 }
 
@@ -24,7 +24,7 @@
   width: calc(100% - 54px);
   align-content: flex-start;
   vertical-align: bottom;
-  margin: 0px auto;
+  margin: 0 auto;
   padding-bottom: 10px;
 
   @media (max-width: 600px) {
@@ -33,13 +33,13 @@
 }
 
 .container--vertical {
-  padding: 0px 7px;
+  padding: 0 7px;
 }
 
 @media (max-width: 600px) {
   .container--sm,
   .container--md {
     width: 100%;
-    margin: 0px;
+    margin: 0;
   }
 }
