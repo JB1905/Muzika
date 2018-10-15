@@ -3,7 +3,7 @@
   display: inline-flex;
   align-items: center;
   width: 280px;
-  margin: 0px 8px;
+  margin: 0 8px;
 }
 
 .item--album,
@@ -34,7 +34,7 @@
 
 .item--album:nth-child(2n),
 .container--horizontal .item--video {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .primary--song,
@@ -55,7 +55,7 @@
 .primary--video {
   display: flex;
   justify-content: center;
-  height: 0px;
+  height: 0;
   margin-bottom: 5px;
 }
 
@@ -86,7 +86,7 @@
 
 .img--album,
 .img--video {
-  bottom: 0px;
+  bottom: 0;
 }
 
 .img--album {
