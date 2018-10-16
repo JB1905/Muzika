@@ -4,8 +4,8 @@
   position: relative;
   margin: 100px auto;
 
-  .spinner__bounce--1,
-  .spinner__bounce--2 {
+  &__bounce--1,
+  &__bounce--2 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -17,7 +17,7 @@
     animation: bounce 1.4s infinite ease-in-out;
   }
 
-  .spinner__bounce--2 {
+  &__bounce--2 {
     animation-delay: -0.7s;
   }
 }
