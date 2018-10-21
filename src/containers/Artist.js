@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Spinner from '../components/Spinner';
+import Preloader from '../components/Preloader';
 import HeaderTitle from '../components/HeaderTitle';
 import { ArtistList } from '../components/Lists';
 
@@ -42,7 +42,7 @@ export default class Artist extends Component {
             type="Songs"
           />
         ) : (
-          <Spinner />
+          <Preloader />
         )}
 
         {this.state.albums ? (
@@ -53,7 +53,7 @@ export default class Artist extends Component {
             type="Albums"
           />
         ) : (
-          <Spinner />
+          <Preloader />
         )}
 
         {this.state.videos ? (
@@ -64,7 +64,7 @@ export default class Artist extends Component {
             type="Music videos"
           />
         ) : (
-          <Spinner />
+          <Preloader />
         )}
       </>
     );

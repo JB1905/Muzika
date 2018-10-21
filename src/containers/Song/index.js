@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Spinner from '../../components/Spinner';
+import Preloader from '../../components/Preloader';
 import View from '../../components/View';
 import { SongContent } from '../../components/Contents';
 import Lyrics from '../../components/Lyrics';
@@ -30,7 +30,7 @@ export default class Song extends Component {
         </SongContent>
       </View>
     ) : (
-      <Spinner />
+      <Preloader />
     );
   }
 }

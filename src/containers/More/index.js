@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Spinner from '../../components/Spinner';
+import Preloader from '../../components/Preloader';
 import HeaderTitle from '../../components/HeaderTitle';
 import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
 import Grid from '../../components/Grid';
@@ -90,7 +90,7 @@ export default class More extends Component {
         </Grid>
       </>
     ) : (
-      <Spinner />
+      <Preloader />
     );
   }
 }
