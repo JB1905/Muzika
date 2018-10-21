@@ -24,7 +24,7 @@ const Lyrics = ({ content, error }) => (
 
 Lyrics.propTypes = {
   content: PropTypes.string,
-  error: PropTypes.array
+  error: PropTypes.string
 };
 
 export default Lyrics;

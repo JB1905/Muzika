@@ -1,0 +1,16 @@
+video {
+  background-color: #0c0c0c;
+  border-radius: 4px;
+  width: 100%;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.34);
+
+  @media (max-width: 600px) {
+    margin-bottom: 6px;
+  }
+
+  @at-root {
+    .dark & {
+      box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.34);
+    }
+  }
+}

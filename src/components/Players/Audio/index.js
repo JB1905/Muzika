@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import './AudioPlayer.scss';
+import './Audio.scss';
 
-export default class AudioPlayer extends Component {
+export default class Audio extends Component {
   constructor() {
     super();
 
@@ -48,6 +48,6 @@ export default class AudioPlayer extends Component {
   }
 }
 
-AudioPlayer.propTypes = {
+Audio.propTypes = {
   src: PropTypes.string.isRequired
 };
