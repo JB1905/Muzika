@@ -35,5 +35,5 @@ SongList.propTypes = {
     artistName: PropTypes.string.isRequired
   }),
 
-  children: PropTypes.array
+  children: PropTypes.node
 };

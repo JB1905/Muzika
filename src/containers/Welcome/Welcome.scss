@@ -1,11 +1,15 @@
-.welcome__page {
+.welcome {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .welcome__content {
+  &__content {
     max-width: 640px;
     padding: 20px;
+
+    .light {
+      font-weight: 400;
+    }
 
     @media (max-width: 600px) {
       padding: 20px 14px;

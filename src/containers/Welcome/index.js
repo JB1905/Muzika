@@ -17,10 +17,7 @@ export default class Welcome extends Component {
 
   render() {
     return (
-      <div
-        className="welcome__page"
-        style={{ minHeight: this.state.minHeight }}
-      >
+      <div className="welcome" style={{ minHeight: this.state.minHeight }}>
         <div className="welcome__content">
           <h1>{json.name}.</h1>
 

@@ -3,13 +3,6 @@ import React, { Component } from 'react';
 import Spinner from '../components/Spinner';
 import { ArtistList } from '../components/Lists';
 
-/*
-import { ArtistImage } from '../components/ArtistImage';
-import { ArtistBio } from '../components/ArtistBio';
-import { Concerts } from '../components/Concerts';
-import { SocialMedia } from '../components/SocialMedia';
-*/
-
 import { artist, list } from '../api';
 
 export default class Artist extends Component {
@@ -36,8 +29,6 @@ export default class Artist extends Component {
   render() {
     return (
       <>
-        {/*<ArtistImage name={null} id={null} />*/}
-
         <div className="header__title">
           <h2>{this.state.artist ? this.state.artist.artistName : null}</h2>
         </div>
@@ -74,12 +65,6 @@ export default class Artist extends Component {
         ) : (
           <Spinner />
         )}
-
-        {/*
-          <ArtistBio name={null} id={null} />
-          <Concerts name={null} id={null} />
-          <SocialMedia name={null} id={null} />
-        */}
       </>
     );
   }
