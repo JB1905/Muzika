@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Spinner from '../components/Spinner';
+import HeaderTitle from '../components/HeaderTitle';
 import { SearchList } from '../components/Lists';
 
 import { search } from '../api';
@@ -37,9 +38,9 @@ export default class Search extends Component {
   render() {
     return (
       <>
-        <div className="header__title">
+        <HeaderTitle>
           <h2>Results for: "{this.state.title}"</h2>
-        </div>
+        </HeaderTitle>
 
         {this.state.songs ? (
           <SearchList

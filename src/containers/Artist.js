@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Spinner from '../components/Spinner';
+import HeaderTitle from '../components/HeaderTitle';
 import { ArtistList } from '../components/Lists';
 
 import { artist, list } from '../api';
@@ -29,9 +30,9 @@ export default class Artist extends Component {
   render() {
     return (
       <>
-        <div className="header__title">
+        <HeaderTitle>
           <h2>{this.state.artist ? this.state.artist.artistName : null}</h2>
-        </div>
+        </HeaderTitle>
 
         {this.state.songs ? (
           <ArtistList
