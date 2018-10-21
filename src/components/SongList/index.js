@@ -13,7 +13,7 @@ export const SongList = ({ value }) => (
     <div>
       <Inline>
         <ListLink
-          list="list__link--song"
+          list="song"
           name={value.trackName}
           id={value.trackId}
           explicit={value.trackExplicitness}

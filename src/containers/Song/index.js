@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-import Spinner from '../components/Spinner';
-import { SongContent } from '../components/Contents';
-import Lyrics from '../components/Lyrics';
+import Spinner from '../../components/Spinner';
+import View from '../../components/View';
+import { SongContent } from '../../components/Contents';
+import Lyrics from '../../components/Lyrics';
 
-import { song, lyrics } from '../api';
+import { song, lyrics } from '../../api';
 
 export default class Song extends Component {
   state = { song: null, lyrics: null, error: null };
@@ -23,11 +24,11 @@ export default class Song extends Component {
 
   render() {
     return this.state.song ? (
-      <div className="song">
+      <View className="song">
         <SongContent value={this.state.song}>
           <Lyrics error={this.state.error} content={this.state.lyrics} />
         </SongContent>
-      </div>
+      </View>
     ) : (
       <Spinner />
     );
