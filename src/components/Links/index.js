@@ -1,5 +1,5 @@
-import { AlbumLink } from './AlbumLink';
-import { ArtistLink } from './ArtistLink';
-import { ListLink } from './ListLink';
+import Album from './Album';
+import Artist from './Artist';
+import List from './List';
 
-export { AlbumLink, ArtistLink, ListLink };
+export { Album as AlbumLink, Artist as ArtistLink, List as ListLink };

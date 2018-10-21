@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
 
-export const AlbumLink = ({ value }) => (
+const Album = ({ value }) => (
   <p>
     <Link
       className="link content__link--album"
@@ -15,9 +15,11 @@ export const AlbumLink = ({ value }) => (
   </p>
 );
 
-AlbumLink.propTypes = {
+Album.propTypes = {
   value: PropTypes.shape({
     collectionName: PropTypes.string.isRequired,
     collectionId: PropTypes.number.isRequired
   })
 };
+
+export default Album;
