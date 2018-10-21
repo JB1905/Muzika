@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { queryString } from '../../helpers';
-import { ListLink } from '../Links';
 import Inline from '../Inline';
+import { ListLink } from '../Links';
 
-export const VideoItem = ({ value, contentList }) => (
+import { queryString } from '../../helpers';
+
+const Video = ({ value, contentList }) => (
   <div className="item--video">
     <section className="primary--video">
       <img
@@ -25,7 +26,7 @@ export const VideoItem = ({ value, contentList }) => (
         {contentList ? <p className="index">{value.trackNumber}.</p> : null}
 
         <ListLink
-          list="list__link--video"
+          list="video"
           name={value.trackName}
           id={value.trackId}
           explicit={value.trackExplicitness}
@@ -45,7 +46,7 @@ export const VideoItem = ({ value, contentList }) => (
   </div>
 );
 
-VideoItem.propTypes = {
+Video.propTypes = {
   value: PropTypes.shape({
     artworkUrl100: PropTypes.string.isRequired,
     trackName: PropTypes.string.isRequired,
@@ -55,3 +56,5 @@ VideoItem.propTypes = {
     artistId: PropTypes.string.isRequired
   })
 };
+
+export default Video;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import Spinner from '../../components/Spinner';
-import { SongItem, AlbumItem, VideoItem } from '../../components/ListItems';
+import HeaderTitle from '../../components/HeaderTitle';
+import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
 import Grid from '../../components/Grid';
 import Container from '../../components/Container';
 
@@ -78,9 +79,9 @@ export default class More extends Component {
   render() {
     return this.state.list ? (
       <>
-        <div className="header__title">
+        <HeaderTitle>
           <h2>{this.state.title}</h2>
-        </div>
+        </HeaderTitle>
 
         <Grid className="grid--vertical">
           <Container className="container--vertical">

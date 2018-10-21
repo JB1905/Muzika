@@ -2,24 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { queryString } from '../../helpers';
-import { ListLink } from '../Links';
 import Inline from '../Inline';
+import { ListLink } from '../Links';
 
-export const AlbumItem = ({ value }) => (
+import { queryString } from '../../helpers';
+
+const Album = ({ value }) => (
   <div className="item--album">
-    <section className="primary--album">
+    <div className="primary--album">
       <img
         className="img--album"
         src={value.artworkUrl100.replace('100x100', '200x200')}
         alt=""
       />
-    </section>
+    </div>
 
-    <section className="secondary--album">
+    <div className="secondary--album">
       <Inline>
         <ListLink
-          list="list__link--album"
+          list="album"
           name={value.collectionName}
           id={value.collectionId}
           explicit={value.collectionExplicitness}
@@ -33,11 +34,11 @@ export const AlbumItem = ({ value }) => (
       >
         {value.artistName}
       </Link>
-    </section>
+    </div>
   </div>
 );
 
-AlbumItem.propTypes = {
+Album.propTypes = {
   value: PropTypes.shape({
     artworkUrl100: PropTypes.string.isRequired,
     collectionName: PropTypes.string.isRequired,
@@ -47,3 +48,5 @@ AlbumItem.propTypes = {
     artistId: PropTypes.string.isRequired
   })
 };
+
+export default Album;

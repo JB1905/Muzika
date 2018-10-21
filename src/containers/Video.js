@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Spinner from '../components/Spinner';
+import View from '../components/View';
 import { VideoContent } from '../components/Contents';
 
 import { video } from '../api';
@@ -16,7 +17,9 @@ export default class Video extends Component {
 
   render() {
     return this.state.video ? (
-      <VideoContent value={this.state.video} />
+      <View className="video">
+        <VideoContent value={this.state.video} />
+      </View>
     ) : (
       <Spinner />
     );

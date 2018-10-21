@@ -1,4 +1,4 @@
-import { SearchList } from './SearchList';
-import { ArtistList } from './ArtistList';
+import Search from './Search';
+import Artist from './Artist';
 
-export { SearchList, ArtistList };
+export { Search as SearchList, Artist as ArtistList };
