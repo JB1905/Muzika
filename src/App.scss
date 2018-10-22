@@ -1,64 +1,58 @@
-.grid--vertical .item--song:last-child {
-  border-bottom: 0px;
-}
-
-.grid.error > .inline {
-  height: 170px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.content__header p,
-.content__header--video p {
-  line-height: 1.5;
-}
-
-.header__title,
-.content__header,
-.item--song,
-.album .grid {
-  border-bottom: 1px solid var(--border-light);
-}
 
 .dark {
-  .header__title,
-  .content__header,
   .item--song,
   .album .grid {
     border-bottom: 1px solid var(--border-dark);
   }
 }
 
-.container--horizontal .item--song:nth-last-child(3n + 1) {
-  border-bottom: 0px;
+.scroller {
+  &--songs {
+    max-height: 214px;
+  }
+
+  &--albums {
+    max-height: 414px;
+  }
+
+  &--videos {
+    max-height: 154px;
+  }
 }
 
-.container--sm aside {
-  z-index: 100;
-  position: sticky;
-  top: 20px;
+.list__link {
+  &--artist,
+  &--song,
+  &--album,
+  &--video {
+    color: var(--link-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  &--song {
+    font-weight: 600;
+  }
+
 }
 
-.content__header {
-  padding-bottom: 6px;
+.content__link {
+  &--album,
+  &--artist {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+  }
 }
 
-.scroller--songs {
-  max-height: 214px;
-}
-
-.scroller--albums {
-  max-height: 414px;
-}
-
-.scroller--videos {
-  max-height: 154px;
-}
-
-.container--vertical {
-  margin-bottom: 6px;
+.artist__info {
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
 }
 
 .container--vertical .item--song .list__link--album,
@@ -71,58 +65,13 @@
   color: var(--headers-color);
 }
 
-.list__link--artist,
 .inline .list__link--album,
-.list__link--video,
-.content__link--artist,
-.content__link--album,
 .item--album .list__link--album,
-.item--song .list__link--song,
-.item--video .list__link--video {
+.item--song .list__link--song {
   color: var(--link-color);
   font-size: 16px;
-  margin: 0px;
+  margin: 0;
   font-weight: 600;
-}
-
-.header__title {
-  height: 60px;
-  background-color: #fdfdfdf4;
-  z-index: 100;
-  position: sticky;
-  top: 0px;
-
-  h2 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0px auto;
-    padding: 12px 26px;
-    max-width: 1300px;
-  }
-}
-
-.dark .header__title {
-  background-color: #131a20f4;
-  border-bottom: 1px solid var(--border-dark);
-}
-
-.song,
-.video,
-.album {
-  padding: 0px 26px;
-  margin: 20px auto;
-  max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.content__header--video .title,
-.content__header .title {
-  margin-bottom: 0px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .index {
@@ -131,50 +80,13 @@
 }
 
 @supports (padding-left: env(safe-area-inset-left)) {
-  @media screen and (orientation: landscape) {
-    .song,
-    .album,
-    .video,
-    .header__title h2 {
-      padding-left: calc(26px + env(safe-area-inset-left));
-      padding-right: calc(26px + env(safe-area-inset-right));
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
   .main > .grid {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
-
-  .grid__title {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 @media (max-width: 600px) {
-  .title {
-    font-size: 22px;
-  }
-
-  .content__header,
-  .dark .content__header {
-    width: 100%;
-    position: absolute;
-    top: 16px;
-    left: 0px;
-    border-bottom: 0px;
-  }
-
-  .content__header .inline,
-  .content__header > * {
-    width: calc(50% - 10px);
-    margin-left: calc(50% - 3px);
-  }
-
   .song .container--sm,
   .album .container--sm {
     border-bottom: 1px solid var(--border-light);
@@ -183,24 +95,5 @@
   .dark .song .container--sm,
   .dark .album .container--sm {
     border-bottom: 1px solid var(--border-dark);
-  }
-
-  .song,
-  .video,
-  .album {
-    overflow-x: hidden;
-    padding: 0px 14px;
-  }
-
-  .header__title {
-    height: 55px;
-  }
-
-  .header__title h2 {
-    padding: 12px 14px;
-  }
-
-  .grid > .inline {
-    margin: 0px 15px 10px 15px;
   }
 }

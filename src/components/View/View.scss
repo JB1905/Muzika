@@ -1,0 +1,14 @@
+.song,
+.video,
+.album {
+  padding: 20px 26px;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 600px) {
+    overflow-x: hidden;
+    padding: 20px 14px;
+  }
+}

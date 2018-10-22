@@ -12,11 +12,9 @@ const Song = ({ value, children }) => (
   <>
     <Container className="container--sm">
       <aside>
-        <img
-          className="artwork content__artwork"
-          src={value.artworkUrl100.replace('100x100', '400x400')}
-          alt=""
-        />
+        <div className="artwork">
+          <img src={value.artworkUrl100.replace('100x100', '400x400')} alt="" />
+        </div>
 
         {value.previewUrl ? <AudioPlayer src={value.previewUrl} /> : null}
       </aside>

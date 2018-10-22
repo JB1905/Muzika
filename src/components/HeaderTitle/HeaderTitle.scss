@@ -1,0 +1,29 @@
+.header__title {
+  height: 60px;
+  background-color: #fdfdfdf4;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+
+  h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 auto;
+    padding: 12px 26px;
+    max-width: 1300px;
+
+    @media (max-width: 600px) {
+      padding: 12px 14px;
+    }
+
+  @media (max-width: 600px) {
+    height: 55px;
+  }
+
+  @at-root {
+    .dark & {
+      background-color: #131a20f4;
+    }
+  }
+}
