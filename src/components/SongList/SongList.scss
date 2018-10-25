@@ -1,23 +1,26 @@
-.list__item--song {
-  display: flex;
-  align-items: center;
-  padding: 6px 3px;
-  border-bottom: 1px solid var(--border-light);
-  overflow: hidden;
-
-  div {
+.list__item {
+  &--song {
+    display: flex;
+    align-items: center;
+    padding: 6px 3px;
+    border-bottom: 1px solid var(--border-light);
     overflow: hidden;
+
+    div {
+      overflow: hidden;
+    }
+
+    .artist {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      font-size: 11px;
+    }
   }
 
-  .artist {
-    font-size: 11px;
+  @at-root {
+    .dark &--song {
+      border-bottom: 1px solid var(--border-dark);
+    }
   }
-}
-
-.list__link--song {
-  font-weight: 600;
-}
-
-.dark .list__item--song {
-  border-bottom: 1px solid var(--border-dark);
 }

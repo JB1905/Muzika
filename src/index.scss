@@ -1,17 +1,17 @@
-:root {
-  --headers-color: #f78a9e;
-  --link-color: #ec445a;
-  --border-light: #ddd;
-  --border-dark: #444;
+@import './helpers/scss/variables.scss';
+
+html,
+body {
+  min-width: 320px;
 }
 
 body {
-  background-color: #fdfdfd;
-  color: #000;
+  background-color: var(--background-light);
+  color: var(--color-light);
 
   &.dark {
-    background-color: #131a20;
-    color: #fff;
+    background-color: var(--background-dark);
+    color: var(--color-dark);
   }
 }
 
@@ -47,10 +47,6 @@ body {
   }
 }
 
-.light {
-  font-weight: 400;
-}
-
 h1 {
   margin: 0;
   color: var(--link-color);
@@ -75,32 +71,28 @@ h3 {
   color: var(--link-color);
 }
 
-video {
+.artwork {
   background-color: #0c0c0c;
-  border-radius: 4px;
-  width: 100%;
-
-  @media (max-width: 600px) {
-    margin-bottom: 6px;
-  }
-}
-
-.content {
   position: relative;
   width: 100%;
-}
-
-.artwork {
-  display: block;
-  width: 100%;
-  height: auto;
+  height: 0;
+  padding-top: 100%;
   border-radius: 4px;
+  overflow: hidden;
+  transform: translateZ(0);
+
+  img {
+    top: 0;
+    position: absolute;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .img--song,
 .img--album,
 .img--video,
-video,
 .artwork {
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.34);
 }
@@ -109,70 +101,13 @@ video,
   .img--song,
   .img--album,
   .img--video,
-  video,
   .artwork {
     box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.34);
   }
 }
 
-.explicit::before {
-  margin: 0 8px;
-  color: #fff;
-  content: 'E';
-  background-color: var(--headers-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15px;
-  height: 15px;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 9px;
-}
-
-.content__header--video span.explicit::before,
-.content__header span.explicit::before {
-  width: 21px;
-  height: 21px;
-  font-size: 14px;
-
+aside {
   @media (max-width: 600px) {
-    margin: 0 6px;
-    width: 16px;
-    height: 16px;
-    font-size: 10px;
-  }
-}
-
-.dark .explicit::before {
-  color: #21272d;
-}
-
-.content__link--album,
-.content__link--artist {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-.content__link--album {
-  display: block;
-  overflow: hidden;
-}
-
-.list__link--artist,
-.list__link--song,
-.list__link--album,
-.list__link--video {
-  color: var(--link-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-@media (max-width: 600px) {
-  aside {
     width: calc(100% / 2 - 20px);
     margin-bottom: 14px;
     top: 0;

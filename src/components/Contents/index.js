@@ -1,5 +1,5 @@
-import { SongContent } from './SongContent';
-import { AlbumContent } from './AlbumContent';
-import { VideoContent } from './VideoContent';
+import Song from './Song';
+import Album from './Album';
+import Video from './Video';
 
-export { SongContent, AlbumContent, VideoContent };
+export { Song as SongContent, Album as AlbumContent, Video as VideoContent };

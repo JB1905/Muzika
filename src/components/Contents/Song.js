@@ -2,39 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Container from '../Container';
+import ContentHeader from '../ContentHeader';
 import Title from '../Title';
 import { AlbumLink, ArtistLink } from '../Links';
-import AudioPlayer from '../AudioPlayer';
+import { AudioPlayer } from '../Players';
 import Info from '../Info';
 
-export const SongContent = ({ value, children }) => (
+const Song = ({ value, children }) => (
   <>
     <Container className="container--sm">
       <aside>
-        <img
-          className="artwork content__artwork"
-          src={value.artworkUrl100.replace('100x100', '400x400')}
-          alt=""
-        />
+        <div className="artwork">
+          <img src={value.artworkUrl100.replace('100x100', '400x400')} alt="" />
+        </div>
 
         {value.previewUrl ? <AudioPlayer src={value.previewUrl} /> : null}
       </aside>
     </Container>
 
     <Container className="container--md">
-      <div className="content__header">
+      <ContentHeader type="song">
         <Title title={value.trackName} explicit={value.trackExplicitness} />
         <AlbumLink value={value} />
         <ArtistLink value={value} />
         <Info value={value} />
-      </div>
+      </ContentHeader>
 
       {children}
     </Container>
   </>
 );
 
-SongContent.propTypes = {
+Song.propTypes = {
   value: PropTypes.shape({
     artworkUrl100: PropTypes.string.isRequired,
     previewUrl: PropTypes.string,
@@ -42,5 +41,7 @@ SongContent.propTypes = {
     trackExplicitness: PropTypes.string.isRequired
   }),
 
-  children: PropTypes.object
+  children: PropTypes.node
 };
+
+export default Song;

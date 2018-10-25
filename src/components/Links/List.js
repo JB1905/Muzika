@@ -2,22 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import Explicit from '../Explicit';
+
 import { queryString } from '../../helpers';
 
-export const ListLink = ({ list, name, id, type, explicit }) => (
+const List = ({ list, name, id, type, explicit }) => (
   <>
-    <Link className={`link ${list}`} to={`/${type}/${queryString(name)}/${id}`}>
+    <Link
+      className={`link list__link--${list}`}
+      to={`/${type}/${queryString(name)}/${id}`}
+    >
       {name}
     </Link>
 
-    <span className={explicit} />
+    <Explicit className={explicit} />
   </>
 );
 
-ListLink.propTypes = {
+List.propTypes = {
   list: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   explicit: PropTypes.string.isRequired
 };
+
+export default List;

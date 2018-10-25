@@ -2,20 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { queryString } from '../../helpers';
-import { SongItem, AlbumItem, VideoItem } from '../ListItems';
+import { SongItem, AlbumItem, VideoItem } from '../Items';
 import Grid from '../Grid';
 import Inline from '../Inline';
 
-export const ArtistList = ({ values, type, className }) => {
+import { queryString } from '../../helpers';
+
+const Artist = ({ values, type, className }) => {
   if (values.length > 1) {
     const data = values.map((value, index) => {
       if (value.kind === 'song') {
         return <SongItem key={index} value={value} />;
       } else if (value.collectionType === 'Album') {
-        return <AlbumItem key={index} value={value} />;
+        return <AlbumItem kind="artist" key={index} value={value} />;
       } else if (value.kind === 'music-video') {
-        return <VideoItem key={index} value={value} contentList={false} />;
+        return (
+          <VideoItem
+            kind="artist"
+            key={index}
+            value={value}
+            contentList={false}
+          />
+        );
       }
 
       return false;
@@ -35,13 +43,15 @@ export const ArtistList = ({ values, type, className }) => {
           </Link>
         </Inline>
 
-        <div className={`container--horizontal ${className}`}>{data}</div>
+        <div className={`container--horizontal ${className || ''}`}>{data}</div>
       </Grid>
     );
   } else return null;
 };
 
-ArtistList.propTypes = {
+Artist.propTypes = {
   values: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired
 };
+
+export default Artist;

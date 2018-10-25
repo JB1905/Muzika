@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { SongItem, AlbumItem, VideoItem } from '../ListItems';
+import { SongItem, AlbumItem, VideoItem } from '../Items';
 import Grid from '../Grid';
 import Inline from '../Inline';
 
-export const SearchList = ({ values, type, location, className }) => {
+const Search = ({ values, type, location, className }) => {
   if (values.length > 0) {
     const data = values.map((value, index) => {
       if (value.kind === 'song') {
@@ -32,26 +32,26 @@ export const SearchList = ({ values, type, location, className }) => {
           </Link>
         </Inline>
 
-        <div className={`container--horizontal ${className}`}>{data}</div>
+        <div className={`container--horizontal ${className || ''}`}>{data}</div>
       </Grid>
     );
   } else {
     return (
-      <>
-        <Grid className="error">
-          <Inline>
-            <h3 className="grid__title">{type} not found!</h3>
-          </Inline>
-        </Grid>
-      </>
+      <Grid className="error">
+        <Inline>
+          <h3 className="grid__title">{type} not found!</h3>
+        </Inline>
+      </Grid>
     );
   }
 };
 
-SearchList.propTypes = {
+Search.propTypes = {
   values: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
   location: PropTypes.shape({
     search: PropTypes.string
   })
 };
+
+export default Search;

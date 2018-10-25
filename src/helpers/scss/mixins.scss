@@ -1,0 +1,32 @@
+@mixin border-light {
+  border-bottom: 1px solid var(--border-light);
+}
+
+@mixin border-dark {
+  border-bottom: 1px solid var(--border-dark);
+}
+
+@mixin notch {
+  padding-left: calc(26px + env(safe-area-inset-left));
+  padding-right: calc(26px + env(safe-area-inset-right));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin line-height {
+  line-height: 1.5;
+}
+
+@mixin title {
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin links {
+  color: var(--link-color);
+  font-size: 16px;
+  margin: 0;
+  font-weight: 600;
+}

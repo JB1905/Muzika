@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { queryString } from '../../helpers';
-import { ListLink } from '../Links';
 import Inline from '../Inline';
+import { ListLink } from '../Links';
 
-export const SongItem = ({ value }) => (
+import { queryString } from '../../helpers';
+
+const Song = ({ value }) => (
   <div className="item--song">
     <section className="primary--song">
       <img className="img--song" src={value.artworkUrl60} alt="" />
@@ -15,7 +16,7 @@ export const SongItem = ({ value }) => (
     <section className="secondary--song">
       <Inline>
         <ListLink
-          list="list__link--song"
+          list="song"
           name={value.trackName}
           id={value.trackId}
           explicit={value.trackExplicitness}
@@ -33,7 +34,7 @@ export const SongItem = ({ value }) => (
   </div>
 );
 
-SongItem.propTypes = {
+Song.propTypes = {
   value: PropTypes.shape({
     artworkUrl60: PropTypes.string.isRequired,
     trackName: PropTypes.string.isRequired,
@@ -44,3 +45,5 @@ SongItem.propTypes = {
     releaseDate: PropTypes.string.isRequired
   })
 };
+
+export default Song;

@@ -1,0 +1,9 @@
+@import '../../helpers/scss/mixins.scss';
+
+.title {
+  @include title;
+
+  @media (max-width: 600px) {
+    font-size: 22px;
+  }
+}

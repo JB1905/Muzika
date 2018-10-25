@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Spinner from '../Spinner';
+import Preloader from '../Preloader';
 
 import './Lyrics.scss';
 
@@ -17,14 +17,14 @@ const Lyrics = ({ content, error }) => (
         </span>
       ))
     ) : (
-      <Spinner />
+      <Preloader />
     )}
   </div>
 );
 
 Lyrics.propTypes = {
   content: PropTypes.string,
-  error: PropTypes.array
+  error: PropTypes.string
 };
 
 export default Lyrics;

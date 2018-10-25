@@ -1,37 +1,88 @@
+@import '../../helpers/scss/mixins.scss';
+
 .grid {
   position: relative;
   max-width: 1300px;
   margin: 0 auto;
 
+  &--vertical {
+    padding-top: 14px;
+    border-bottom: 0;
+
+    .item--song {
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+
+    @supports (padding-left: env(safe-area-inset-left)) {
+      @media screen and (orientation: landscape) {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
   > .inline {
     padding-top: 10px;
     margin: 0 27px 10px 27px;
     position: relative;
+
+    @media (max-width: 600px) {
+      margin: 0 15px 10px 15px;
+    }
   }
 
   ~ .grid > .inline {
     border-top: 1px solid var(--border-light);
   }
 
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &.error {
+    > .inline {
+      height: 170px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
   @media (max-width: 600px) {
     box-shadow: none;
   }
-}
 
-.grid:last-child,
-.dark .grid:last-child {
-  border-bottom: 0;
-}
+  @at-root {
+    .album & {
+      @include border-light;
 
-.grid--vertical {
-  padding-top: 14px;
-  border-bottom: 0;
-}
+      > .inline {
+        margin: 0 8px 8px 8px;
+      }
 
-.dark .grid ~ .grid > .inline {
-  border-top: 1px solid var(--border-dark);
-}
+      .container {
+        margin: 0;
+      }
+    }
 
-.grid__title {
-  font-size: 22px;
+    .dark & {
+      ~ .grid {
+        > .inline {
+          border-top: 1px solid var(--border-dark);
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
 }

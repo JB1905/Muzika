@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import Spinner from '../../components/Spinner';
+import Preloader from '../../components/Preloader';
+import View from '../../components/View';
 import { AlbumContent } from '../../components/Contents';
 import { SongList } from '../../components/SongList';
-import { VideoItem } from '../../components/ListItems';
+import { VideoItem } from '../../components/Items';
 import Grid from '../../components/Grid';
 import Inline from '../../components/Inline';
 
@@ -47,7 +48,7 @@ export default class Album extends Component {
     const { album, songs, videos } = this.state;
 
     return album ? (
-      <div className="album">
+      <View className="album">
         <AlbumContent value={album[0]}>
           {songs}
 
@@ -61,9 +62,9 @@ export default class Album extends Component {
             </Grid>
           ) : null}
         </AlbumContent>
-      </div>
+      </View>
     ) : (
-      <Spinner />
+      <Preloader />
     );
   }
 }

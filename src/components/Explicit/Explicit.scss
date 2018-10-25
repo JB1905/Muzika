@@ -1,0 +1,38 @@
+.explicit {
+  &::before {
+    margin: 0 8px;
+    color: #fff;
+    content: 'E';
+    background-color: var(--headers-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 9px;
+  }
+
+  @at-root {
+    .dark &::before {
+      color: #21272d;
+    }
+
+    .content__header {
+      &--video span.explicit::before,
+      span.explicit::before {
+        width: 21px;
+        height: 21px;
+        font-size: 14px;
+
+        @media (max-width: 600px) {
+          margin: 0 6px;
+          width: 16px;
+          height: 16px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}

@@ -34,8 +34,10 @@
     right: 10px;
     bottom: 10px;
   }
-}
 
-.dark .button--play {
-  box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.34);
+  @at-root {
+    .dark & {
+      box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.34);
+    }
+  }
 }

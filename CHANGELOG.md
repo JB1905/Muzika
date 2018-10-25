@@ -6,6 +6,22 @@
 - concerts info on artist page
 - artist picture & info on artist page
 
+## 1.1.1 (2018-10-25)
+#### Bug Fix
+- fixed redirect on search input value change
+- fixed error with Various Artists link in album
+- fixed problem with children value PropTypes
+- fixed overlapping elements during artwork loading
+- fixed border order in horizontal scroll view
+- fixed incorrect displaying longer artist names in songs list in album view
+- fixed incorrect displaying longer artist names in song/album view on mobile devices
+- hidden link to artist in album/video lists on artist page
+
+#### Improvement
+- cleaned up SCSS files
+- removed duplicated code
+- renamed some components
+
 ## 1.1.0 (2018-10-07)
 #### Repository Changes
 - disabled map files for build

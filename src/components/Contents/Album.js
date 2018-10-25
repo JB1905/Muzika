@@ -2,24 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Container from '../Container';
+import ContentHeader from '../ContentHeader';
 import Title from '../Title';
 import { ArtistLink } from '../Links';
 import Info from '../Info';
 
-export const AlbumContent = ({ value, children }) => (
+const Album = ({ value, children }) => (
   <>
     <Container className="container--sm">
       <aside>
-        <img
-          className="artwork"
-          src={value.artworkUrl100.replace('100x100', '400x400')}
-          alt=""
-        />
+        <div className="artwork">
+          <img src={value.artworkUrl100.replace('100x100', '400x400')} alt="" />
+        </div>
       </aside>
     </Container>
 
     <Container className="container--md">
-      <div className="content__header">
+      <ContentHeader type="album">
         <Title
           title={value.collectionName}
           explicit={value.collectionExplicitness}
@@ -27,7 +26,7 @@ export const AlbumContent = ({ value, children }) => (
 
         <ArtistLink value={value} />
         <Info value={value} />
-      </div>
+      </ContentHeader>
 
       {children}
 
@@ -36,7 +35,7 @@ export const AlbumContent = ({ value, children }) => (
   </>
 );
 
-AlbumContent.propTypes = {
+Album.propTypes = {
   value: PropTypes.shape({
     artworkUrl100: PropTypes.string.isRequired,
     collectionName: PropTypes.string.isRequired,
@@ -44,5 +43,7 @@ AlbumContent.propTypes = {
     copyright: PropTypes.string
   }),
 
-  children: PropTypes.array
+  children: PropTypes.node
 };
+
+export default Album;

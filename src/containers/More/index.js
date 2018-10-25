@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import Spinner from '../../components/Spinner';
-import { SongItem, AlbumItem, VideoItem } from '../../components/ListItems';
+import Preloader from '../../components/Preloader';
+import HeaderTitle from '../../components/HeaderTitle';
+import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
 import Grid from '../../components/Grid';
 import Container from '../../components/Container';
 
@@ -21,7 +22,7 @@ export default class More extends Component {
 
       params = this.checkKind(type);
 
-      list({ id: id, entity: params.entity, limit: 100 }).then(data => {
+      list({ id, entity: params.entity, limit: 100 }).then(data => {
         this.setState({
           title: `${params.kind} by: ${data.results[0].artistName}`
         });
@@ -29,13 +30,13 @@ export default class More extends Component {
         this.content(data.results);
       });
     } else {
-      const query = this.props.history.location.search.replace('?q=', '');
+      const term = this.props.history.location.search.replace('?q=', '');
       type = this.props.history.location.pathname.replace('/', '');
 
       params = this.checkKind(type);
 
-      search({ term: query, entity: params.entity, limit: 100 }).then(data => {
-        this.setState({ title: `${params.kind} for query: "${query}"` });
+      search({ term, entity: params.entity, limit: 100 }).then(data => {
+        this.setState({ title: `${params.kind} for query: "${term}"` });
 
         this.content(data.results);
       });
@@ -76,20 +77,20 @@ export default class More extends Component {
   }
 
   render() {
-    return this.state.list ? (
+    const { list, title } = this.state;
+
+    return list ? (
       <>
-        <div className="header__title">
-          <h2>{this.state.title}</h2>
-        </div>
+        <HeaderTitle>
+          <h2>{title}</h2>
+        </HeaderTitle>
 
         <Grid className="grid--vertical">
-          <Container className="container--vertical">
-            {this.state.list}
-          </Container>
+          <Container className="container--vertical">{list}</Container>
         </Grid>
       </>
     ) : (
-      <Spinner />
+      <Preloader />
     );
   }
 }

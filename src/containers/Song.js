@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Spinner from '../components/Spinner';
+import Preloader from '../components/Preloader';
+import View from '../components/View';
 import { SongContent } from '../components/Contents';
 import Lyrics from '../components/Lyrics';
 
@@ -13,23 +14,27 @@ export default class Song extends Component {
     const { id } = this.props.match.params;
 
     song(id).then(data => {
-      this.setState({ song: data.results[0] });
+      const song = data.results[0];
 
-      lyrics(data.results[0].artistName, data.results[0].trackName).then(data =>
+      this.setState({ song });
+
+      lyrics(song.artistName, song.trackName).then(data =>
         this.setState({ lyrics: data.lyrics, error: data.error })
       );
     });
   }
 
   render() {
-    return this.state.song ? (
-      <div className="song">
-        <SongContent value={this.state.song}>
-          <Lyrics error={this.state.error} content={this.state.lyrics} />
+    const { song, lyrics, error } = this.state;
+
+    return song ? (
+      <View className="song">
+        <SongContent value={song}>
+          <Lyrics content={lyrics} error={error} />
         </SongContent>
-      </div>
+      </View>
     ) : (
-      <Spinner />
+      <Preloader />
     );
   }
 }

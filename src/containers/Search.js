@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Spinner from '../components/Spinner';
+import Preloader from '../components/Preloader';
+import HeaderTitle from '../components/HeaderTitle';
 import { SearchList } from '../components/Lists';
 
 import { search } from '../api';
@@ -17,61 +18,63 @@ export default class Search extends Component {
   }
 
   results() {
-    const query = this.props.location.search.replace('?q=', '');
+    const term = this.props.location.search.replace('?q=', '');
 
-    this.setState({ title: query });
+    this.setState({ title: term });
 
-    search({ term: query, entity: 'song', limit: 15 }).then(data =>
+    search({ term, entity: 'song', limit: 15 }).then(data =>
       this.setState({ songs: data.results })
     );
 
-    search({ term: query, entity: 'album', limit: 20 }).then(data =>
+    search({ term, entity: 'album', limit: 20 }).then(data =>
       this.setState({ albums: data.results })
     );
 
-    search({ term: query, entity: 'musicVideo', limit: 12 }).then(data =>
+    search({ term, entity: 'musicVideo', limit: 12 }).then(data =>
       this.setState({ videos: data.results })
     );
   }
 
   render() {
+    const { title, songs, albums, videos } = this.state;
+
     return (
       <>
-        <div className="header__title">
-          <h2>Results for: "{this.state.title}"</h2>
-        </div>
+        <HeaderTitle>
+          <h2>Results for: "{title}"</h2>
+        </HeaderTitle>
 
-        {this.state.songs ? (
+        {songs ? (
           <SearchList
             {...this.props}
-            values={this.state.songs}
+            values={songs}
             className="scroller--songs"
             type="Songs"
           />
         ) : (
-          <Spinner />
+          <Preloader />
         )}
 
-        {this.state.albums ? (
+        {albums ? (
           <SearchList
             {...this.props}
-            values={this.state.albums}
+            values={albums}
             className="scroller--albums"
             type="Albums"
           />
         ) : (
-          <Spinner />
+          <Preloader />
         )}
 
-        {this.state.videos ? (
+        {videos ? (
           <SearchList
             {...this.props}
-            values={this.state.videos}
+            values={videos}
             className="scroller--videos"
             type="Music videos"
           />
         ) : (
-          <Spinner />
+          <Preloader />
         )}
       </>
     );
