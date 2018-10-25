@@ -1,3 +1,5 @@
+@import '../../helpers/scss/mixins.scss';
+
 .song,
 .video,
 .album {
@@ -6,6 +8,14 @@
   max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
+
+  @supports (padding-left: env(safe-area-inset-left)) {
+    @media screen and (orientation: landscape) {
+      & {
+        @include notch;
+      }
+    }
+  }
 
   @media (max-width: 600px) {
     overflow-x: hidden;

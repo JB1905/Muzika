@@ -1,7 +1,9 @@
+@import './helpers/scss/mixins.scss';
+
 .dark {
   .item--song,
   .album .grid {
-    border-bottom: 1px solid var(--border-dark);
+    @include border-dark;
   }
 }
 
@@ -34,6 +36,11 @@
   &--song {
     font-weight: 600;
   }
+
+  &--video,
+  &--artist {
+    @include links;
+  }
 }
 
 .content__link {
@@ -44,6 +51,7 @@
     max-width: 100%;
     display: block;
     overflow: hidden;
+    @include links;
   }
 }
 
@@ -87,11 +95,11 @@
 @media (max-width: 600px) {
   .song .container--sm,
   .album .container--sm {
-    border-bottom: 1px solid var(--border-light);
+    @include border-light;
   }
 
   .dark .song .container--sm,
   .dark .album .container--sm {
-    border-bottom: 1px solid var(--border-dark);
+    @include border-dark;
   }
 }

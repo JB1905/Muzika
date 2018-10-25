@@ -1,9 +1,12 @@
+@import '../../helpers/scss/mixins.scss';
+
 .header__title {
   height: 60px;
   background-color: #fdfdfdf4;
   z-index: 100;
   position: sticky;
   top: 0;
+  @include border-light;
 
   h2 {
     white-space: nowrap;
@@ -17,7 +20,13 @@
       padding: 12px 14px;
     }
 
+    @supports (padding-left: env(safe-area-inset-left)) {
+      @media screen and (orientation: landscape) {
+        @include notch;
+      }
+    }
   }
+
   @media (max-width: 600px) {
     height: 55px;
   }
@@ -25,6 +34,7 @@
   @at-root {
     .dark & {
       background-color: #131a20f4;
+      @include border-dark;
     }
   }
 }

@@ -14,9 +14,16 @@ const Artist = ({ values, type, className }) => {
       if (value.kind === 'song') {
         return <SongItem key={index} value={value} />;
       } else if (value.collectionType === 'Album') {
-        return <AlbumItem key={index} value={value} />;
+        return <AlbumItem kind="artist" key={index} value={value} />;
       } else if (value.kind === 'music-video') {
-        return <VideoItem key={index} value={value} contentList={false} />;
+        return (
+          <VideoItem
+            kind="artist"
+            key={index}
+            value={value}
+            contentList={false}
+          />
+        );
       }
 
       return false;

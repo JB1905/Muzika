@@ -1,3 +1,5 @@
+@import '../../helpers/scss/mixins.scss';
+
 .item {
   &--song {
     height: 58px;
@@ -5,6 +7,7 @@
     align-items: center;
     width: 280px;
     margin: 0 8px;
+    @include border-light;
   }
 
   &--album,

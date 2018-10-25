@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import Inline from '../Inline';
-import { ListLink } from '../Links';
+import { ListLink, ArtistLink } from '../Links';
 
-import { queryString } from '../../helpers';
-
-const Video = ({ value, contentList }) => (
+const Video = ({ value, contentList, kind }) => (
   <div className="item--video">
     <section className="primary--video">
       <img
@@ -35,12 +32,13 @@ const Video = ({ value, contentList }) => (
       </Inline>
 
       {!contentList ? (
-        <Link
-          className="link list__link--artist"
-          to={`/artist/${queryString(value.artistName)}/${value.artistId}`}
-        >
-          {value.artistName}
-        </Link>
+        kind !== 'artist' ? (
+          <ArtistLink value={value} type="list" list={true} />
+        ) : (
+          <span style={{ fontSize: 13 }}>
+            {value.releaseDate.substring(0, 4)}
+          </span>
+        )
       ) : null}
     </section>
   </div>

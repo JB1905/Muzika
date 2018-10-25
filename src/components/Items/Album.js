@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import Inline from '../Inline';
-import { ListLink } from '../Links';
+import { ListLink, ArtistLink } from '../Links';
 
-import { queryString } from '../../helpers';
-
-const Album = ({ value }) => (
+const Album = ({ value, kind }) => (
   <div className="item--album">
     <div className="primary--album">
       <img
@@ -28,12 +25,13 @@ const Album = ({ value }) => (
         />
       </Inline>
 
-      <Link
-        className="link list__link--artist"
-        to={`/artist/${queryString(value.artistName)}/${value.artistId}`}
-      >
-        {value.artistName}
-      </Link>
+      {kind !== 'artist' ? (
+        <ArtistLink value={value} type="list" list={true} />
+      ) : (
+        <span style={{ fontSize: 13 }}>
+          {value.releaseDate.substring(0, 4)}
+        </span>
+      )}
     </div>
   </div>
 );
