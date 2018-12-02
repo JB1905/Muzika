@@ -1,7 +1,9 @@
-.container {
+@import '../../helpers/scss/mixins.scss';
+
+.col {
   margin: 0 12px;
 
-  &--sm {
+  &.secondary {
     width: calc(100% / 3 - 24px);
 
     @media (max-width: 600px) {
@@ -15,13 +17,13 @@
       top: 20px;
 
       @media (max-width: 600px) {
-        height: calc(100vw / 2 - 34px);
-        width: calc(100vw / 2 - 34px);
+        width: 120px;
+        height: 120px;
       }
     }
   }
 
-  &--md {
+  &.primary {
     width: calc(100% / 3 * 2 - 24px);
 
     @media (max-width: 600px) {
@@ -56,23 +58,25 @@
   }
 
   &--vertical {
-    margin: 14px auto 6px auto;
-    max-width: 1300px;
-    padding: 0 18px;
-
-    .item--song {
-      &:last-child {
-        border-bottom: 0;
-      }
-    }
-
-    @media (max-width: 600px) {
-      padding: 0 6px;
-    }
+    padding: 0 7px;
+    margin-bottom: 6px;
   }
 
   @media (max-width: 600px) {
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+.song .secondary,
+.album .secondary {
+  @media (max-width: 600px) {
+    @include border-light;
+
+    @at-root {
+      .dark & {
+        @include border-dark;
+      }
+    }
   }
 }

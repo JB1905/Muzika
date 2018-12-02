@@ -1,35 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Welcome.scss';
 
-import json from '../../../package.json';
+import { setPageTitle } from '../../helpers';
 
-export default class Welcome extends Component {
-  state = { minHeight: null };
+import {
+  name,
+  version,
+  author,
+  license,
+  descripton
+} from '../../../package.json';
 
-  componentDidMount() {
-    this.size();
+export default function Welcome() {
+  setPageTitle('Home');
 
-    window.addEventListener('resize', this.size);
-  }
+  const [minHeight, setMinHeight] = useState(window.innerHeight - 60);
 
-  size = () => this.setState({ minHeight: window.innerHeight - 60 });
+  const resize = () => setMinHeight(window.innerHeight - 60);
 
-  render() {
-    return (
-      <div className="welcome" style={{ minHeight: this.state.minHeight }}>
-        <div className="welcome__content">
-          <h1>{json.name}.</h1>
+  useEffect(() => {
+    window.addEventListener('resize', () => resize());
 
-          <h2 className="light">
-            Version {json.version} creted by {json.author} under {json.license}{' '}
-            license.
-          </h2>
+    return () => window.removeEventListener('resize', () => resize());
+  }, []);
 
-          <h2>About:</h2>
-          <h3 className="light">{json.descripton}</h3>
-        </div>
+  return (
+    <div className="welcome" style={{ minHeight }}>
+      <div className="welcome__content">
+        <h1>{name}.</h1>
+
+        <h2 className="light">
+          Version {version} creted by {author} under {license} license.
+        </h2>
+
+        <h2>About:</h2>
+        <h3 className="light">{descripton}</h3>
       </div>
-    );
-  }
+    </div>
+  );
 }

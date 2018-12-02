@@ -7,7 +7,7 @@ import SearchForm from '../SearchForm';
 import './Menu.scss';
 
 const Menu = () => (
-  <div className="nav--bottom">
+  <nav className="nav--bottom">
     <div>
       <NavLink exact to="/" className="home">
         <FontAwesomeIcon icon="home" />
@@ -16,7 +16,7 @@ const Menu = () => (
 
       <SearchForm />
     </div>
-  </div>
+  </nav>
 );
 
 export default Menu;

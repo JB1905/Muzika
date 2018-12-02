@@ -6,6 +6,22 @@
 - concerts info on artist page
 - artist picture & info on artist page
 
+#### Breaking Changes
+- switch from iTunes API to Spotify API
+
+## 1.2.0 (Soon)
+#### New Feature
+- added dynamic page title
+
+#### Change
+- implemented React Hooks
+
+#### Bug Fix
+- fixed bug with big data usage during refetch on search query change
+
+#### Improvement
+- improved SCSS
+
 ## 1.1.1 (2018-10-25)
 #### Bug Fix
 - fixed redirect on search input value change

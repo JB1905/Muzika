@@ -2,25 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Inline from '../Inline';
+import Image from '../Image';
+import Index from '../Index';
 import { ListLink, ArtistLink } from '../Links';
 
-const Video = ({ value, contentList, kind }) => (
-  <div className="item--video">
+const Video = ({ value, contentList, isArtist }) => (
+  <li className="item--video">
     <section className="primary--video">
-      <img
+      <Image
         className="img--video"
-        src={
-          contentList
-            ? value.artworkUrl100.replace('100x100', '450x450')
-            : value.artworkUrl100.replace('100x100', '200x200')
-        }
-        alt=""
+        src={value.artworkUrl100}
+        size={contentList ? '450x450' : '200x200'}
       />
     </section>
 
     <section className="secondary--video">
       <Inline>
-        {contentList ? <p className="index">{value.trackNumber}.</p> : null}
+        {contentList && <Index trackNumber={value.trackNumber} />}
 
         <ListLink
           list="video"
@@ -31,27 +29,28 @@ const Video = ({ value, contentList, kind }) => (
         />
       </Inline>
 
-      {!contentList ? (
-        kind !== 'artist' ? (
-          <ArtistLink value={value} type="list" list={true} />
-        ) : (
+      {!contentList &&
+        (isArtist ? (
           <span style={{ fontSize: 13 }}>
             {value.releaseDate.substring(0, 4)}
           </span>
-        )
-      ) : null}
+        ) : (
+          <ArtistLink value={value} isList />
+        ))}
     </section>
-  </div>
+  </li>
 );
 
 Video.propTypes = {
   value: PropTypes.shape({
     artworkUrl100: PropTypes.string.isRequired,
     trackName: PropTypes.string.isRequired,
-    trackId: PropTypes.number.isRequired,
+    trackId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired,
     trackExplicitness: PropTypes.string.isRequired,
     artistName: PropTypes.string.isRequired,
-    artistId: PropTypes.string.isRequired
+    artistId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired
   })
 };
 

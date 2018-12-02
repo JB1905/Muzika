@@ -1,7 +1,7 @@
 @import '../../helpers/scss/mixins.scss';
 
 .content__header {
-  padding-bottom: 6px;
+  padding-bottom: 9px;
   @include border-light;
 
   p {
@@ -10,6 +10,7 @@
 
   @media (max-width: 600px) {
     width: 100%;
+    min-width: 320px;
     position: absolute;
     top: 16px;
     left: 0;
@@ -17,8 +18,8 @@
 
     .inline,
     > * {
-      width: calc(50% - 10px);
-      margin-left: calc(50% - 3px);
+      width: calc(100% - 162px);
+      margin-left: 148px;
     }
   }
 

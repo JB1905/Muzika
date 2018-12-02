@@ -1,5 +1,5 @@
-import Album from './Album';
-import Artist from './Artist';
-import List from './List';
+import './Links.scss';
 
-export { Album as AlbumLink, Artist as ArtistLink, List as ListLink };
+export { default as AlbumLink } from './Album';
+export { default as ArtistLink } from './Artist';
+export { default as ListLink } from './List';

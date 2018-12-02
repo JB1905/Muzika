@@ -1,4 +1,4 @@
-import Search from './Search';
-import Artist from './Artist';
+import './Lists.scss';
 
-export { Search as SearchList, Artist as ArtistList };
+export { default as SearchList } from './Search';
+export { default as ArtistList } from './Artist';

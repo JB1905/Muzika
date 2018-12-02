@@ -1,49 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Preloader from '../../components/Preloader';
 import HeaderTitle from '../../components/HeaderTitle';
 import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
-import Grid from '../../components/Grid';
 import Container from '../../components/Container';
 
 import './More.scss';
 
-import { search, list } from '../../api';
+import { setPageTitle } from '../../helpers';
 
-export default class More extends Component {
-  state = { title: null, list: null };
+import { getSearch, getList } from '../../api';
 
-  componentDidMount() {
-    let type, params;
+export default function More(props) {
+  const [title, setTitle] = useState(null);
+  const [list, setList] = useState(null);
 
-    if (this.props.location.pathname.includes('artist/')) {
-      const { id } = this.props.match.params;
-      type = this.props.match.params.type;
+  let params;
 
-      params = this.checkKind(type);
+  useEffect(() => {
+    props.location.pathname.includes('artist/') ? artist() : search();
+  }, []);
 
-      list({ id, entity: params.entity, limit: 100 }).then(data => {
-        this.setState({
-          title: `${params.kind} by: ${data.results[0].artistName}`
-        });
+  function artist() {
+    const { id, type } = props.match.params;
 
-        this.content(data.results);
-      });
-    } else {
-      const term = this.props.history.location.search.replace('?q=', '');
-      type = this.props.history.location.pathname.replace('/', '');
+    params = checkKind(type);
 
-      params = this.checkKind(type);
+    getList({ id, entity: params.entity, limit: 100 }).then(data => {
+      data = data.results;
 
-      search({ term, entity: params.entity, limit: 100 }).then(data => {
-        this.setState({ title: `${params.kind} for query: "${term}"` });
+      setPageTitle(`${params.kind} by: ${data[0].artistName}`);
+      setTitle(`${params.kind} by: ${data[0].artistName}`);
 
-        this.content(data.results);
-      });
-    }
+      content(data);
+    });
   }
 
-  checkKind(type) {
+  function search() {
+    const term = props.history.location.search.replace('?q=', '');
+    const type = props.history.location.pathname.replace('/', '');
+
+    params = checkKind(type);
+
+    getSearch({ term, entity: params.entity, limit: 100 }).then(data => {
+      data = data.results;
+
+      setPageTitle(`${params.kind} for query: ${term}`);
+      setTitle(`${params.kind} for query: "${term}"`);
+
+      content(data);
+    });
+  }
+
+  function checkKind(type) {
     let entity, kind;
 
     if (type === 'songs') {
@@ -60,37 +69,31 @@ export default class More extends Component {
     return { entity, kind };
   }
 
-  content(data) {
-    const list = data.map((item, index) => {
+  function content(data) {
+    const content = data.map((item, index) => {
       if (item.kind === 'song') {
         return <SongItem key={index} value={item} />;
       } else if (item.collectionType === 'Album') {
         return <AlbumItem key={index} value={item} />;
       } else if (item.kind === 'music-video') {
-        return <VideoItem key={index} value={item} contentList={false} />;
+        return <VideoItem key={index} value={item} />;
       }
 
       return false;
     });
 
-    this.setState({ list });
+    setList(content);
   }
 
-  render() {
-    const { list, title } = this.state;
+  return list ? (
+    <>
+      <HeaderTitle>
+        <h2>{title}</h2>
+      </HeaderTitle>
 
-    return list ? (
-      <>
-        <HeaderTitle>
-          <h2>{title}</h2>
-        </HeaderTitle>
-
-        <Grid className="grid--vertical">
-          <Container className="container--vertical">{list}</Container>
-        </Grid>
-      </>
-    ) : (
-      <Preloader />
-    );
-  }
+      <Container className="container--vertical">{list}</Container>
+    </>
+  ) : (
+    <Preloader />
+  );
 }

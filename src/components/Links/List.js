@@ -22,7 +22,7 @@ const List = ({ list, name, id, type, explicit }) => (
 List.propTypes = {
   list: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   type: PropTypes.string.isRequired,
   explicit: PropTypes.string.isRequired
 };

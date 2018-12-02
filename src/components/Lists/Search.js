@@ -6,7 +6,7 @@ import { SongItem, AlbumItem, VideoItem } from '../Items';
 import Grid from '../Grid';
 import Inline from '../Inline';
 
-const Search = ({ values, type, location, className }) => {
+export default function Search({ values, type, location, className = '' }) {
   if (values.length > 0) {
     const data = values.map((value, index) => {
       if (value.kind === 'song') {
@@ -14,7 +14,7 @@ const Search = ({ values, type, location, className }) => {
       } else if (value.collectionType === 'Album') {
         return <AlbumItem key={index} value={value} />;
       } else if (value.kind === 'music-video') {
-        return <VideoItem key={index} value={value} contentList={false} />;
+        return <VideoItem key={index} value={value} />;
       }
 
       return false;
@@ -32,7 +32,7 @@ const Search = ({ values, type, location, className }) => {
           </Link>
         </Inline>
 
-        <div className={`container--horizontal ${className || ''}`}>{data}</div>
+        <ul className={`container--horizontal ${className}`}>{data}</ul>
       </Grid>
     );
   } else {
@@ -44,7 +44,7 @@ const Search = ({ values, type, location, className }) => {
       </Grid>
     );
   }
-};
+}
 
 Search.propTypes = {
   values: PropTypes.array.isRequired,
@@ -53,5 +53,3 @@ Search.propTypes = {
     search: PropTypes.string
   })
 };
-
-export default Search;

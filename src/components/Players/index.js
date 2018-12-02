@@ -1,4 +1,2 @@
-import Audio from './Audio';
-import Video from './Video';
-
-export { Audio as AudioPlayer, Video as VideoPlayer };
+export { default as AudioPlayer } from './Audio';
+export { default as VideoPlayer } from './Video';

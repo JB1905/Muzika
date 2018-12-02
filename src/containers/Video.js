@@ -1,31 +1,50 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Preloader from '../components/Preloader';
-import View from '../components/View';
-import { VideoContent } from '../components/Contents';
+import Row from '../components/Row';
+import Col from '../components/Col';
+import { VideoPlayer } from '../components/Players';
+import ContentHeader from '../components/ContentHeader';
+import Title from '../components/Title';
+import { AlbumLink, ArtistLink } from '../components/Links';
+import Info from '../components/Info';
 
-import { video } from '../api';
+import { setPageTitle } from '../helpers';
 
-export default class Video extends Component {
-  state = { video: null };
+import { getVideo } from '../api';
 
-  componentDidMount() {
-    const { id } = this.props.match.params;
+export default function Video(props) {
+  const { id } = props.match.params;
 
-    video(id).then(data => {
-      const video = data.results[0];
+  const [video, setVideo] = useState(null);
 
-      this.setState({ video });
+  useEffect(() => {
+    getVideo(id).then(data => {
+      data = data.results[0];
+
+      setVideo(data);
+      setPageTitle(`Video: ${data.trackName}`);
     });
-  }
 
-  render() {
-    return this.state.video ? (
-      <View className="video">
-        <VideoContent value={this.state.video} />
-      </View>
-    ) : (
-      <Preloader />
-    );
-  }
+    return null;
+  }, []);
+
+  return video ? (
+    <Row className="video">
+      <Col className="primary">
+        <VideoPlayer value={video} />
+      </Col>
+
+      <Col className="secondary">
+        <ContentHeader type="video" isVideo>
+          <Title title={video.trackName} explicit={video.trackExplicitness} />
+          {video.collectionId && <AlbumLink value={video} />}
+          <ArtistLink value={video} />
+          <Info value={video} />
+        </ContentHeader>
+      </Col>
+    </Row>
+  ) : (
+    <Preloader />
+  );
 }

@@ -3,7 +3,7 @@ const LYRICS_API = 'https://api.lyrics.ovh/v1/';
 
 let res, data;
 
-export async function search(query) {
+export async function getSearch(query) {
   res = await fetch(
     `${MUSIC_API}search?term=${query.term}&entity=${query.entity}&limit=${
       query.limit
@@ -15,7 +15,7 @@ export async function search(query) {
   return data;
 }
 
-export async function list(value) {
+export async function getList(value) {
   res = await fetch(
     `${MUSIC_API}lookup?id=${value.id}&entity=${value.entity}&limit=${
       value.limit
@@ -27,35 +27,35 @@ export async function list(value) {
   return data;
 }
 
-export async function song(id) {
+export async function getSong(id) {
   res = await fetch(`${MUSIC_API}lookup?id=${id}`);
   data = await res.json();
 
   return data;
 }
 
-export async function album(id) {
+export async function getAlbum(id) {
   res = await fetch(`${MUSIC_API}lookup?id=${id}&entity=song`);
   data = await res.json();
 
   return data;
 }
 
-export async function video(id) {
+export async function getVideo(id) {
   res = await fetch(`${MUSIC_API}lookup?id=${id}&entity=album`);
   data = await res.json();
 
   return data;
 }
 
-export async function artist(id) {
+export async function getArtist(id) {
   res = await fetch(`${MUSIC_API}lookup?id=${id}`);
   data = await res.json();
 
   return data;
 }
 
-export async function lyrics(artist, album) {
+export async function getLyrics(artist, album) {
   res = await fetch(`${LYRICS_API}${artist}/${album}`);
   data = await res.json();
 

@@ -12,20 +12,16 @@ import Night from 'night.js';
 import Content from './components/Content';
 import Menu from './components/Menu';
 
-import './App.scss';
-
-const night = new Night();
-night.auto();
-
 library.add(faPlay, faPause, faSearch, faHome);
 
-const App = () => (
-  <Router basename="/Muzika">
-    <>
+export default function App() {
+  const night = new Night();
+  night.auto();
+
+  return (
+    <Router basename="/Muzika">
       <Content />
       <Menu />
-    </>
-  </Router>
-);
-
-export default App;
+    </Router>
+  );
+}

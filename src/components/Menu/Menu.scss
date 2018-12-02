@@ -2,6 +2,7 @@
   z-index: 100;
   padding-bottom: env(safe-area-inset-bottom);
   width: 100%;
+  min-width: 320px;
   background-color: #fdfdfdf4;
   border-top: 1px solid var(--border-light);
   position: fixed;

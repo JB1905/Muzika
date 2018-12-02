@@ -50,10 +50,11 @@ body {
 h1 {
   margin: 0;
   color: var(--link-color);
-  font-size: 130px;
+  font-size: 140px;
+  font-weight: 900;
 
   @media (max-width: 600px) {
-    font-size: 80px;
+    font-size: 70px;
   }
 }
 
@@ -69,41 +70,6 @@ h2 {
 
 h3 {
   color: var(--link-color);
-}
-
-.artwork {
-  background-color: #0c0c0c;
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: 100%;
-  border-radius: 4px;
-  overflow: hidden;
-  transform: translateZ(0);
-
-  img {
-    top: 0;
-    position: absolute;
-    object-fit: contain;
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.img--song,
-.img--album,
-.img--video,
-.artwork {
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.34);
-}
-
-.dark {
-  .img--song,
-  .img--album,
-  .img--video,
-  .artwork {
-    box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.34);
-  }
 }
 
 aside {
