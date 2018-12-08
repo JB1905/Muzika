@@ -1,4 +1,4 @@
-# Muzika Changelog
+# muzika Changelog
 
 ## Next
 #### New Feature

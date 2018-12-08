@@ -19,7 +19,7 @@ export default function App() {
   night.auto();
 
   return (
-    <Router basename="/Muzika">
+    <Router basename="/muzika">
       <Content />
       <Menu />
     </Router>
