@@ -1,4 +1,4 @@
-@import './helpers/scss/variables.scss';
+@import "./helpers/scss/variables.scss";
 
 html,
 body {
@@ -22,17 +22,8 @@ body {
   padding: 0;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   outline: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

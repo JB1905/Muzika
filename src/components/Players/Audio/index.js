@@ -25,7 +25,10 @@ export default function Audio({ src }) {
 
   return (
     <>
-      <button className={`button--play ${play && 'played'}`} onClick={toggle}>
+      <button
+        className={`button--play ${play ? 'played' : ''}`}
+        onClick={toggle}
+      >
         {play ? (
           <FontAwesomeIcon icon="pause" />
         ) : (
