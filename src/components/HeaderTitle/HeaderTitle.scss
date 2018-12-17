@@ -22,7 +22,7 @@
 
     @supports (padding-left: env(safe-area-inset-left)) {
       @media screen and (orientation: landscape) {
-        @include notch;
+        @include notch(26px);
       }
     }
   }

@@ -6,9 +6,9 @@
   border-bottom: 1px solid var(--border-dark);
 }
 
-@mixin notch {
-  padding-left: calc(26px + env(safe-area-inset-left));
-  padding-right: calc(26px + env(safe-area-inset-right));
+@mixin notch($extra) {
+  padding-left: calc(#{$extra} + env(safe-area-inset-left));
+  padding-right: calc(#{$extra} + env(safe-area-inset-right));
   margin-left: auto;
   margin-right: auto;
 }
