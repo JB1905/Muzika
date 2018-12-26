@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Preloader from '../components/Preloader';
+import Loader from '../components/Loader';
 import HeaderTitle from '../components/HeaderTitle';
 import { SearchList } from '../components/Lists';
 
@@ -66,7 +66,7 @@ export default function Search(props) {
           type="Songs"
         />
       ) : (
-        <Preloader />
+        <Loader />
       )}
 
       {albums ? (
@@ -77,7 +77,7 @@ export default function Search(props) {
           type="Albums"
         />
       ) : (
-        <Preloader />
+        <Loader />
       )}
 
       {videos ? (
@@ -88,7 +88,7 @@ export default function Search(props) {
           type="Music videos"
         />
       ) : (
-        <Preloader />
+        <Loader />
       )}
     </>
   );

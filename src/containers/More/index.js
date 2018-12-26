@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Preloader from '../../components/Preloader';
+import Loader from '../../components/Loader';
 import HeaderTitle from '../../components/HeaderTitle';
 import { SongItem, AlbumItem, VideoItem } from '../../components/Items';
 import Container from '../../components/Container';
@@ -94,6 +94,6 @@ export default function More(props) {
       <Container className="container--vertical">{list}</Container>
     </>
   ) : (
-    <Preloader />
+    <Loader />
   );
 }

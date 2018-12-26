@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Preloader from '../components/Preloader';
+import Loader from '../components/Loader';
 import HeaderTitle from '../components/HeaderTitle';
 import { ArtistList } from '../components/Lists';
 
@@ -63,7 +63,7 @@ export default function Artist(props) {
       {songs ? (
         <ArtistList values={songs} className="scroller--songs" type="Songs" />
       ) : (
-        <Preloader />
+        <Loader />
       )}
 
       {albums ? (
@@ -73,7 +73,7 @@ export default function Artist(props) {
           type="Albums"
         />
       ) : (
-        <Preloader />
+        <Loader />
       )}
 
       {videos ? (
@@ -83,7 +83,7 @@ export default function Artist(props) {
           type="Music videos"
         />
       ) : (
-        <Preloader />
+        <Loader />
       )}
     </>
   );

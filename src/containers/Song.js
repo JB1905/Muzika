@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Preloader from '../components/Preloader';
+import Loader from '../components/Loader';
 import Col from '../components/Col';
 import ContentHeader from '../components/ContentHeader';
 import Title from '../components/Title';
@@ -64,6 +64,6 @@ export default function Song(props) {
       </Col>
     </article>
   ) : (
-    <Preloader />
+    <Loader />
   );
 }

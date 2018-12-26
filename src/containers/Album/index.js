@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Preloader from '../../components/Preloader';
+import Loader from '../../components/Loader';
 import Col from '../../components/Col';
 import Image from '../../components/Image';
 import ContentHeader from '../../components/ContentHeader';
@@ -51,7 +51,8 @@ export default function Album(props) {
           }
 
           setSongs(songsResults);
-          if (videosResults.length > 0) setVideos(videosResults);
+
+          if (videosResults.length) setVideos(videosResults);
 
           return null;
         });
@@ -101,6 +102,6 @@ export default function Album(props) {
       </Col>
     </article>
   ) : (
-    <Preloader />
+    <Loader />
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Preloader from '../components/Preloader';
+import Loader from '../components/Loader';
 import Row from '../components/Row';
 import Col from '../components/Col';
 import { VideoPlayer } from '../components/Players';
@@ -45,6 +45,6 @@ export default function Video(props) {
       </Col>
     </Row>
   ) : (
-    <Preloader />
+    <Loader />
   );
 }
