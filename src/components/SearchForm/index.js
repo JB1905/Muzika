@@ -12,11 +12,9 @@ function SearchForm({ history, search }) {
   const handleChange = e => {
     const value = queryString(e.target.value);
 
-    if (value) {
-      history.push({ pathname: '/search', search: `?q=${value}` });
-    } else {
-      history.push({ pathname: '/', search: '' });
-    }
+    value
+      ? history.push({ pathname: '/search', search: `?q=${value}` })
+      : history.push({ pathname: '/', search: '' });
   };
 
   return (
@@ -29,10 +27,7 @@ function SearchForm({ history, search }) {
           onChange={handleChange}
         />
 
-        <button
-          className="toggle"
-          onClick={() => (visible ? setVisible(false) : setVisible(true))}
-        >
+        <button className="toggle" onClick={() => setVisible(!visible)}>
           <FontAwesomeIcon icon="search" />
         </button>
       </div>

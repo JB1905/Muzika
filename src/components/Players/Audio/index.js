@@ -13,14 +13,10 @@ export default function Audio({ src }) {
     player.current.addEventListener('ended', () => setPlay(false));
   }, []);
 
-  const toggle = e => {
-    if (play) {
-      setPlay(false);
-      player.current.pause();
-    } else {
-      setPlay(true);
-      player.current.play();
-    }
+  const toggle = () => {
+    setPlay(!play);
+
+    play ? player.current.pause() : player.current.play();
   };
 
   return (
