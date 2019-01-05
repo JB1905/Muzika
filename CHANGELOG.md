@@ -9,7 +9,7 @@
 #### Breaking Changes
 - switch from iTunes API to Spotify API
 
-## 1.2.0 (Soon)
+## 1.2.0 (2019-01-05)
 #### New Feature
 - added dynamic page title
 
