@@ -4,22 +4,21 @@ import { Link } from 'react-router-dom';
 
 import { queryString } from '../../helpers';
 
-const Artist = ({ value, type, list }) => (
+const Artist = ({ value, isList }) => (
   <p className="artist__info">
-    {type !== 'list' ? <span>By:&nbsp;</span> : null}
+    {!isList && <span>By:&nbsp;</span>}
+
     {value.artistViewUrl ? (
       <Link
         className={`link ${
-          !list ? 'content__link--artist' : 'list__link--artist'
+          isList ? 'list__link--artist' : 'content__link--artist'
         }`}
         to={`/artist/${queryString(value.artistName)}/${value.artistId}`}
       >
         {value.artistName}
       </Link>
     ) : (
-      <span style={type === 'list' ? { fontSize: 13 } : null}>
-        {value.artistName}
-      </span>
+      <span style={isList && { fontSize: 13 }}>{value.artistName}</span>
     )}
   </p>
 );
@@ -27,8 +26,10 @@ const Artist = ({ value, type, list }) => (
 Artist.propTypes = {
   value: PropTypes.shape({
     artistName: PropTypes.string.isRequired,
-    artistId: PropTypes.string.isRequired
-  })
+    artistId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired
+  }),
+  isList: PropTypes.bool
 };
 
 export default Artist;

@@ -1,4 +1,4 @@
-@import '../../helpers/scss/mixins.scss';
+@import "../../helpers/scss/mixins.scss";
 
 .grid {
   position: relative;
@@ -61,6 +61,13 @@
   }
 
   @at-root {
+    @supports (padding-left: env(safe-area-inset-left)) {
+      main > & {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
+    }
+
     .album & {
       @include border-light;
 
@@ -83,6 +90,10 @@
       &:last-child {
         border-bottom: 0;
       }
+    }
+
+    .dark .album & {
+      @include border-dark;
     }
   }
 }

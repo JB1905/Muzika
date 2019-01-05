@@ -10,7 +10,8 @@ const ContentHeader = ({ children, isVideo }) => (
 );
 
 ContentHeader.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  isVideo: PropTypes.bool
 };
 
 export default ContentHeader;

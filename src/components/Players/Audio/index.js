@@ -1,51 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Audio.scss';
 
-export default class Audio extends Component {
-  constructor() {
-    super();
+export default function Audio({ src }) {
+  const [play, setPlay] = useState(false);
 
-    this.state = { play: false };
+  const player = useRef(null);
 
-    this.player = React.createRef();
-  }
+  useEffect(() => {
+    player.current.addEventListener('ended', () => setPlay(false));
+  }, []);
 
-  componentDidMount = () =>
-    this.player.current.addEventListener('ended', () =>
-      this.setState({ play: false })
-    );
+  const toggle = () => {
+    setPlay(!play);
 
-  toggle = () => {
-    if (this.state.play) {
-      this.setState({ play: false });
-      this.player.current.pause();
-    } else {
-      this.setState({ play: true });
-      this.player.current.play();
-    }
+    play ? player.current.pause() : player.current.play();
   };
 
-  render() {
-    return (
-      <>
-        <button
-          className={`button--play ${this.state.play ? 'played' : ''}`}
-          onClick={this.toggle}
-        >
-          {this.state.play ? (
-            <FontAwesomeIcon icon="pause" />
-          ) : (
-            <FontAwesomeIcon icon="play" />
-          )}
-        </button>
+  return (
+    <>
+      <button
+        className={`button--play ${play ? 'played' : ''}`}
+        onClick={toggle}
+      >
+        {play ? (
+          <FontAwesomeIcon icon="pause" />
+        ) : (
+          <FontAwesomeIcon icon="play" />
+        )}
+      </button>
 
-        <audio src={this.props.src} ref={this.player} />
-      </>
-    );
-  }
+      <audio src={src} ref={player} />
+    </>
+  );
 }
 
 Audio.propTypes = {

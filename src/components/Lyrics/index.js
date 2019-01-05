@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Preloader from '../Preloader';
+import Loader from '../Loader';
 
 import './Lyrics.scss';
 
@@ -17,7 +17,7 @@ const Lyrics = ({ content, error }) => (
         </span>
       ))
     ) : (
-      <Preloader />
+      <Loader />
     )}
   </div>
 );

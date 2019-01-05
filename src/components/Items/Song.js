@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Inline from '../Inline';
+import Image from '../Image';
 import { ListLink } from '../Links';
 
 import { queryString } from '../../helpers';
 
 const Song = ({ value }) => (
-  <div className="item--song">
+  <li className="item--song">
     <section className="primary--song">
-      <img className="img--song" src={value.artworkUrl60} alt="" />
+      <Image className="img--song" src={value.artworkUrl100} />
     </section>
 
     <section className="secondary--song">
@@ -31,14 +32,15 @@ const Song = ({ value }) => (
         {value.collectionName} &bull; {value.releaseDate.substring(0, 4)}
       </Link>
     </section>
-  </div>
+  </li>
 );
 
 Song.propTypes = {
   value: PropTypes.shape({
     artworkUrl60: PropTypes.string.isRequired,
     trackName: PropTypes.string.isRequired,
-    trackId: PropTypes.number.isRequired,
+    trackId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired,
     trackExplicitness: PropTypes.string.isRequired,
     collectionName: PropTypes.string.isRequired,
     collectionId: PropTypes.number.isRequired,

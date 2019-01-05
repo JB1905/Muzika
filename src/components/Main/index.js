@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Main.scss';
 
-const Main = ({ children }) => <div className="main">{children}</div>;
+const Main = ({ children }) => <main>{children}</main>;
 
 Main.propTypes = {
   children: PropTypes.node

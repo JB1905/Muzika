@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Grid.scss';
 
-const Grid = ({ children, className }) => (
-  <div className={`grid ${className || ''}`}>{children}</div>
+const Grid = ({ children, className = '' }) => (
+  <section className={`grid ${className}`}>{children}</section>
 );
 
 Grid.propTypes = {

@@ -1,82 +1,95 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import Preloader from '../components/Preloader';
+import Loader from '../components/Loader';
 import HeaderTitle from '../components/HeaderTitle';
 import { SearchList } from '../components/Lists';
 
-import { search } from '../api';
+import { setPageTitle } from '../helpers';
 
-export default class Search extends Component {
-  state = { title: null, songs: null, albums: null, videos: null };
+import { getSearch } from '../api';
 
-  componentDidMount = () => this.results();
+export default function Search(props) {
+  const term = props.location.search.replace('?q=', '');
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.title !== this.props.location.search.replace('?q=', '')) {
-      this.results();
-    }
-  }
+  setPageTitle(`Results for: ${term}`);
 
-  results() {
-    const term = this.props.location.search.replace('?q=', '');
+  const [songs, setSongs] = useState(null);
 
-    this.setState({ title: term });
+  useEffect(
+    () => {
+      getSearch({ term, entity: 'song', limit: 15 }).then(data =>
+        setSongs(data.results)
+      );
 
-    search({ term, entity: 'song', limit: 15 }).then(data =>
-      this.setState({ songs: data.results })
-    );
+      return null;
+    },
+    [term]
+  );
 
-    search({ term, entity: 'album', limit: 20 }).then(data =>
-      this.setState({ albums: data.results })
-    );
+  const [albums, setAlbums] = useState(null);
 
-    search({ term, entity: 'musicVideo', limit: 12 }).then(data =>
-      this.setState({ videos: data.results })
-    );
-  }
+  useEffect(
+    () => {
+      getSearch({ term, entity: 'album', limit: 20 }).then(data =>
+        setAlbums(data.results)
+      );
 
-  render() {
-    const { title, songs, albums, videos } = this.state;
+      return null;
+    },
+    [term]
+  );
 
-    return (
-      <>
-        <HeaderTitle>
-          <h2>Results for: "{title}"</h2>
-        </HeaderTitle>
+  const [videos, setVideos] = useState(null);
 
-        {songs ? (
-          <SearchList
-            {...this.props}
-            values={songs}
-            className="scroller--songs"
-            type="Songs"
-          />
-        ) : (
-          <Preloader />
-        )}
+  useEffect(
+    () => {
+      getSearch({ term, entity: 'musicVideo', limit: 12 }).then(data =>
+        setVideos(data.results)
+      );
 
-        {albums ? (
-          <SearchList
-            {...this.props}
-            values={albums}
-            className="scroller--albums"
-            type="Albums"
-          />
-        ) : (
-          <Preloader />
-        )}
+      return null;
+    },
+    [term]
+  );
 
-        {videos ? (
-          <SearchList
-            {...this.props}
-            values={videos}
-            className="scroller--videos"
-            type="Music videos"
-          />
-        ) : (
-          <Preloader />
-        )}
-      </>
-    );
-  }
+  return (
+    <>
+      <HeaderTitle>
+        <h2>Results for: "{term}"</h2>
+      </HeaderTitle>
+
+      {songs ? (
+        <SearchList
+          {...props}
+          values={songs}
+          className="scroller--songs"
+          type="Songs"
+        />
+      ) : (
+        <Loader />
+      )}
+
+      {albums ? (
+        <SearchList
+          {...props}
+          values={albums}
+          className="scroller--albums"
+          type="Albums"
+        />
+      ) : (
+        <Loader />
+      )}
+
+      {videos ? (
+        <SearchList
+          {...props}
+          values={videos}
+          className="scroller--videos"
+          type="Music videos"
+        />
+      ) : (
+        <Loader />
+      )}
+    </>
+  );
 }

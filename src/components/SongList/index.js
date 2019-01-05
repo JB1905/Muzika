@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Inline from '../Inline';
+import Index from '../Index';
 import { ListLink } from '../Links';
 
 import './SongList.scss';
 
 export const SongList = ({ value }) => (
-  <div className="list__item--song">
-    <p className="index">{value.trackNumber}.</p>
+  <li className="list__item--song">
+    <Index trackNumber={value.trackNumber} />
 
     <div>
       <Inline>
@@ -23,14 +24,15 @@ export const SongList = ({ value }) => (
 
       <p className="artist">{value.artistName}</p>
     </div>
-  </div>
+  </li>
 );
 
 SongList.propTypes = {
   value: PropTypes.shape({
     trackNumber: PropTypes.number.isRequired,
     trackName: PropTypes.string.isRequired,
-    trackId: PropTypes.number.isRequired,
+    trackId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired,
     trackExplicitness: PropTypes.string.isRequired,
     artistName: PropTypes.string.isRequired
   }),

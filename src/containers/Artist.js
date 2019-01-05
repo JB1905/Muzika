@@ -1,67 +1,90 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import Preloader from '../components/Preloader';
+import Loader from '../components/Loader';
 import HeaderTitle from '../components/HeaderTitle';
 import { ArtistList } from '../components/Lists';
 
-import { artist, list } from '../api';
+import { setPageTitle } from '../helpers';
 
-export default class Artist extends Component {
-  state = { artist: null, songs: null, albums: null, videos: null };
+import { getArtist, getList } from '../api';
 
-  componentDidMount() {
-    const { id } = this.props.match.params;
+export default function Artist(props) {
+  const { id } = props.match.params;
 
-    artist(id).then(data => this.setState({ artist: data.results[0] }));
+  const [artist, setArtist] = useState(null);
 
-    list({ id, entity: 'song', limit: 15 }).then(data =>
-      this.setState({ songs: data.results })
+  useEffect(() => {
+    getArtist(id).then(data => {
+      data = data.results[0];
+
+      setArtist(data);
+      setPageTitle(`Artist: ${data.artistName}`);
+    });
+
+    return null;
+  }, []);
+
+  const [songs, setSongs] = useState(null);
+
+  useEffect(() => {
+    getList({ id, entity: 'song', limit: 15 }).then(data =>
+      setSongs(data.results)
     );
 
-    list({ id, entity: 'album', limit: 20 }).then(data =>
-      this.setState({ albums: data.results })
+    return null;
+  }, []);
+
+  const [albums, setAlbums] = useState(null);
+
+  useEffect(() => {
+    getList({ id, entity: 'album', limit: 20 }).then(data =>
+      setAlbums(data.results)
     );
 
-    list({ id, entity: 'musicVideo', limit: 12 }).then(data =>
-      this.setState({ videos: data.results })
+    return null;
+  }, []);
+
+  const [videos, setVideos] = useState(null);
+
+  useEffect(() => {
+    getList({ id, entity: 'musicVideo', limit: 12 }).then(data =>
+      setVideos(data.results)
     );
-  }
 
-  render() {
-    const { artist, songs, albums, videos } = this.state;
+    return null;
+  }, []);
 
-    return (
-      <>
-        <HeaderTitle>
-          <h2>{artist ? artist.artistName : null}</h2>
-        </HeaderTitle>
+  return (
+    <>
+      <HeaderTitle>
+        <h2>{artist && artist.artistName}</h2>
+      </HeaderTitle>
 
-        {songs ? (
-          <ArtistList values={songs} className="scroller--songs" type="Songs" />
-        ) : (
-          <Preloader />
-        )}
+      {songs ? (
+        <ArtistList values={songs} className="scroller--songs" type="Songs" />
+      ) : (
+        <Loader />
+      )}
 
-        {albums ? (
-          <ArtistList
-            values={albums}
-            className="scroller--albums"
-            type="Albums"
-          />
-        ) : (
-          <Preloader />
-        )}
+      {albums ? (
+        <ArtistList
+          values={albums}
+          className="scroller--albums"
+          type="Albums"
+        />
+      ) : (
+        <Loader />
+      )}
 
-        {videos ? (
-          <ArtistList
-            values={videos}
-            className="scroller--videos"
-            type="Music videos"
-          />
-        ) : (
-          <Preloader />
-        )}
-      </>
-    );
-  }
+      {videos ? (
+        <ArtistList
+          values={videos}
+          className="scroller--videos"
+          type="Music videos"
+        />
+      ) : (
+        <Loader />
+      )}
+    </>
+  );
 }

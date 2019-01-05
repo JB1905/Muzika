@@ -1,40 +1,69 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import Preloader from '../components/Preloader';
-import View from '../components/View';
-import { SongContent } from '../components/Contents';
+import Loader from '../components/Loader';
+import Col from '../components/Col';
+import ContentHeader from '../components/ContentHeader';
+import Title from '../components/Title';
+import { AlbumLink, ArtistLink } from '../components/Links';
+import Image from '../components/Image';
+import { AudioPlayer } from '../components/Players';
+import Info from '../components/Info';
 import Lyrics from '../components/Lyrics';
 
-import { song, lyrics } from '../api';
+import { setPageTitle } from '../helpers';
 
-export default class Song extends Component {
-  state = { song: null, lyrics: null, error: null };
+import { getSong, getLyrics } from '../api';
 
-  componentDidMount() {
-    const { id } = this.props.match.params;
+export default function Song(props) {
+  const { id } = props.match.params;
 
-    song(id).then(data => {
-      const song = data.results[0];
+  const [song, setSong] = useState(null);
 
-      this.setState({ song });
+  useEffect(() => {
+    getSong(id).then(data => {
+      data = data.results[0];
 
-      lyrics(song.artistName, song.trackName).then(data =>
-        this.setState({ lyrics: data.lyrics, error: data.error })
-      );
+      setSong(data);
+      setPageTitle(`Song: ${data.trackName}`);
+
+      fetchLyrics(data);
+    });
+
+    return null;
+  }, []);
+
+  const [lyrics, setLyrics] = useState(null);
+  const [error, setError] = useState(null);
+
+  function fetchLyrics(song) {
+    getLyrics(song.artistName, song.trackName).then(data => {
+      setLyrics(data.lyrics);
+      setError(data.error);
     });
   }
 
-  render() {
-    const { song, lyrics, error } = this.state;
+  return song ? (
+    <article className="song">
+      <Col className="secondary">
+        <aside>
+          <Image className="artwork" src={song.artworkUrl100} size="400x400" />
 
-    return song ? (
-      <View className="song">
-        <SongContent value={song}>
-          <Lyrics content={lyrics} error={error} />
-        </SongContent>
-      </View>
-    ) : (
-      <Preloader />
-    );
-  }
+          {song.previewUrl && <AudioPlayer src={song.previewUrl} />}
+        </aside>
+      </Col>
+
+      <Col className="primary">
+        <ContentHeader type="song">
+          <Title title={song.trackName} explicit={song.trackExplicitness} />
+          <AlbumLink value={song} />
+          <ArtistLink value={song} />
+          <Info value={song} />
+        </ContentHeader>
+
+        <Lyrics content={lyrics} error={error} />
+      </Col>
+    </article>
+  ) : (
+    <Loader />
+  );
 }

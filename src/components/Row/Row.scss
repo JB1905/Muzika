@@ -1,4 +1,4 @@
-@import '../../helpers/scss/mixins.scss';
+@import "../../helpers/scss/mixins.scss";
 
 .song,
 .video,
@@ -11,14 +11,11 @@
 
   @supports (padding-left: env(safe-area-inset-left)) {
     @media screen and (orientation: landscape) {
-      & {
-        @include notch;
-      }
+      @include notch(26px);
     }
   }
 
   @media (max-width: 600px) {
-    overflow-x: hidden;
     padding: 20px 14px;
   }
 }

@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Info.scss';
-
 const Info = ({ value }) => (
-  <p className="info">
+  <p>
     {value.primaryGenreName} &bull; {value.releaseDate.substring(0, 4)}
   </p>
 );

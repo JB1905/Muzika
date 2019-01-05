@@ -1,0 +1,62 @@
+@import "../../helpers/scss/mixins.scss";
+
+.content__link {
+  &--album,
+  &--artist {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+    @include links;
+  }
+}
+
+.list__link {
+  &--artist,
+  &--song,
+  &--album,
+  &--video {
+    color: var(--link-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  &--song {
+    font-weight: 600;
+  }
+
+  &--video,
+  &--artist {
+    @include links;
+  }
+
+  @at-root {
+    .artist__info {
+      white-space: nowrap;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .inline &--album,
+    .item--album &--album,
+    .item--song &--song {
+      color: var(--link-color);
+      font-size: 16px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .container--horizontal .item--song &--album,
+    .container--vertical .item--song &--album,
+    .container--vertical &--artist,
+    .item--album &--artist,
+    .item--video &--artist {
+      font-weight: 400;
+      font-size: 13px;
+      color: var(--headers-color);
+    }
+  }
+}
