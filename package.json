@@ -15,7 +15,8 @@
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-router-dom": "^4.4.0-beta.6",
-    "react-scripts": "^2.1.3"
+    "react-scripts": "^2.1.3",
+    "snyk": "^1.189.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,7 +24,9 @@
     "deploy": "gh-pages -d build",
     "prettier": "prettier --write '{src,public}/**/*.{js,scss,html}'",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1"
@@ -36,5 +39,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "snyk": true
 }
