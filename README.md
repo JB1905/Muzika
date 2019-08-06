@@ -1,5 +1,5 @@
 # Muzika
-React app build with iTunes API. Muzika allows you search music in iTunes, display artists, albums, songs (with lyrics & 30s preview) and music videos. App contains [dark mode](https://github.com/jb1905/night.js).
+React app build with Spotify API. Muzika allows you search music, display artists, albums, songs (with lyrics & 30s preview), playlists and more. App contains [dark mode](https://github.com/jb1905/night.js).
 
 ## Screens
 
