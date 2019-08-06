@@ -1,0 +1,20 @@
+{
+  "name": "Muzika",
+  "version": "1.0.0",
+  "author": "Jakub Biesiada",
+  "description": "React music player build with Spotify API. Muzika allows you search music in Spotify, display artists, albums, tracks with lyrics, playlist & more. App contains dark mode.",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "passport": "^0.4.0",
+    "passport-spotify": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

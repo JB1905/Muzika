@@ -1,0 +1,81 @@
+{
+  "name": "Muzika",
+  "version": "2.0.0",
+  "author": "Jakub Biesiada",
+  "descripton": "React music player build with Spotify API. Muzika allows you search music in Spotify, display artists, albums, tracks with lyrics, playlist & more. App contains dark mode.",
+  "license": "MIT",
+  "private": true,
+  "homepage": ".",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "prettier": "prettier --write '{src,public}/**/*.{js,scss,html}'",
+    "eslint": "eslint 'src/**/*.js' --fix",
+    "stylelint": "stylelint 'src/**/*.scss' --fix",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.19.0",
+    "bubbly-bg": "^1.0.0",
+    "get-image-colors": "^2.0.0",
+    "night.js": "^1.2.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.9.0-rc.0",
+    "react-debounce-input": "^3.2.0",
+    "react-dom": "^16.9.0-rc.0",
+    "react-draggable": "^3.3.0",
+    "react-helmet": "^5.2.1",
+    "react-infinite-scroll-component": "^4.5.3",
+    "react-parlx": "^1.3.0",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
+    "react-viewport-hooks": "^1.0.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "sanitize-html": "^1.20.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.0",
+    "husky": "^3.0.2",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,public}/**/*.{js}": [
+      "npm run prettier",
+      "npm run eslint",
+      "git add"
+    ],
+    "src/**/*.{scss}": [
+      "npm run prettier",
+      "npm run stylelint",
+      "git add"
+    ],
+    "public/**/*.{html}": [
+      "npm run prettier",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
