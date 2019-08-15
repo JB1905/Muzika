@@ -1439,15 +1439,14 @@ passport-oauth@1.0.0:
     passport-oauth1 "1.x.x"
     passport-oauth2 "1.x.x"
 
-passport-spotify@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/passport-spotify/-/passport-spotify-1.0.1.tgz#85127f5c1f10c20695a4a61839e59b03566fbadc"
-  integrity sha512-0UV0k2uUZn5+8lKjDgK/cruqKjw0TYbfreAB4XUYvqGR4+h9Zq8H96E2zopeVDjwCZK+U81u77Hsy2fQiBOJjg==
+passport-spotify@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/passport-spotify/-/passport-spotify-1.1.0.tgz#d0baa0a97907ca199ad9b33f0e8937b5f199ce19"
+  integrity sha512-jLVtH7Z+5XW854H0mAsdpGJq5dMSwxQQu1jcXhq+3JlB8HuP5xkCLMuQ5K24S7WYh+cAHLrEKJPAoeo1D8CbUg==
   dependencies:
     passport-oauth "1.0.0"
-    pkginfo "~0.4.0"
     querystring "~0.2.0"
-    util "~0.10.3"
+    util "~0.11.0"
 
 passport-strategy@1.x.x:
   version "1.0.0"
@@ -1496,11 +1495,6 @@ pify@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
   integrity sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
-
-pkginfo@~0.4.0:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.4.1.tgz#b5418ef0439de5425fc4995042dced14fb2a84ff"
-  integrity sha1-tUGO8EOd5UJfxJlQQtztFPsqhP8=
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -2033,10 +2027,10 @@ util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-util@~0.10.3:
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/util/-/util-0.10.4.tgz#3aa0125bfe668a4672de58857d3ace27ecb76901"
-  integrity sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==
+util@~0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/util/-/util-0.11.1.tgz#3236733720ec64bb27f6e26f421aaa2e1b588d61"
+  integrity sha512-HShAsny+zS2TZfaXxD9tYj4HQGlBezXZMZuM/S5PKLLoZkShZiGk9o5CzukI1LVHZvjdvZ2Sj1aW/Ndn2NB/HQ==
   dependencies:
     inherits "2.0.3"
 
