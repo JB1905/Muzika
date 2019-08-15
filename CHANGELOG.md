@@ -1,11 +1,5 @@
 # Muzika Changelog
 
-## Next
-#### New Feature
-- artist social media accounts (Facebook, Twitter, Instagram) on artist page
-- concerts info on artist page
-- artist picture & info on artist page
-
 #### Breaking Changes
 - switch from iTunes API to Spotify API
 
