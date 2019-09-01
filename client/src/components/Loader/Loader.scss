@@ -1,0 +1,33 @@
+.loader {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin: 100px auto;
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(1);
+    }
+  }
+
+  &__bounce {
+    left: 0;
+    top: 0;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    background-color: var(--link-color);
+    animation: bounce 1s infinite ease-in-out;
+
+    &--delayed {
+      animation-delay: -0.5s;
+    }
+  }
+}
