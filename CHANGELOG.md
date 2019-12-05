@@ -1,7 +1,32 @@
 # Muzika Changelog
 
+## 2.0.0 (Soon)
 #### Breaking Changes
 - switch from iTunes API to Spotify API
+
+#### Improvement
+- added debounce to search input
+- added Redux for better store management
+
+#### New Feature
+- added Library view
+- added For You view
+- added Browse view
+- added Search view with search history
+- added Playlist & Genere views
+- added Login view
+- added play buttons for song items in lists
+- added theme switch
+- added manifest.json and PWA support
+
+#### Change
+- rebuilt artist page (added artist picture, related artists & more sections)
+- moved menu to top on desktop
+- updated theme colors
+- updated UI for mobile and desktop to look more like native iOS & macOS Music App interface
+
+#### Internal
+- rewritten with Next.js & TypeScript
 
 ## 1.2.0 (2019-01-05)
 #### New Feature
