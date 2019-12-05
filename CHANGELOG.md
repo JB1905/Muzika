@@ -2,7 +2,7 @@
 
 ## 2.0.0 (Soon)
 #### Breaking Changes
-- switch from iTunes API to Spotify API
+- switched from iTunes API to Spotify API
 
 #### Improvement
 - added debounce to search input
