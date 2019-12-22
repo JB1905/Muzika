@@ -6,7 +6,6 @@
 
 #### Improvement
 - added debounce to search input
-- added Redux for better store management
 
 #### New Feature
 - added Library view
