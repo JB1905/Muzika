@@ -4,3 +4,6 @@ React app build with Spotify API. Muzika allows you search music, display artist
 ## Preview
 
 ![v2.0.0 preview](./docs/assets/preview.png)
+
+## License
+This project is licensed under the MIT License © 2018-present Jakub Biesiada
