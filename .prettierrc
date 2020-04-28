@@ -7,7 +7,7 @@
       }
     },
     {
-      "files": "*.js",
+      "files": "*.{tsx,ts}",
       "options": {
         "singleQuote": true
       }
