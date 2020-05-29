@@ -1,6 +1,11 @@
-const withPlugins = require('next-compose-plugins')
-const withCSS = require('@zeit/next-css')
+module.exports = {
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.node = {
+        fs: "empty",
+      };
+    }
 
-module.exports = withPlugins([withCSS], {
-  target: 'server'
-})
+    return config;
+  },
+};
