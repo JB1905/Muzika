@@ -20,6 +20,12 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* margin: 0;
+    padding: 0; */
+  }
+
+  ul {
+    list-style-type: none;
   }
 `;
 

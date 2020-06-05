@@ -1,4 +1,6 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.node = {
@@ -8,4 +10,7 @@ module.exports = {
 
     return config;
   },
-};
+  pwa: {
+    dest: "public",
+  },
+});

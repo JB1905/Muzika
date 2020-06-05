@@ -81,7 +81,7 @@ app
       '/callback',
       passport.authenticate('spotify', { failureRedirect: '/get_spotify_uri' }),
       (req, res) => {
-        console.log(req);
+        // console.log(req);
 
         res.cookie('spotify_token', req.user, {
           maxAge: 1800000,

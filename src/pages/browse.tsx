@@ -26,7 +26,7 @@ interface Props {
 const Browse: NextPage<Props> = (data) => {
   const { newReleases, generes, playlists, token } = data;
 
-  cookies.set('token', token);
+  // cookies.set('token', token);
 
   return (
     data && (

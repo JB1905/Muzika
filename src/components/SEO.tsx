@@ -7,7 +7,7 @@ interface Props {
   readonly title?: string;
 }
 
-const SEO = ({ title }: Props) => (
+const SEO: React.FC<Props> = ({ title }) => (
   <Head>
     <title>
       {`${json.name[0].toUpperCase()}${json.name.slice(1)}`}

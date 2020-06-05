@@ -22,4 +22,7 @@ export const theme = {
       default: '1.6rem',
     },
   },
+  // spaces: {
+  //   gutter: 25,
+  // },
 };
