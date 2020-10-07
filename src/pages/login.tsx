@@ -15,7 +15,7 @@ export const LoginPage = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  /* height: -webkit-fill-available; */
+  height: -webkit-fill-available;
 `;
 
 export const LoginMessage = styled.div`

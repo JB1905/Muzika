@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { ThemeType } from './theme';
 
-const Global = createGlobalStyle`
+const Global = createGlobalStyle<{ theme: ThemeType }>`
   html {
     font-size: 62.5%;
   }
@@ -20,8 +21,8 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
   }
 
   ul {

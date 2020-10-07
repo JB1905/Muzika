@@ -2,72 +2,49 @@ import React from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
-import { Cookies } from 'react-cookie';
-
-import Container from '../containers/Container';
-import SEO from '../components/SEO';
-import Title from '../components/Title';
-import { Album, Genere, Playlist } from '../components/items';
 
 import { handleAuthSSR } from '../helpers/cookie';
 
-const Box = dynamic(() => import('../containers/Box'));
-const List = dynamic(() => import('../components/List'));
-
-const cookies = new Cookies();
+const Layout = dynamic(() => import('../components/templates/Layout'));
+const Title = dynamic(() => import('../components/atoms/Title/Title.styles'));
+const Shelf = dynamic(() => import('../components/molecues/Shelf'));
 
 interface Props {
   readonly newReleases: any;
   readonly generes: any;
   readonly playlists: any;
-  readonly token: any;
+  readonly token: string;
 }
 
-const Browse: NextPage<Props> = (data) => {
-  const { newReleases, generes, playlists, token } = data;
+const Browse: NextPage<Props> = ({ newReleases, generes, playlists }) => (
+  <Layout title="Browse">
+    <Title>Browse</Title>
 
-  // cookies.set('token', token);
+    {newReleases.albums.items.length > 0 && (
+      <Shelf title="New Releases" link="new-releases">
+        {/* {newReleases.albums.items.map((item: any) => (
+            <Album data={item} key={item.id} />
+          ))} */}
+      </Shelf>
+    )}
 
-  return (
-    data && (
-      <Container>
-        <SEO title="Browse" />
+    {generes.categories.items.length > 0 && (
+      <Shelf title="Generes">
+        {/* {generes.categories.items.map((item: any) => (
+              <Genere data={item} key={item.id} />
+            ))} */}
+      </Shelf>
+    )}
 
-        <Title>Browse</Title>
-
-        {newReleases.albums.items.length > 0 && (
-          <Box title="New Releases" link="new-releases">
-            <List>
-              {newReleases.albums.items.map((item: any) => (
-                <Album data={item} key={item.id} />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {generes.categories.items.length > 0 && (
-          <Box title="Generes">
-            <List vertical>
-              {generes.categories.items.map((item: any) => (
-                <Genere data={item} key={item.id} />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {playlists.playlists.items.length > 0 && (
-          <Box title="Playlists" link="featured-playlists">
-            <List>
-              {playlists.playlists.items.map((item: any) => (
-                <Playlist data={item} key={item.id} />
-              ))}
-            </List>
-          </Box>
-        )}
-      </Container>
-    )
-  );
-};
+    {playlists.playlists.items.length > 0 && (
+      <Shelf title="Playlists" link="featured-playlists">
+        {/* {playlists.playlists.items.map((item: any) => (
+            <Playlist data={item} key={item.id} />
+          ))} */}
+      </Shelf>
+    )}
+  </Layout>
+);
 
 Browse.getInitialProps = async ({ req }) => {
   const token = handleAuthSSR(req);

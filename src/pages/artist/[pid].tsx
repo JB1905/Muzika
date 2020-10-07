@@ -1,107 +1,74 @@
 import React from 'react';
 import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import axios from 'axios';
 
-import Container from '../../containers/Container';
-import SEO from '../../components/SEO';
-import Header from '../../components/Header';
-import Image from '../../components/Image';
-import Title from '../../components/Title';
-import Box from '../../containers/Box';
-import List from '../../components/List';
-import { Song, Album, Artist as ArtistItem } from '../../components/items';
+import Layout from '../../components/templates/Layout';
 
 import { handleAuthSSR } from '../../helpers/cookie';
 
-const Artist: NextPage<any> = ({
+const Shelf = dynamic(() => import('../../components/molecues/Shelf'));
+
+interface Props {
+  artist: any;
+  topTracks: any;
+  albums: any;
+  singles: any;
+  compilations: any;
+  appearsOn: any;
+  relatedArtists: any;
+}
+
+const Artist: NextPage<Props> = ({
   artist,
-  topTracks,
   albums,
   singles,
   compilations,
   appearsOn,
   relatedArtists,
-}) => {
-  return (
-    artist && (
-      <Container>
-        <SEO title={artist.name} />
+}) => (
+  <Layout title={artist.name}>
+    {albums.items.length > 0 && (
+      <Shelf title="Albums">
+        {/* {albums.items.map((item: any) => (
+          <Album data={item} key={item.id} year />
+        ))} */}
+      </Shelf>
+    )}
 
-        <Header faded>
-          <Image
-            src={artist.images[0].url}
-            alt={artist.name}
-            shape="circle"
-            size="lg"
-            doubleLayer
-          />
+    {singles.items.length > 0 && (
+      <Shelf title="Singles & EPs">
+        {/* {singles.items.map((item: any) => (
+          <Album data={item} key={item.id} year />
+        ))} */}
+      </Shelf>
+    )}
 
-          <Title>{artist.name}</Title>
-        </Header>
+    {compilations.items.length > 0 && (
+      <Shelf title="Compilations">
+        {/* {compilations.items.map((item: any) => (
+          <Album data={item} key={item.id} year />
+        ))} */}
+      </Shelf>
+    )}
 
-        {/* {topTracks.tracks.length > 0 && (
-          <Box title="Top Songs">
-            <List>
-              {topTracks.tracks.map((track: any) => (
-                <Song data={track} key={track.id} />
-              ))}
-            </List>
-          </Box>
-        )} */}
+    {appearsOn.items.length > 0 && (
+      <Shelf title="Appears On">
+        {/* {appearsOn.items.map((item: any) => (
+          <Album data={item} key={item.id} year />
+        ))} */}
+      </Shelf>
+    )}
 
-        {albums.items.length > 0 && (
-          <Box title="Albums">
-            <List>
-              {albums.items.map((item: any) => (
-                <Album data={item} key={item.id} year />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {singles.items.length > 0 && (
-          <Box title="Singles & EPs">
-            <List>
-              {singles.items.map((item: any) => (
-                <Album data={item} key={item.id} year />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {compilations.items.length > 0 && (
-          <Box title="Compilations">
-            <List>
-              {compilations.items.map((item: any) => (
-                <Album data={item} key={item.id} year />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {appearsOn.items.length > 0 && (
-          <Box title="Appears On">
-            <List>
-              {appearsOn.items.map((item: any) => (
-                <Album data={item} key={item.id} year />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {relatedArtists.artists.length > 0 && (
-          <Box title="Similar Artists">
-            <List>
-              {relatedArtists.artists.map((artist: any) => (
-                <ArtistItem data={artist} key={artist.id} />
-              ))}
-            </List>
-          </Box>
-        )}
-      </Container>
-    )
-  );
-};
+    {relatedArtists.artists.length > 0 && (
+      <Shelf title="Similar Artists">
+        {/* {relatedArtists.artists.map((artist: any) => (
+          <ArtistItem data={artist} key={artist.id} />
+        ))} */}
+      </Shelf>
+    )}
+  </Layout>
+);
 
 Artist.getInitialProps = async ({ req, query }) => {
   const token = handleAuthSSR(req);

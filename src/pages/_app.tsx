@@ -1,16 +1,18 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
 
-import Global from '../components/Global';
-
-import { theme } from '../constants/theme';
+import Global from '../styles/Global';
+import { theme } from '../styles/theme';
 
 const App = ({ Component, pageProps }: any) => (
-  <ThemeProvider theme={theme}>
-    <Component {...pageProps} />
+  <RecoilRoot>
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
 
-    <Global />
-  </ThemeProvider>
+      <Global />
+    </ThemeProvider>
+  </RecoilRoot>
 );
 
 export default App;

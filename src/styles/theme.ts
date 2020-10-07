@@ -26,3 +26,5 @@ export const theme = {
   //   gutter: 25,
   // },
 };
+
+export type ThemeType = typeof theme;

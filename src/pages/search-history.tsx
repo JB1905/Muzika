@@ -1,13 +1,8 @@
 import React from 'react';
 import { NextPage } from 'next';
 
-import Container from '../containers/Container';
-import SEO from '../components/SEO';
+import Layout from '../components/templates/Layout';
 
-const SearchHistory: NextPage = () => (
-  <Container>
-    <SEO title="Search History" />
-  </Container>
-);
+const SearchHistory: NextPage = () => <Layout title="Search History"></Layout>;
 
 export default SearchHistory;

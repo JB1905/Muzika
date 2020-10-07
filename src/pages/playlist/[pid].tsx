@@ -1,62 +1,54 @@
 import React from 'react';
 import { NextPage } from 'next';
-import axios from 'axios';
+import dynamic from 'next/dynamic';
 import stripHtml from 'string-strip-html';
-
-import Container from '../../containers/Container';
-import SEO from '../../components/SEO';
-import Product from '../../components/Product';
-import Aside from '../../components/Aside';
-import Image from '../../components/Image';
-import Main from '../../components/Main';
-import Summary from '../../components/Summary';
-import Title from '../../components/Title';
-import { PlaylistTrack } from '../../components/items';
+import axios from 'axios';
 
 import { handleAuthSSR } from '../../helpers/cookie';
 
-const Playlist: NextPage<any> = (data) =>
-  data && (
-    <Container>
-      <SEO title={data.name} />
+const Layout = dynamic(() => import('../components/templates/Layout'));
 
-      <Product>
-        <Aside>
-          <Image
-            src={data.images[0].url}
-            alt={data.name}
-            shape="square"
-            doubleLayer
-          />
-        </Aside>
+interface Props {}
 
-        <Main>
-          <Summary>
-            <Title single>{data.name}</Title>
+const Playlist: NextPage<Props> = (data) => (
+  <Layout title={data.name}>
+    <Product>
+      <Aside>
+        <Image
+          src={data.images[0].url}
+          alt={data.name}
+          shape="square"
+          doubleLayer
+        />
+      </Aside>
 
-            <p>{stripHtml(data.description)}</p>
-          </Summary>
+      <Main>
+        <Summary>
+          <Title single>{data.name}</Title>
 
-          {data.tracks && (
-            <ul>
-              {/* <li className="playlist-header">
+          <p>{stripHtml(data.description)}</p>
+        </Summary>
+
+        {data.tracks && (
+          <ul>
+            {/* <li className="playlist-header">
                 <p>Song</p>
                 <p>Album</p>
               </li> */}
 
-              {data.tracks.items.map((item: any) => (
+            {/* {data.tracks.items.map((item: any) => (
                 <PlaylistTrack data={item} key={item.track.id} />
-              ))}
-            </ul>
-          )}
+              ))} */}
+          </ul>
+        )}
 
-          <footer>
-            <p>Tracks: {data.tracks.total}</p>
-          </footer>
-        </Main>
-      </Product>
-    </Container>
-  );
+        <footer>
+          <p>Tracks: {data.tracks.total}</p>
+        </footer>
+      </Main>
+    </Product>
+  </Layout>
+);
 
 Playlist.getInitialProps = async ({ req, query }) => {
   const token = handleAuthSSR(req);

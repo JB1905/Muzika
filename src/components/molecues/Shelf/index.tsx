@@ -1,18 +1,30 @@
 import React from 'react';
+import Link from 'next/link';
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Grid, Header, Title, SeeAll, List, Body } from './Shelf.styled';
+import { Grid, Header, Title, Body } from './Shelf.styles';
 
-const Shelf: React.FC = () => (
+interface Props {
+  title: string;
+  link?: string;
+}
+
+const Shelf: React.FC<Props> = ({ title, link, children }) => (
   <Grid>
     <Header>
-      <Title></Title>
+      <Title>{title}</Title>
 
-      <SeeAll></SeeAll>
+      {link && (
+        <Link href="/room/[pid]" as={`/room/${link}`}>
+          <a>
+            See All <FontAwesomeIcon icon={faChevronCircleRight} />
+          </a>
+        </Link>
+      )}
     </Header>
 
-    <Body>
-      <List></List>
-    </Body>
+    <Body>{children}</Body>
   </Grid>
 );
 

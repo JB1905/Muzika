@@ -1,15 +1,31 @@
+// import { handleAuthSSR } from '../helpers/cookie';
+
 const Home = () => null;
 
-Home.getInitialProps = ({ res }: any) => {
-  if (res) {
-    res.writeHead(301, {
-      Location: 'login',
-    });
+// Home.getInitialProps = ({ req, res }: any) => {
+//   // const token = handleAuthSSR(req);
 
-    res.end();
-  }
+//   // if (token) {
+//   //   res.writeHead(301, {
+//   //     Location: 'browse',
+//   //   });
+//   // } else {
+//   //   res.writeHead(301, {
+//   //     Location: 'login',
+//   //   });
+//   // }
 
-  return {};
-};
+//   // res.end();
+
+//   // if (res) {
+//   //   res.writeHead(301, {
+//   //     Location: 'login',
+//   //   });
+
+//   //   res.end();
+//   // }
+
+//   return {};
+// };
 
 export default Home;

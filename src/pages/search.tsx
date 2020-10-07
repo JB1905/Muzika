@@ -1,80 +1,75 @@
 import React from 'react';
 import { NextPage } from 'next';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import axios from 'axios';
-// import cookie from "cookie";
-// import { Cookies } from 'react-cookie';
 
-import Container from '../containers/Container';
-import SEO from '../components/SEO';
-import Title from '../components/Title';
-import Box from '../containers/Box';
-import List from '../components/List';
-import { Song, Album, Playlist, Artist } from '../components/items';
+import Layout from '../components/templates/Layout';
+
+import Title from '../components/atoms/Title/Title.styles';
 
 import { handleAuthSSR } from '../helpers/cookie';
 
-// const cookies = new Cookies();
+const Shelf = dynamic(() => import('../components/molecues/Shelf'));
 
-interface Props {}
+interface Props {
+  tracks: any;
+  albums: any;
+  playlists: any;
+  artists: any;
+  query: string;
+}
 
-const Search: NextPage<Props | any> = (data) => {
-  const { tracks, albums, playlists, artists, query } = data;
+const Search: NextPage<Props> = ({
+  tracks,
+  albums,
+  playlists,
+  artists,
+  query,
+}) => (
+  <Layout title={`Results for: ${query}`}>
+    <Title>Results for: {query}</Title>
 
-  // const bestMatch = [tracks.items[0], albums.items[0], artists.items[0]];
+    {tracks.items.length > 0 && (
+      <Shelf title="Songs">
+        {/* {tracks.items.map((item: any) => (
+          <Song data={item} />
+        ))} */}
+      </Shelf>
+    )}
 
-  // console.log(bestMatch);
+    {tracks.items.length > 0 && (
+      <Shelf title="Songs">
+        {/* {tracks.items.map((item: any) => (
+          <Song data={item} />
+        ))} */}
+      </Shelf>
+    )}
 
-  return (
-    data && (
-      <Container>
-        <SEO title={`Results for: ${query}`} />
+    {albums.items.length > 0 && (
+      <Shelf title="Albums">
+        {/* {albums.items.map((item: any) => (
+          <Album data={item} />
+        ))} */}
+      </Shelf>
+    )}
 
-        <Title>Results for: {query}</Title>
+    {playlists.items.length > 0 && (
+      <Shelf title="Playlists">
+        {/* {playlists.items.map((item: any) => (
+              <Playlist data={item} />
+            ))} */}
+      </Shelf>
+    )}
 
-        {/* {tracks.items.length > 0 && (
-          <Box title="Songs">
-            <List>
-              {tracks.items.map((item: any) => (
-                <Song data={item} />
-              ))}
-            </List>
-          </Box>
-        )} */}
-
-        {albums.items.length > 0 && (
-          <Box title="Albums">
-            <List>
-              {albums.items.map((item: any) => (
-                <Album data={item} />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {playlists.items.length > 0 && (
-          <Box title="Playlists">
-            <List>
-              {playlists.items.map((item: any) => (
-                <Playlist data={item} />
-              ))}
-            </List>
-          </Box>
-        )}
-
-        {artists.items.length > 0 && (
-          <Box title="Artists">
-            <List>
-              {artists.items.map((item: any) => (
-                <Artist data={item} />
-              ))}
-            </List>
-          </Box>
-        )}
-      </Container>
-    )
-  );
-};
+    {artists.items.length > 0 && (
+      <Shelf title="Artists">
+        {/* {artists.items.map((item: any) => (
+            <Artist data={item} />
+          ))} */}
+      </Shelf>
+    )}
+  </Layout>
+);
 
 Search.getInitialProps = async ({ req, query }) => {
   const token = handleAuthSSR(req);
@@ -88,7 +83,11 @@ Search.getInitialProps = async ({ req, query }) => {
     }
   );
 
-  return { ...data, query: query.q, token };
+  return {
+    ...data,
+    query: query.q,
+    token,
+  };
 };
 
 export default Search;
