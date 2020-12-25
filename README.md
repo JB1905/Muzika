@@ -17,13 +17,13 @@ React app build with Spotify API. Muzika allows you search music, display artist
 ##### 1. Clone repo
 
 ```sh
-git clone https://github.com/JB1905/muzika.git
+$ git clone https://github.com/JB1905/muzika.git
 ```
 
 ##### 2. Go to directory
 
 ```sh
-cd muzika
+$ cd /path/to/muzika
 ```
 
 ##### 3. Install dependencies
@@ -36,8 +36,10 @@ cd muzika
 
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
+- [SWR](https://swr.vercel.app/)
 - [Styled Components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [axios](https://github.com/axios/axios/)
 - [Express](https://expressjs.com/)
 - [Passport.js](http://www.passportjs.org/)
 - [Docker](https://www.docker.com/)

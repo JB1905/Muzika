@@ -1,78 +1,69 @@
-import React from 'react';
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
-import axios from 'axios';
+import useSWR from 'swr';
+import type { GetServerSideProps } from 'next';
 
-import { handleAuthSSR } from '../helpers/cookie';
+import Layout from '../components/templates/Layout';
+import Header from '../components/molecues/Header';
+import fetcher from '../helpers/fetcher';
 
-const Layout = dynamic(() => import('../components/templates/Layout'));
-const Title = dynamic(() => import('../components/atoms/Title/Title.styles'));
-const Shelf = dynamic(() => import('../components/molecues/Shelf'));
-
-interface Props {
-  readonly newReleases: any;
-  readonly generes: any;
-  readonly playlists: any;
-  readonly token: string;
-}
-
-const Browse: NextPage<Props> = ({ newReleases, generes, playlists }) => (
-  <Layout title="Browse">
-    <Title>Browse</Title>
-
-    {newReleases.albums.items.length > 0 && (
-      <Shelf title="New Releases" link="new-releases">
-        {/* {newReleases.albums.items.map((item: any) => (
-            <Album data={item} key={item.id} />
-          ))} */}
-      </Shelf>
-    )}
-
-    {generes.categories.items.length > 0 && (
-      <Shelf title="Generes">
-        {/* {generes.categories.items.map((item: any) => (
-              <Genere data={item} key={item.id} />
-            ))} */}
-      </Shelf>
-    )}
-
-    {playlists.playlists.items.length > 0 && (
-      <Shelf title="Playlists" link="featured-playlists">
-        {/* {playlists.playlists.items.map((item: any) => (
-            <Playlist data={item} key={item.id} />
-          ))} */}
-      </Shelf>
-    )}
-  </Layout>
-);
-
-Browse.getInitialProps = async ({ req }) => {
-  const token = handleAuthSSR(req);
-
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
-  const [newReleases, generes, playlists] = await axios.all([
-    axios.get(`https://api.spotify.com/v1/browse/new-releases`, config),
-    axios.get(
-      `https://api.spotify.com/v1/browse/categories?country=pl`,
-      config
-    ),
-    axios.get(
-      `https://api.spotify.com/v1/browse/featured-playlists?country=pl`,
-      config
-    ),
-  ]);
-
-  return {
-    newReleases: newReleases.data,
-    generes: generes.data,
-    playlists: playlists.data,
-    token,
-  };
+type Props = {
+  // newReleases:
+  // categories
+  // playlists
 };
 
+function Browse(props: Props) {
+  const { data: newReleases, error } = useSWR('browse/new-releases', fetcher, {
+    initialData: props.newReleases,
+  });
+
+  const { data: generes } = useSWR('browse/categories?country=pl', fetcher, {
+    initialData: props.generes,
+  });
+
+  const { data: playlists } = useSWR(
+    'browse/featured-playlists?country=pl',
+    fetcher,
+    {
+      initialData: props.playlists,
+    }
+  );
+
+  const title = 'Browse';
+
+  return (
+    <Layout title={title}>
+      <Header title={title} />
+
+      {newReleases.albums.items.map((item) => (
+        <p>{item.name}</p>
+      ))}
+
+      {generes.categories.items.map((item) => (
+        <p>{item.name}</p>
+      ))}
+
+      {playlists.playlists.items.map((item) => (
+        <p>{item.name}</p>
+      ))}
+    </Layout>
+  );
+}
+
 export default Browse;
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const newReleases = await fetcher('browse/new-releases');
+  const generes = await fetcher('browse/categories?country=pl');
+  const playlists = await fetcher('browse/featured-playlists?country=pl');
+
+  // console.log(req);
+
+  return {
+    props: {
+      newReleases,
+      generes,
+      // categories,
+      playlists,
+    },
+  };
+};

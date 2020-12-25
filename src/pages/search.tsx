@@ -1,93 +1,41 @@
-import React from 'react';
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
-import axios from 'axios';
+import useSWR from 'swr';
+import type { GetServerSideProps } from 'next';
 
 import Layout from '../components/templates/Layout';
+import Header from '../components/molecues/Header';
+import { useSetSearchQuery } from '../hooks/useSetSearchQuery';
+import fetcher from '../helpers/fetcher';
 
-import Title from '../components/atoms/Title/Title.styles';
+type Props = {};
 
-import { handleAuthSSR } from '../helpers/cookie';
+function Search(props: Props) {
+  // const {} = useSWR('')
 
-const Shelf = dynamic(() => import('../components/molecues/Shelf'));
+  useSetSearchQuery(props.query);
 
-interface Props {
-  tracks: any;
-  albums: any;
-  playlists: any;
-  artists: any;
-  query: string;
+  const title = `Results for: ${props.query}`;
+
+  return (
+    <Layout title={title}>
+      <Header title={title} />
+    </Layout>
+  );
 }
 
-const Search: NextPage<Props> = ({
-  tracks,
-  albums,
-  playlists,
-  artists,
+export default Search;
+
+export const getServerSideProps: GetServerSideProps = async ({
+  // req,
   query,
-}) => (
-  <Layout title={`Results for: ${query}`}>
-    <Title>Results for: {query}</Title>
-
-    {tracks.items.length > 0 && (
-      <Shelf title="Songs">
-        {/* {tracks.items.map((item: any) => (
-          <Song data={item} />
-        ))} */}
-      </Shelf>
-    )}
-
-    {tracks.items.length > 0 && (
-      <Shelf title="Songs">
-        {/* {tracks.items.map((item: any) => (
-          <Song data={item} />
-        ))} */}
-      </Shelf>
-    )}
-
-    {albums.items.length > 0 && (
-      <Shelf title="Albums">
-        {/* {albums.items.map((item: any) => (
-          <Album data={item} />
-        ))} */}
-      </Shelf>
-    )}
-
-    {playlists.items.length > 0 && (
-      <Shelf title="Playlists">
-        {/* {playlists.items.map((item: any) => (
-              <Playlist data={item} />
-            ))} */}
-      </Shelf>
-    )}
-
-    {artists.items.length > 0 && (
-      <Shelf title="Artists">
-        {/* {artists.items.map((item: any) => (
-            <Artist data={item} />
-          ))} */}
-      </Shelf>
-    )}
-  </Layout>
-);
-
-Search.getInitialProps = async ({ req, query }) => {
-  const token = handleAuthSSR(req);
-
-  const { data } = await axios.get(
-    `https://api.spotify.com/v1/search?q=${query.q}&type=track%2Cartist%2Calbum%2Cplaylist`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
+}) => {
+  const results = await fetcher(
+    `search?q=${query.term}&type=track%2Cartist%2Calbum%2Cplaylist`
   );
 
   return {
-    ...data,
-    query: query.q,
-    token,
+    props: {
+      results,
+      query: query.term,
+    },
   };
 };
-
-export default Search;

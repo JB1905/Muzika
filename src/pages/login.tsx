@@ -1,9 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import { NextPage } from 'next';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { providers, signIn, useSession } from 'next-auth/client';
 
 import SEO from '../components/SEO';
 
@@ -23,6 +21,7 @@ export const LoginMessage = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 40px;
+  /* max-width: 440px; */
   max-width: 360px;
   color: #fff;
 
@@ -46,6 +45,7 @@ export const LoginDescription = styled.p`
   margin: 15px 0;
   text-align: center;
   font-weight: 400;
+  /* font-weight: 500; */
   font-size: 1.4rem;
   line-height: 1.3;
 `;
@@ -66,6 +66,7 @@ export const LoginButton = styled.a<{ clear?: boolean }>`
   cursor: pointer;
 
   ${({ clear }) => `
+    /* font-weight: ${clear ? '400' : '500'}; */
     background-color: ${clear ? 'transparent' : '#fff'};
     color:  ${clear ? '#fff' : '#6972fb'};
   `}
@@ -85,27 +86,49 @@ export const LoginBackground = styled.div`
   background: linear-gradient(135deg, #f56461, #ad54e2, #6972fb, #1bc8f3);
 `;
 
-const Login: NextPage = () => (
-  <LoginPage>
-    <SEO />
+function Login({ providers }) {
+  const [session, loading] = useSession();
 
-    <LoginMessage>
-      <LoginTitle>{name}</LoginTitle>
+  console.log(session?.user, 'user');
 
-      <LoginDescription>{descripton}</LoginDescription>
+  console.log(session, loading, providers);
 
-      <Link href="/get_spotify_uri">
-        <LoginButton>Login with Spotify</LoginButton>
-      </Link>
+  return (
+    <LoginPage>
+      <SEO />
 
-      <LoginButton href="https://github.com/JB1905/muzika" clear>
-        Browse code on GitHub
-        <LoginButtonIcon icon={faArrowCircleRight} />
-      </LoginButton>
-    </LoginMessage>
+      <LoginMessage>
+        <LoginTitle>{name}</LoginTitle>
 
-    <LoginBackground />
-  </LoginPage>
-);
+        <LoginDescription>{descripton}</LoginDescription>
+
+        <LoginButton
+          onClick={(e) => {
+            e.preventDefault();
+            signIn();
+          }}
+          href={`/api/auth/signin`}
+        >
+          Login with Spotify
+        </LoginButton>
+
+        <LoginButton href="https://github.com/JB1905/muzika" clear>
+          Browse code on GitHub
+          <LoginButtonIcon icon={faArrowCircleRight} />
+        </LoginButton>
+      </LoginMessage>
+
+      <LoginBackground />
+    </LoginPage>
+  );
+}
+
+export const getServerSideProps = async (context) => {
+  return {
+    props: {
+      providers: await providers(context),
+    },
+  };
+};
 
 export default Login;

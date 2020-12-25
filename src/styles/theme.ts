@@ -1,10 +1,10 @@
 export const theme = {
   breakpoints: {
-    // xs: '320px',
+    xs: '320px',
     sm: '582px',
-    // md: '760px',
+    md: '760px',
     lg: '1000px',
-    // xl: '1100px',
+    xl: '1100px',
   },
   colors: {
     primary: '#ec445a',
@@ -22,9 +22,6 @@ export const theme = {
       default: '1.6rem',
     },
   },
-  // spaces: {
-  //   gutter: 25,
-  // },
 };
 
 export type ThemeType = typeof theme;

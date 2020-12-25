@@ -10,6 +10,9 @@ module.exports = withPWA({
 
     return config;
   },
+  images: {
+    domains: ['i.scdn.co'],
+  },
   pwa: {
     dest: "public",
   },
