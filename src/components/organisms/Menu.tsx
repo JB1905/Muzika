@@ -97,7 +97,7 @@ const Scrollable = styled.div`
 
 const Section = styled.div``;
 
-const SectionTitle = styled.h2``;
+// const SectionTitle = styled.h2``;
 
 const List = styled.ul``;
 

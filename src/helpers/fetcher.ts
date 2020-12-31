@@ -6,7 +6,7 @@ const fetcher = <T>(url: string): Promise<T> =>
   axios
     .get(url, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
     })
     .then((res) => res.data);

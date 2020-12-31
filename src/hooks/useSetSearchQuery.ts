@@ -7,7 +7,7 @@ export const useSetSearchQuery = (query: string) => {
   const setNamesState = useSetRecoilState(searchFormState);
 
   useEffect(() => {
-    // TODO eslint ignore
     setNamesState(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };

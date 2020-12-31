@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { DebounceInput } from 'react-debounce-input';
-import { useRecoilState } from 'recoil';
+// import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import Router from 'next/router';
+// import Router from 'next/router';
 
-import { searchFormState } from '../../states/searchForm';
+// import { searchFormState } from '../../states/searchForm';
 
 export const SearchBox = styled.div`
   /* padding: 11px 0;
@@ -66,29 +66,29 @@ export const SearchField = styled(DebounceInput)`
 `;
 
 const SearchForm = () => {
-  const [value, setValue] = useRecoilState(searchFormState);
+  // const [value, setValue] = useRecoilState(searchFormState);
 
   // useEffect(() => {
 
   // }, [value]);
 
-  const handleSubmit = () => {
-    if (value) {
-      Router.push(`/search?term=${value}`);
-    }
-  };
+  // const handleSubmit = () => {
+  //   if (value) {
+  //     Router.push(`/search?term=${value}`);
+  //   }
+  // };
 
-  const handleClick = () => {
-    if (!value) {
-      Router.push('/search-history');
-    }
-  };
+  // const handleClick = () => {
+  //   if (!value) {
+  //     Router.push('/search-history');
+  //   }
+  // };
 
   return (
     <SearchBox>
       <SearchIcon icon={faSearch} />
 
-      <SearchField
+      {/* <SearchField
         type="search"
         debounceTimeout={500}
         placeholder="Search"
@@ -97,7 +97,7 @@ const SearchForm = () => {
         // onClick={handleClick}
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-      />
+      /> */}
     </SearchBox>
   );
 };

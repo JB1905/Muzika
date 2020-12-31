@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+// import useSWR from 'swr';
 import type { GetServerSideProps } from 'next';
 
 import Layout from '../components/templates/Layout';
@@ -6,7 +6,9 @@ import Header from '../components/molecues/Header';
 import { useSetSearchQuery } from '../hooks/useSetSearchQuery';
 import fetcher from '../helpers/fetcher';
 
-type Props = {};
+type Props = {
+  query: string; // TODO
+};
 
 function Search(props: Props) {
   // const {} = useSWR('')
