@@ -75,6 +75,7 @@ export const LoginButton = styled.a<{ clear?: boolean }>`
 
 export const LoginButtonIcon = styled(FontAwesomeIcon)`
   margin-left: 6px;
+  font-size: 1.3rem;
 `;
 
 export const LoginBackground = styled.div`
