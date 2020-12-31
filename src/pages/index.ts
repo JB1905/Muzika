@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import type { GetServerSideProps } from 'next';
 
 function HomePage() {
   const router = useRouter();
@@ -15,7 +14,7 @@ function HomePage() {
 export default HomePage;
 
 // TODO
-export const getServerSideProps: GetServerSideProps = ({ req, res }) => {
+export const getServerSideProps = ({ req, res }: any) => {
   // console.log(req.headers.cookie);
 
   if (req.headers.cookie) {
