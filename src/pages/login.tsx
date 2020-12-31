@@ -76,8 +76,8 @@ export const LoginButton = styled.a<{ clear?: boolean }>`
 
 export const LoginButtonIcon = styled(FontAwesomeIcon)`
   margin-left: 6px;
-  width: 14px;
-  height: 14px;
+  width: 1.3rem;
+  height: 1.3rem;
   /* font-size: 1.3rem; */
 `;
 
