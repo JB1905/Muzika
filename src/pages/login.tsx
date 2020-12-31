@@ -21,7 +21,9 @@ export const LoginMessage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 40px;
+  padding: 20px 40px;
+  margin-top: env(safe-area-inset-top);
+  margin-bottom: env(safe-area-inset-bottom);
   /* max-width: 440px; */
   max-width: 360px;
   color: #fff;
