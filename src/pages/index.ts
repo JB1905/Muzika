@@ -15,7 +15,7 @@ export default HomePage;
 
 // TODO
 export const getServerSideProps = ({ req, res }: any) => {
-  // console.log(req.headers.cookie);
+  console.log(req.headers.cookie);
 
   if (req.headers.cookie) {
     res.writeHead(302, { Location: '/browse' });

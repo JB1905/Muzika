@@ -1,12 +1,6 @@
 {
   "overrides": [
     {
-      "files": "*.scss",
-      "options": {
-        "singleQuote": false
-      }
-    },
-    {
       "files": "*.{tsx,ts}",
       "options": {
         "singleQuote": true
