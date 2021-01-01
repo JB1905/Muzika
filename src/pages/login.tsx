@@ -14,7 +14,16 @@ export const LoginPage = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  height: -webkit-fill-available;
+
+  @supports (-webkit-touch-callout: none) {
+    /* --vh: -webkit-fill-available; */
+    height: -webkit-fill-available;
+
+    @media (display-mode: standalone) {
+      /* --vh: 100vh; */
+      height: 100vh;
+    }
+  }
 `;
 
 export const LoginMessage = styled.div`
