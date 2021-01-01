@@ -41,15 +41,6 @@
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1"
   },
-  "lint-staged": {
-    "{src,public}/**/*.{tsx,ts}": [
-      "npm run prettier",
-      "npm run eslint"
-    ],
-    "public/**/*.html": [
-      "npm run prettier"
-    ]
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -69,5 +60,19 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,public}/**/*.{tsx,ts}": [
+      "npm run prettier",
+      "npm run eslint"
+    ],
+    "public/**/*.html": [
+      "npm run prettier"
+    ]
   }
 }
