@@ -14,6 +14,10 @@ const Global = createGlobalStyle<{ readonly theme: ThemeType }>`
     background-color: ${({ theme }) => theme.colors.background};
     font-size: ${({ theme }) => theme.font.size.default};
     color: ${({ theme }) => theme.colors.text};
+
+    @media (display-mode: standalone) {
+      user-select: none;
+    }
   }
 
   *,
