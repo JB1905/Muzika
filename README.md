@@ -1,59 +1,51 @@
 # Muzika
-React app build with iTunes API. Muzika allows you search music in iTunes, display artists, albums, songs (with lyrics & 30s preview) and music videos. App contains [dark mode](https://github.com/jb1905/night.js).
 
-## Screens
+## About
 
-### Song view
-#### Mobile
-| Light | Dark |
-|--|--|
-| ![Song view on mobile device (light theme)](./docs/assets/song/mobile-light.png) | ![Song view on mobile device (dark theme)](./docs/assets/song/mobile-dark.png) |
+React app build with Spotify API. Muzika allows you search music, display artists, albums, songs (with lyrics & 30s preview), playlists and more
 
-#### Desktop
-| Light | Dark |
-|--|--|
-| ![Song view on desktop device (light theme)](./docs/assets/song/desktop-light.png) | ![Song view on desktop device (dark theme)](./docs/assets/song/desktop-dark.png) |
+##### Main Features
 
-### Album view
-#### Mobile
-| Light | Dark |
-|--|--|
-| ![Album view on mobile device (light theme)](./docs/assets/album/mobile-light.png) | ![Album view on mobile device (dark theme)](./docs/assets/album/mobile-dark.png) |
+-
 
-#### Desktop
-| Light | Dark |
-|--|--|
-| ![Album view on desktop device (light theme)](./docs/assets/album/desktop-light.png) | ![Album view on desktop device (dark theme)](./docs/assets/album/desktop-dark.png) |
+[Open Muzika](https://muzika.now.sh/)
 
-### Music video view
-#### Mobile
-| Light | Dark |
-|--|--|
-| ![Song view on mobile device (light theme)](./docs/assets/music-video/mobile-light.png) | ![Song view on mobile device (dark theme)](./docs/assets/music-video/mobile-dark.png) |
+## Prerequisites
 
-#### Desktop
-| Light | Dark |
-|--|--|
-| ![Music video view on desktop device (light theme)](./docs/assets/music-video/desktop-light.png) | ![Music video view on desktop device (dark theme)](./docs/assets/music-video/desktop-dark.png) |
+## Setup
 
-### Artist view
-#### Mobile
-| Light | Dark |
-|--|--|
-| ![Artist view on mobile device (light theme)](./docs/assets/artist/mobile-light.png) | ![Artist view on mobile device (dark theme)](./docs/assets/artist/mobile-dark.png) |
+##### 1. Clone repo
 
-#### Desktop
-| Light | Dark |
-|--|--|
-| ![Artist view on desktop device (light theme)](./docs/assets/artist/desktop-light.png) | ![Artist view on desktop device (dark theme)](./docs/assets/artist/desktop-dark.png) |
+```sh
+$ git clone https://github.com/JB1905/muzika.git
+```
 
-### Search view
-#### Mobile
-| Light | Dark |
-|--|--|
-| ![Search view on mobile device (light theme)](./docs/assets/search/mobile-light.png) | ![Search view on mobile device (dark theme)](./docs/assets/search/mobile-dark.png) |
+##### 2. Go to directory
 
-#### Desktop
-| Light | Dark |
-|--|--|
-| ![Search view on desktop device (light theme)](./docs/assets/search/desktop-light.png) | ![Search view on desktop device (dark theme)](./docs/assets/search/desktop-dark.png) |
+```sh
+$ cd /path/to/muzika
+```
+
+##### 3. Install dependencies
+
+`yarn` or `npm i`
+
+##### 4. Run
+
+## Build with
+
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [SWR](https://swr.vercel.app/)
+- [Styled Components](https://styled-components.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [axios](https://github.com/axios/axios/)
+- [Express](https://expressjs.com/)
+- [Passport.js](http://www.passportjs.org/)
+- [Docker](https://www.docker.com/)
+- [Vercel (ZEIT) Now](https://vercel.com/)
+- [Spotify API](https://developer.spotify.com/)
+
+## License
+
+This project is licensed under the MIT License © 2018-present Jakub Biesiada

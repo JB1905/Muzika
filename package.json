@@ -1,40 +1,112 @@
 {
-  "name": "Muzika",
-  "version": "1.2.0",
+  "name": "muzika",
+  "version": "2.0.0",
   "author": "Jakub Biesiada",
-  "descripton": "React app build with iTunes API. Muzika allows you search music in iTunes, display artists, albums, songs (with lyrics & 30s preview) and music videos. App contains dark mode.",
+  "descripton": "Next.js music player build with Spotify API. Muzika allows you search music in Spotify, display artists, albums, tracks with lyrics, playlist & more. App contains dark mode.",
   "license": "MIT",
   "private": true,
   "homepage": ".",
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.12",
-    "@fortawesome/free-solid-svg-icons": "^5.6.3",
-    "@fortawesome/react-fontawesome": "^0.1.3",
-    "night.js": "^1.2.0",
-    "node-sass": "^4.11.0",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
-    "react-router-dom": "^4.4.0-beta.6",
-    "react-scripts": "^2.1.3"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
-    "prettier": "prettier --write '{src,public}/**/*.{js,scss,html}'",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,html}'",
+    "eslint": "eslint 'src/**/*.{tsx,ts}' --fix",
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@types/jest": "26.0.19",
+    "@types/node": "^14.14.17",
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.21.1",
+    "color-thief": "^2.2.5",
+    "cookie": "^0.4.1",
+    "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "framer-motion": "^3.1.1",
+    "js-cookie": "^2.2.1",
+    "next": "^10.0.4",
+    "next-auth": "^3.1.0",
+    "next-compose-plugins": "^2.2.1",
+    "next-cookies": "^2.0.3",
+    "next-pwa": "^5.0.2",
+    "night.js": "^1.2.0",
+    "passport": "^0.4.1",
+    "passport-spotify": "^1.1.0",
+    "react": "^17.0.1",
+    "react-cookie": "^4.0.3",
+    "react-debounce-input": "^3.2.3",
+    "react-dom": "^17.0.1",
+    "react-infinite-scroll-component": "^5.1.0",
+    "react-is": "^17.0.1",
+    "react-parlx": "^1.3.0",
+    "react-scripts": "4.0.1",
+    "react-spinners": "^0.10.1",
+    "recoil": "^0.1.2",
+    "string-strip-html": "^7.0.3",
+    "styled-components": "5.2.1",
+    "swr": "^0.3.11",
+    "three": "^0.124.0",
+    "two-digit": "^1.0.6",
+    "typescript": "4.1.3"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "@types/axios": "^0.14.0",
+    "@types/cookie": "^0.4.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.9",
+    "@types/js-cookie": "^2.2.6",
+    "@types/next-auth": "^3.1.19",
+    "@types/passport": "^1.0.5",
+    "@types/string-strip-html": "^5.0.0",
+    "@types/styled-components": "^5.1.7",
+    "babel-plugin-styled-components": "^1.12.0",
+    "cz-conventional-changelog": "3.3.0",
+    "gh-pages": "^3.1.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,public}/**/*.{tsx,ts}": [
+      "npm run prettier",
+      "npm run eslint"
+    ],
+    "public/**/*.html": [
+      "npm run prettier"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
