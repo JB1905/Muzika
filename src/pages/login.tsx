@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { signIn } from 'next-auth/client';
+import { useSession, signIn, providers } from 'next-auth/client';
 import type { GetServerSideProps } from 'next';
 
 import SEO from '../components/SEO';
@@ -100,8 +100,9 @@ export const LoginBackground = styled.div`
   background: linear-gradient(135deg, #f56461, #ad54e2, #6972fb, #1bc8f3);
 `;
 
+console.log(process.env);
 function Login() {
-  // const [session, loading] = useSession();
+  const [session, loading] = useSession();
 
   // console.log(session?.user, 'user');
 
@@ -117,11 +118,11 @@ function Login() {
         <LoginDescription>{descripton}</LoginDescription>
 
         <LoginButton
+          href="/api/auth/signin"
           onClick={(e) => {
             e.preventDefault();
             signIn();
           }}
-          href={`/api/auth/signin`}
         >
           Login with Spotify
         </LoginButton>
@@ -140,7 +141,7 @@ function Login() {
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
-      // providers: await providers(context),
+      providers: await providers(),
     },
   };
 };

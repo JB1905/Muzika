@@ -7,9 +7,9 @@
   "private": true,
   "homepage": ".",
   "scripts": {
-    "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json",
-    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,html}'",
     "eslint": "eslint 'src/**/*.{tsx,ts}' --fix",
     "commit": "git-cz"

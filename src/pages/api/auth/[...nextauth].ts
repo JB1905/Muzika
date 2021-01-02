@@ -9,9 +9,6 @@ const options = {
     //   clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     // }),
   ],
-  session: {
-    jwt: true,
-  },
   // callbacks: {
   //   async jwt(token, _, account) {
   //     if (account) {
@@ -25,10 +22,7 @@ const options = {
   //     return session
   //   }
   // },
-  // pages: {
-  //   signIn: '/login',
-  //   error: '/login',
-  // }
+  // debug: true
 };
 
 const authHandler: NextApiHandler = (req, res) => NextAuth(req, res, options);
