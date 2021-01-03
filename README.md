@@ -12,6 +12,10 @@ React app build with Spotify API. Muzika allows you search music, display artist
 
 ## Prerequisites
 
+- Node.js
+- npm/Yarn
+- Spotify client ID and client secret
+
 ## Setup
 
 ##### 1. Clone repo
