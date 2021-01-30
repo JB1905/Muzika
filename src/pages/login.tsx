@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { useSession, signIn, providers } from 'next-auth/client';
-import type { GetServerSideProps } from 'next';
+import { signIn } from 'next-auth/client';
 
 import SEO from '../components/SEO';
 
@@ -102,12 +101,6 @@ export const LoginBackground = styled.div`
 
 console.log(process.env);
 function Login() {
-  const [session, loading] = useSession();
-
-  // console.log(session?.user, 'user');
-
-  // console.log(session, loading, providers);
-
   return (
     <LoginPage>
       <SEO />
@@ -121,7 +114,8 @@ function Login() {
           href="/api/auth/signin"
           onClick={(e) => {
             e.preventDefault();
-            signIn();
+
+            signIn('spotify');
           }}
         >
           Login with Spotify
@@ -137,13 +131,5 @@ function Login() {
     </LoginPage>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  return {
-    props: {
-      providers: await providers(),
-    },
-  };
-};
 
 export default Login;

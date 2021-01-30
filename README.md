@@ -1,4 +1,4 @@
-# Muzika
+# Muzika (WIP)
 
 ## About
 
@@ -11,6 +11,10 @@ React app build with Spotify API. Muzika allows you search music, display artist
 [Open Muzika](https://muzika.now.sh/)
 
 ## Prerequisites
+
+- Node.js
+- npm/Yarn
+- Spotify client ID and client secret
 
 ## Setup
 
@@ -26,22 +30,54 @@ $ git clone https://github.com/JB1905/muzika.git
 $ cd /path/to/muzika
 ```
 
-##### 3. Install dependencies
+##### 3. Set environment variables
 
-`yarn` or `npm i`
+- Copy `.env.local.example` file to `.env.local`
+- Set environment variables in `.env.local`
 
-##### 4. Run
+### Development
+
+##### 4. Install dependencies
+
+```sh
+yarn
+
+# Or use npm
+npm i
+```
+
+##### 5. Run
+
+```sh
+yarn dev
+
+# Or use npm
+npm run dev
+```
+
+### Production
+
+##### 4. Build image
+
+```sh
+docker build -t muzika .
+```
+
+##### 5. Run a container with port forwarding
+
+```sh
+docker run --rm -p 3000:3000 muzika
+```
 
 ## Build with
 
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
 - [SWR](https://swr.vercel.app/)
+- [Next Auth](https://next-auth.js.org/)
 - [Styled Components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [axios](https://github.com/axios/axios/)
-- [Express](https://expressjs.com/)
-- [Passport.js](http://www.passportjs.org/)
 - [Docker](https://www.docker.com/)
 - [Vercel (ZEIT) Now](https://vercel.com/)
 - [Spotify API](https://developer.spotify.com/)

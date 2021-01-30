@@ -55,7 +55,7 @@ function Browse(props: Props) {
 
 export default Browse;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const newReleases = await fetcher('browse/new-releases');
   const generes = await fetcher('browse/categories?country=pl');
   const playlists = await fetcher('browse/featured-playlists?country=pl');
