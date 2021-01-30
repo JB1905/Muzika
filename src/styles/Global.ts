@@ -16,6 +16,7 @@ const Global = createGlobalStyle<{ readonly theme: ThemeType }>`
     color: ${({ theme }) => theme.colors.text};
 
     @media (display-mode: standalone) {
+      -webkit-tap-highlight-color: transparent;
       user-select: none;
     }
   }
