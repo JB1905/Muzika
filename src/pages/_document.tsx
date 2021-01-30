@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
               {/* <title>Muzika</title> */}
 
               <link rel="manifest" href="/manifest.json" />
+              <link rel="shortcut icon" href="/favicon.ico" />
               {/* <link href='/favicon.ico' rel='icon' /> */}
               {/* <link href='/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32' /> */}
 
