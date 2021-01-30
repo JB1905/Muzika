@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
             <head>
               <meta
                 name="viewport"
-                content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+                content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
               />
 
               <meta
@@ -31,8 +31,10 @@ export default class MyDocument extends Document {
                 content="black-translucent"
               />
 
+              <meta name="theme-color" content="#000000" />
+
               <link rel="manifest" href="/manifest.json" />
-              <link rel="shortcut icon" href="/favicon.ico" />
+              <link rel="shortcut icon" href="assets/favicon.ico" />
 
               <link rel="apple-touch-icon" href="assets/apple-icon-180.png" />
 
