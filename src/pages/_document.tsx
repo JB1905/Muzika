@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
               />
 
               <link rel="manifest" href="/manifest.json" />
-              <link rel="shortcut icon" href="/favicon.ico" />
+              <link rel="icon" href="/favicon.ico" />
 
               <meta name="apple-mobile-web-app-capable" content="yes" />
 
