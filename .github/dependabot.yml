@@ -1,0 +1,24 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@types/next-auth"
+    versions:
+    - 3.1.23
+  - dependency-name: next-pwa
+    versions:
+    - 5.0.4
+  - dependency-name: swr
+    versions:
+    - 0.4.1
+  - dependency-name: next
+    versions:
+    - 10.0.6
+  - dependency-name: husky
+    versions:
+    - 4.3.8
